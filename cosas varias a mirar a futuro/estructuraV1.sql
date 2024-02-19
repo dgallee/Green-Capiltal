@@ -4,7 +4,7 @@ CREATE TABLE Users (
     username VARCHAR(50) NOT NULL,
     password VARCHAR(100) NOT NULL,
     tipo_usuario ENUM('Sin Registrar', 'Registrado', 'Comerciante', 'Moderador', 'Administrador') NOT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Tabla de Artículos del Blog
 CREATE TABLE BlogArticles (
@@ -14,7 +14,7 @@ CREATE TABLE BlogArticles (
     author_id INT NOT NULL,
     date_published DATE NOT NULL,
     FOREIGN KEY (author_id) REFERENCES Users(user_id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Tabla de Productos
 CREATE TABLE Products (
@@ -23,7 +23,7 @@ CREATE TABLE Products (
     description TEXT,
     price DECIMAL(10, 2) NOT NULL,
     stock INT NOT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Tabla de Reseñas
 CREATE TABLE Reviews (
@@ -35,4 +35,4 @@ CREATE TABLE Reviews (
     date_created DATE NOT NULL,
     FOREIGN KEY (product_id) REFERENCES Products(product_id),
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
