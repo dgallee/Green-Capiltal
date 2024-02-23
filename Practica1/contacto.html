@@ -20,55 +20,47 @@
     <h1>CONTACTA CON NOSOTROS</h1>
 
     <form action="mailto:gabrif04@ucm.es" method="GET" name="signin-form">
-      <div class="form-element">
+      <p>
           <label>Nombre:</label>
-          <input type="text" name="nombre" pattern="[a-zA-Z0-9]+" required />
-      </div>
+          <input type="text" name="nombre" pattern="[a-zA-Z0-9]+" required >
+      </p>
 
-      <br>
-
-      <div class="form-element">
+      <p>
           <label>Email:</label>
-          <input type="email" name="email" required />
-      </div>
-
-      <br>
+          <input type="email" name="email" required >
+      </p>
 
       <fieldset>
         <legend>Motivo de la consulta:</legend>
 
-        <div class="form-element">
+        <p>
           <input type="radio" id="Evaluación" name="subject" value="Evaluación" checked>
           <label for="Evaluación">Evaluación</label>
-        </div>
+        </p>
 
-        <div class="form-element">
+        <p>
           <input type="radio" id="Sugerencias" name="subject" value="Sugerencias">
           <label for="Sugerencias">Sugerencias</label>
-        </div>
+        </p>
 
-        <div class="form-element">
+        <p>
           <input type="radio" id="Críticas" name="subject" value="Críticas">
           <label for="Críticas">Críticas</label>
-        </div>
+        </p>
 
       </fieldset>
 
-      <br>
-
-      <div class="form-element">
+      <p>
         <label><input type="checkbox" id="cbox1" value="checkbox" required>Marque esta casilla para verificar que
-        ha leído nuestros términos y condiciones del servicio </label><br>
-      </div>
+        ha leído nuestros términos y condiciones del servicio </label>
+      </p>
           
-      <div>
+      <p>
         <label for="msg">Mensaje:</label>
         <textarea id="msg" name="body"></textarea>
-      </div>
+      </p>
         
-      <br>
-      
-      <input type="submit" value="Enviar" />
+      <input type="submit" value="Enviar" >
 
     </form>
 
