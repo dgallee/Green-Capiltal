@@ -1,8 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="es">
     <head>
-      
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
       <title>Contacto</title>
     </head>
@@ -21,7 +19,7 @@
 
     <h1>CONTACTA CON NOSOTROS</h1>
 
-    <form action="mailto zaklakti@ucm.es" method="GET" name="signin-form">
+    <form action="mailto:gabrif04@ucm.es" method="GET" name="signin-form">
       <div class="form-element">
           <label>Nombre:</label>
           <input type="text" name="nombre" pattern="[a-zA-Z0-9]+" required />
@@ -31,7 +29,7 @@
 
       <div class="form-element">
           <label>Email:</label>
-          <input type="text" name="email" required />
+          <input type="email" name="email" required />
       </div>
 
       <br>
@@ -40,17 +38,17 @@
         <legend>Motivo de la consulta:</legend>
 
         <div class="form-element">
-          <input type="radio" id="Evaluación" name="drone" value="Evaluación" checked>
+          <input type="radio" id="Evaluación" name="subject" value="Evaluación" checked>
           <label for="Evaluación">Evaluación</label>
         </div>
 
         <div class="form-element">
-          <input type="radio" id="Sugerencias" name="drone" value="Sugerencias">
+          <input type="radio" id="Sugerencias" name="subject" value="Sugerencias">
           <label for="Sugerencias">Sugerencias</label>
         </div>
 
         <div class="form-element">
-          <input type="radio" id="Críticas" name="drone" value="Críticas">
+          <input type="radio" id="Críticas" name="subject" value="Críticas">
           <label for="Críticas">Críticas</label>
         </div>
 
@@ -59,13 +57,13 @@
       <br>
 
       <div class="form-element">
-        <label><input type="checkbox" id="cbox1" value="checkbox">Marque esta casilla para verificar que
-        ha leído nuestros términos y condiciones del servicio</label><br>
+        <label><input type="checkbox" id="cbox1" value="checkbox" required>Marque esta casilla para verificar que
+        ha leído nuestros términos y condiciones del servicio </label><br>
       </div>
           
       <div>
         <label for="msg">Mensaje:</label>
-        <textarea id="msg" name="user_message"></textarea>
+        <textarea id="msg" name="body"></textarea>
       </div>
         
       <br>
