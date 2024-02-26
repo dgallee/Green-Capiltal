@@ -4,17 +4,17 @@
 /* */
 
 // Parámetros de configuración generales
-define('RUTA_APP', '/Ejercicio02');
+define('RUTA_APP', '/greencap/Practica2');
 define('RUTA_IMGS', RUTA_APP . '/img');
 define('RUTA_CSS', RUTA_APP . '/css');
 define('RUTA_JS', RUTA_APP . '/js');
-define('INSTALADA', false);
+define('INSTALADA', true);
 
 // Parámetros de configuración de la BD
 define('BD_HOST', 'localhost');
-define('BD_NAME', 'ejercicio02');
-define('BD_USER', 'ejercicio02');
-define('BD_PASS', 'ejercicio02');
+define('BD_NAME', 'greencapital');
+define('BD_USER', 'greencapital');
+define('BD_PASS', 'greencapital');
 
 /* */
 /* Utilidades básicas de la aplicación */
