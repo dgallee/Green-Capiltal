@@ -1,45 +1,37 @@
 /*
   Recuerda que deshabilitar la opción "Enable foreign key checks" para evitar problemas a la hora de importar el script.
 */
-DROP TABLE IF EXISTS `RolesUsuario`;
-DROP TABLE IF EXISTS `Mensajes`;
-DROP TABLE IF EXISTS `Roles`;
-DROP TABLE IF EXISTS `Usuarios`;
+DROP TABLE IF EXISTS `usuarios`;
+DROP TABLE IF EXISTS `productos`;
 
-CREATE TABLE IF NOT EXISTS `Roles` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `RolesUsuario` (
-  `usuario` int(11) NOT NULL,
-  `rol` int(11) NOT NULL,
-  PRIMARY KEY (`usuario`,`rol`),
-  KEY `rol` (`rol`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `Nombre` varchar(20) NOT NULL,
+  `Apellidos` varchar(50) NOT NULL,
+  `Correo` varchar(50) NOT NULL,
+  `Dirección` varchar(100) NOT NULL,
+  `Teléfono` int(9) NOT NULL,
+  `DNI` varchar(9) NOT NULL,
+  `Usuario` varchar(20) NOT NULL,
+  `Contraseña` varchar(20) NOT NULL,
+  `Tipo` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-CREATE TABLE IF NOT EXISTS `Usuarios` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombreUsuario` varchar(30) COLLATE utf8mb4_general_ci NOT NULL UNIQUE,
-  `password` varchar(70) COLLATE utf8mb4_general_ci NOT NULL,
-  `nombre` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `Mensajes` (
-      `id` int(11) NOT NULL AUTO_INCREMENT,
-      `autor` int(11) NOT NULL,
-      `mensaje` varchar(140) NOT NULL,
-      `fechaHora` DATETIME NOT NULL,
-      `idMensajePadre` int(11) DEFAULT NULL,
-      PRIMARY KEY (`id`)
-    ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_general_ci;
+CREATE TABLE IF NOT EXISTS `productos` (
+  `Nombre` varchar(30) NOT NULL,
+  `Descripción` text NOT NULL,
+  `Precio` decimal(4,0) NOT NULL,
+  `Categoría` varchar(15) NOT NULL,
+  `Existencias` int(2) NOT NULL,
+  `Especie` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-ALTER TABLE `RolesUsuario`
-  ADD CONSTRAINT `RolesUsuario_usuario` FOREIGN KEY (`usuario`) REFERENCES `Usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `RolesUsuario_rol` FOREIGN KEY (`rol`) REFERENCES `Roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
-ALTER TABLE `Mensajes`
-  ADD CONSTRAINT `Mensajes_mensaje` FOREIGN KEY (`idMensajePadre`) REFERENCES `Mensajes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `Mensajes_autor` FOREIGN KEY (`autor`) REFERENCES `Usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `productos`
+  ADD PRIMARY KEY (`Especie`);
+COMMIT;
+
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`DNI`);
+COMMIT;
