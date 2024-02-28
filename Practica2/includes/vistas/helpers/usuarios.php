@@ -13,7 +13,7 @@ function saludo()
     } else {
         $urlLogin = Utils::buildUrl('/login.php');
         $html = <<<EOS
-        Usuario desconocido. <a href="{$urlLogin}">Login</a>
+        <a href="{$urlLogin}">Login</a>
         EOS;
     }
 
