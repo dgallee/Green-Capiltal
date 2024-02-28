@@ -1,6 +1,6 @@
 <?php
 require_once 'includes/config.php';
-require_once 'includes/src/forms/form_register.php';
+require_once 'includes/vistas/helpers/form_register.php';
 
 
 $tituloPagina = 'Register';
