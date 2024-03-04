@@ -2,7 +2,7 @@
 require_once 'includes/config.php';
 require_once 'includes/vistas/helpers/autorizacion.php';
 
-$tituloPagina = 'Posts';
+$tituloPagina = 'Productos';
 $page = $_GET['page'];
 if(!isset($page)){
     $page=1;
@@ -38,11 +38,11 @@ else{
         foreach($posts as $post){
            
             //ideal hacer un buildquery o algo
-            $queryUser = sprintf("SELECT * FROM usuario u WHERE u.idusuario=%d",$post['idPropietario']);
+            $queryUser = sprintf("SELECT * FROM usuarios u WHERE u.Usuario=%d",$post['idPropietario']);
             $user = $conn->query($queryUser);
             $user = $user->fetch_assoc();
 
-            $queryItem = sprintf("SELECT * FROM items i WHERE i.id=%d",$post['idItem']);
+            $queryItem = sprintf("SELECT * FROM productos p WHERE p.Nombre=%d",$post['idItem']);
             $item = $conn->query($queryItem);
             $item = $item->fetch_assoc();
 
