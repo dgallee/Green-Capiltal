@@ -4,7 +4,7 @@
 /* */
 
 // Parámetros de configuración generales
-define('RUTA_APP', '/greencap/Practica2');
+define('RUTA_APP', '/Proyecto/Practica2ej');
 define('RUTA_IMGS', RUTA_APP . '/img');
 define('RUTA_CSS', RUTA_APP . '/css');
 define('RUTA_JS', RUTA_APP . '/js');
@@ -69,5 +69,4 @@ Mensaje::init();
 /* Clases que usan una BD para almacenar el estado */
 /* */
 require_once 'src/BD.php';
-require_once 'src/usuarios/bd/Usuario.php';
-require_once 'src/mensajes/bd/Mensaje.php';
+require_once 'usuarioDAO.php';
