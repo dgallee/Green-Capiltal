@@ -8,7 +8,7 @@ function buildFormularioLogin($username='', $password='')
             <legend>Usuario y contraseña</legend>
             <div><label>Name:</label> <input type="text" name="username" value="$username" /></div>
             <div><label>Password:</label> <input type="password" name="password" password="$password" /></div>
-            <div><button type="submit">Entrar</button></div>
+            <div><button type="submit">Entrar</button>< <button type="submit">Registrarse<a href="registro.php"></a></button></div>
         </fieldset>
     </form>
     EOS;

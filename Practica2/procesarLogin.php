@@ -1,9 +1,9 @@
 <?php
 
 require_once 'includes/config.php';
-require_once 'includes/vistas/helpers/usuarios.php';
 require_once 'includes/vistas/helpers/autorizacion.php';
 require_once 'includes/vistas/helpers/login.php';
+require_once 'usuarioDAO.php';
 
 $tituloPagina = 'Login';
 
@@ -21,13 +21,13 @@ if (!$esValido) {
 	require 'includes/vistas/comun/layout.php';
 	exit();
 }
+else{
 
-$_SESSION['idUsuario'] = $usuario->id;
-$_SESSION['roles'] = $usuario->roles;
-$_SESSION['nombre'] = $usuario->nombre;
-
+	$_SESSION["username"] = $username;
+	$_SESSION["password"] = $password;
+}
 $contenidoPrincipal=<<<EOS
-	<h1>Bienvenido {$_SESSION['nombre']}</h1>
+	<h1>Bienvenido {$_SESSION['username']}</h1>
 	<p>Usa el menú de la izquierda para navegar.</p>
 EOS;
 
