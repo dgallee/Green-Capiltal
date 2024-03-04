@@ -1,3 +1,3 @@
 <aside id="sidebarDer">
-	Lo quitamos???
+	Texto del sidebar derecho.
 </aside>

@@ -14,6 +14,25 @@
                 return false;
             }
         }
+
+        public static function register($name, $surname, $mail, $dir, $tfno, $dni, $username, $password) {
+            
+            // Crear conexión
+            $conn = BD::getInstance()->getConexion();
+
+            // Preparar la consulta SQL
+            $query = "INSERT INTO usuarios (Nombre, Apellidos, Correo, Direccion, Telefono, Dni, Usuario, Contrasena, Tipo) VALUES ('$name', '$surname', '$mail', '$dir', '$tfno', '$dni', '$username', '$password', 0)";
+        
+            // Ejecutar la consulta SQL
+            if ($conn->query($query) === TRUE) {
+                $result = true;
+            } else {
+                $result = false;
+            }
+        
+            // Devolver el resultado
+            return $result;
+        }
     }
 
 
