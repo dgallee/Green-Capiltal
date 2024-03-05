@@ -69,6 +69,24 @@
             return $result;
         }
 
+        public static function delete($username) {
+            
+            $conn = BD::getInstance()->getConexion();
+
+            // Prepara la consulta SQL
+            $query = "DELETE FROM usuarios WHERE Usuario = '$username'";
+        
+            // Ejecuta la consulta
+            if ($conn->query($query) === TRUE) {
+                echo "Usuario eliminado con éxito.";
+                return true;
+            } else {
+                echo "Error al eliminar el usuario: " . $conn->error;
+                return false;
+            }
+        
+        }
+
         public static function showTable(){
         
             $conn = BD::getInstance()->getConexion();
@@ -90,6 +108,52 @@
             // Devuelve el array de usuarios
             return $usuarios;
         }
+
+        public static function edit($nombre, $apellidos, $correo, $direccion, $telefono, $dni, $usuario, $contrasena, $tipo, $usuarioAntiguo) {
+            // Conexión a la base de datos
+            $conn = BD::getInstance()->getConexion();
+            // Obtener los datos actuales del usuario
+            $userActual = self::search($usuarioAntiguo);
+            echo "eeeeeeeeee";
+            // Comprobar si las variables son distintas a las locales y que no estén vacías
+            if (empty($nombre)) {
+                $nombre = $userActual->uName;
+            }
+            if (empty($apellidos)) {
+                $apellidos = $userActual->uSurname;
+            }
+            if (empty($correo)) {
+               $correo =  $userActual->uEmail;
+            }
+            if (empty($direccion)) {
+                $direccion = $userActual->uDir;
+            }
+            if (empty($telefono)) {
+                $telefono = $userActual->uTel;
+            }
+            if (empty($usuario)) {
+                $usuario = $userActual->uUser;
+            }
+            if (empty($contrasena)) {
+                $contrasena = $userActual->uPass;
+            }
+            if (empty($tipo)) {
+                $tipo = $userActual->uTipo;
+            }
+        
+            // Preparar la consulta SQL
+            $query = "UPDATE usuarios SET Nombre='$nombre', Apellidos='$apellidos', Correo='$correo', Direccion='$direccion', Telefono=$telefono, DNI='$dni', Usuario='$usuario', Contrasena='$contrasena', Tipo=$tipo WHERE DNI='$dni'";
+        
+            // Ejecutar la consulta SQL
+            if ($conn->query($query) === TRUE) {
+                echo "Usuario actualizado con éxito.";
+                return true;
+            } else {
+                echo "Error al actualizar el usuario: " . $conn->error;
+                return false;
+            }
+        }
+        
         
 
         public function compruebaPassword($password){

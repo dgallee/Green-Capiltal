@@ -40,8 +40,8 @@ foreach ($usuarios as $usuario) {
 	<td>{$usuario['Contrasena']}</td>
 	<td>{$usuario['Tipo']}</td>
     <td>
-		<button onclick=\"location.href='editar.php?id={$usuario['Usuario']}'\">Editar</button>
-		<button onclick=\"location.href='eliminar.php?id={$usuario['DNI']}'\">Eliminar</button>
+		<button onclick=\"location.href='editar.php?user={$usuario['Usuario']}'\">Editar</button>
+		<button onclick=\"location.href='eliminar.php?user={$usuario['Usuario']}'\">Eliminar</button>
 	</td>
 	</tr>";
 }
