@@ -11,7 +11,16 @@ $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
 $password = $_POST["password"] ?? null;
 
 $esValido = $username && $password && ($usuario = Usuario::login($username, $password));
-if (!$esValido) {
+if ($esValido) {
+
+
+	$_SESSION["username"] = $username;
+	$_SESSION["password"] = $password;
+	$_SESSION["tipo"] = $usuario->getUTipo();
+
+}
+else{
+
 	$htmlFormLogin = buildFormularioLogin($username, $password);
 	$contenidoPrincipal=<<<EOS
 		<h1>Error</h1>
@@ -20,11 +29,6 @@ if (!$esValido) {
 	EOS;
 	require 'includes/vistas/comun/layout.php';
 	exit();
-}
-else{
-
-	$_SESSION["username"] = $username;
-	$_SESSION["password"] = $password;
 }
 $contenidoPrincipal=<<<EOS
 	<h1>Bienvenido {$_SESSION['username']}</h1>
