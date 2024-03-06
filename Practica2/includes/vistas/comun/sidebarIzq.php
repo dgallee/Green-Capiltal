@@ -5,5 +5,6 @@
 		<li><a href="<?= RUTA_APP?>/contenido.php">Ver contenido</a></li>
 		<li><a href="<?= RUTA_APP?>/admin.php">Administrar</a></li>
 		<li><a href="<?= RUTA_APP?>/tablon.php">Tablon</a></li>
+		<li><a href="<?= RUTA_APP?>/tienda.php">Tienda</a></li>
 	</ul>
 </nav>
