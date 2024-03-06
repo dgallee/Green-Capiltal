@@ -30,11 +30,11 @@ SET time_zone = "+00:00";
 CREATE TABLE `productos` (
   `Nombre` varchar(30) NOT NULL,
   `Descripción` text NOT NULL,
-  `Precio` decimal(4,0) NOT NULL,
+  `Precio` decimal(4,2) NOT NULL,
   `Categoría` varchar(15) NOT NULL,
   `Existencias` int(2) NOT NULL,
   `Especie` varchar(30) NOT NULL,
-  `Imagen` longblob NOT NULL
+  `Imagen` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
