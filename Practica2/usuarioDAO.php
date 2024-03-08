@@ -39,7 +39,7 @@
             $conn = BD::getInstance()->getConexion();            
             $query = sprintf("SELECT * FROM usuarios WHERE Usuario = '$nombreUsuario'");
             $rs = $conn->query($query);
-            if ($rs) {
+            if ($rs->num_rows > 0) {
                 $row = $rs->fetch_assoc();
                 $user = new Usuario($row['Nombre'], $row['Apellidos'], $row['Correo'], $row['Direccion'], $row['Telefono'], $row['DNI'], $row['Usuario'], $row['Contrasena'], $row['Tipo']);
                 $rs->free();
