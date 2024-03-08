@@ -34,7 +34,7 @@ CREATE TABLE `productos` (
   `Categoría` varchar(15) NOT NULL,
   `Existencias` int(2) NOT NULL,
   `Especie` varchar(30) NOT NULL,
-  `Imagen` varchar(30) NOT NULL
+  `Imagen` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
