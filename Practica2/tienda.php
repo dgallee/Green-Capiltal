@@ -11,7 +11,7 @@
 <?php
 $tituloPagina = "Tienda en línea";
 $contenidoPrincipal = <<<EOS
-<h1>¡Bienvenido a nuestra tienda!</h1>
+<h1 class="titulo-tienda">¡Bienvenido a nuestra tienda!</h1>
 
 EOS;
 

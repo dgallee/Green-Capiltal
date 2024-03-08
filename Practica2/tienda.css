@@ -15,7 +15,10 @@
     border-radius: 5px;
     text-align: center;
 }
-
+.titulo-tienda {
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+}
 .producto img {
     width: 100%; /* La imagen ocupará todo el ancho del contenedor del producto */
     height: auto;
@@ -24,10 +27,6 @@
 
 .producto h2 {
     margin-top: 0;
-}
-
-h1 {
-    text-align: center;
 }
 
 .btn-comprar {
