@@ -99,8 +99,6 @@
                 while($row = $result->fetch_assoc()) {
                     $usuarios[] = $row;
                 }
-            } else {
-                echo "No hay usuarios en la base de datos.";
             }
         
             // Devuelve el array de usuarios
