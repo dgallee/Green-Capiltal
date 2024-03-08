@@ -5,16 +5,22 @@ require_once 'includes/vistas/helpers/autorizacion.php';
 $tituloPagina = 'Contenido';
 
 if (! estaLogado()) {
-	Utils::paginaError(403, $tituloPagina, 'Usuario no conectado!', 'Debes iniciar sesión para ver el contenido.');
+	Utils::paginaError(403, $tituloPagina, '¡Usuario no registrado!', 'Debes iniciar sesión o registrarte para ver el contenido exclusivo. ¡Te esperamos!');
 }
 
 $contenidoPrincipal=<<<EOS
-	<h1>Texto del contenido principal para usuarios</h1>
-	<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam augue sem, molestie vel elementum quis, consequat consectetur velit. Sed malesuada in arcu quis placerat. Proin sed ligula leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer pretium, sapien ut ornare ornare, odio felis vulputate nisi, at hendrerit libero sapien ut sapien. Vestibulum laoreet auctor suscipit. Suspendisse id eros ut diam egestas luctus. Donec consequat, leo eu pretium sollicitudin, metus mi suscipit risus, non porta augue purus nec velit. Donec lobortis magna eget feugiat porttitor. In suscipit arcu quis urna lobortis dapibus.</p>
+	<h1>Bienvenido al contenido exclusivo para usuarios registrados</h1>
+	<p>¡Enhorabuena! Si estas leyendo esto es porque eres uno de nuestros queridos usuarios y no podemos estár mas felices de tenerte en nuestra magnífica comunidad</p>
 
-	<p> Maecenas nec orci mollis, pretium erat in, blandit felis. Etiam vestibulum eu sapien a sagittis. Maecenas eget posuere turpis. Fusce egestas lacus at tortor scelerisque vulputate. Mauris tincidunt massa sem, nec dapibus risus facilisis vitae. Nulla risus sem, sodales at viverra ut, elementum sit amet nisl. Fusce placerat bibendum pharetra. Etiam ultricies metus lectus, eget consequat elit imperdiet a. Sed eu ipsum augue. Phasellus eget iaculis nisl. Sed bibendum, sem posuere pretium sagittis, nibh orci porta urna, id dictum ante felis quis ante. Ut quis tortor vel sapien lacinia rutrum. Morbi at nisi sit amet elit iaculis vulputate. Curabitur dignissim diam ac porta bibendum.</p>
+	<p>Como bien sabes, somos una empresa obsesionada con la satisfacción de nuestros clientes, y por ello, ofrecemos atención personalizada
+	para nuestros clientes registrados, incluyendo sugerencias y diseños únicos. Para poder hacer uso de esta maravillosa herramienta, no dudes 
+	en transmitirnos tus necesidades por medio de un correo electrónico a greencapital@gmail.com.</p>
 
-	<p>Proin elementum blandit diam id ullamcorper. Duis semper nunc semper nisi vehicula consectetur. Donec quis ante iaculis, rhoncus ante et, pellentesque sem. Cras tempus rutrum sapien vitae feugiat. Cras dapibus ut diam a commodo. Duis vel leo arcu. Suspendisse mollis purus eget eros elementum, vel pulvinar elit interdum. Etiam sit amet orci mi. Integer tristique lacus eu consequat rutrum. Sed tempor hendrerit mauris, eu sollicitudin ante ullamcorper scelerisque. Praesent ullamcorper sed mauris porta aliquet.</p>
+	<h2> La primavera florece y Green Capital también </h2>
+	<p> La entrada de la primavera es algo especial a la par que impresionante, y por supuesto, llena de alegría los jardines y zonas verdes de nuestros
+	lugares favoritos. Por eso mismo, hemos decidido organizar un evento especial en varios jardínes botánicos de toda España durante esta singular estación
+	del año. ¿Te lo vas a perder? Estamos seguros de que no. Accede regularmente a nuestra web ya que en muy poco tiempo daremos más detalles de este evento
+	tan especial para los enamorados del mundo de las plantas y la jardinería.</p>
 EOS;
 
 require 'includes/vistas/comun/layout.php';

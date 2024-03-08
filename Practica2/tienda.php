@@ -1,4 +1,10 @@
 <?php
+<<<<<<< HEAD
+$tituloPagina = "Tienda en línea";
+$contenidoPrincipal = <<<EOS
+<h1 class="titulo-tienda">¡Bienvenido a nuestra tienda!</h1>
+=======
+>>>>>>> 234efd669f853cd093098e8f39b20d32946c3bc0
 
     $tituloPagina = "Tienda en línea";
     $contenidoPrincipal = <<<EOS

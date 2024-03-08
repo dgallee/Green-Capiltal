@@ -37,7 +37,24 @@ nav {
     flex: 1; /* La lista de navegación tomará todo el espacio restante */
     text-align: center; /* Alinea los elementos de la lista de navegación al centro */
 }
+/* Estilos para el título destacado */
+.titulo-destacado {
+	font-family: 'Pacifico', cursive; /* Utiliza la fuente Pacifico */
+    font-size: 2.5em;
+    color: green; /* Color blanco */
+    text-align: center;
+    margin-top: 50px; /* Ajusta según tu preferencia */
+}
 
+/* Estilos para la descripción */
+.descripcion {
+	font-family: 'Pacifico', cursive;
+    font-size: 1em;
+    color: black; /* Color blanco */
+    text-align: justify; /* Justificar el texto */
+    margin: 0 auto; /* Centrar horizontalmente */
+    margin-bottom: 50px; /* Ajusta según tu preferencia */
+}
 header a, header a:visited {
 	color: white;
 	font-weight: bold;
