@@ -8,7 +8,7 @@ require_once 'usuarioDAO.php';
 $tituloPagina = 'Admin';
 
 if (!esAdmin()) {
-	Utils::paginaError(403, $tituloPagina, 'Acceso Denegado!', 'No tienes permisos suficientes para administrar la web.');
+	Utils::paginaError(403, $tituloPagina, '¡Acceso Denegado!', 'No tienes permisos suficientes para acceder al panel de administración de la web.');
 }
 
 // Obtén el array de usuarios

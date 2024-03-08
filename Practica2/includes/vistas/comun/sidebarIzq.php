@@ -1,9 +1,6 @@
 <nav id="sidebarIzq">
-	<h3>Navegación</h3>
-	<ul>
-		<li><a href="<?= RUTA_APP?>/index.php">Inicio</a></li>
-		<li><a href="<?= RUTA_APP?>/contenido.php">Ver contenido</a></li>
-		<li><a href="<?= RUTA_APP?>/admin.php">Administrar</a></li>
-		<li><a href="<?= RUTA_APP?>/tienda.php">Tienda</a></li>
-	</ul>
+<h2 class="oferta">¡Oferta Especial en Orquídeas!</h2>
+    <img src="img/orquidea.png" alt="Orquídea" class="imagen-orquidea">
+    <p>Precio Anterior: <del class="antiguo">5,99€</del></p>
+    <p>Precio Rebajado: <strong class="rebaja">4,49€</strong></p>
 </nav>

@@ -19,7 +19,7 @@
     $contenidoTienda = builtContent($productos);
 
     $contenidoPrincipal = <<<EOS
-    <h1>Listado de Usuarios</h1>
+    <h1 class="titulo-tienda">Tienda</h1>
     <p>$contenidoTienda</p>
     EOS;
    

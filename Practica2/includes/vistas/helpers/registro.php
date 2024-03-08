@@ -5,7 +5,6 @@ function buildFormularioRegistro()
     return <<<EOS
     <form action="procesarRegistro.php" method="post">
     <fieldset>
-            <h1>Registro</h1>
             <div>
                 <label for="nombre">Nombre:</label>
                 <input type="text" name="nombre" id="nombre" required>

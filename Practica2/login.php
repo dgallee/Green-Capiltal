@@ -7,7 +7,7 @@ $tituloPagina = 'Login';
 
 $htmlFormLogin = buildFormularioLogin();
 $contenidoPrincipal=<<<EOS
-<h1>Acceso al sistema</h1>
+<h1 class='titulo'>Acceso al sistema</h1>
 $htmlFormLogin
 EOS;
 

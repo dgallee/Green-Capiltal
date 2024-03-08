@@ -6,11 +6,11 @@ require_once 'includes/vistas/helpers/autorizacion.php';
 $tituloPagina = 'Admin';
 
 if (!esAdmin()) {
-	Utils::paginaError(403, $tituloPagina, 'Acceso Denegado!', 'No tienes permisos suficientes para administrar la web.');
+	Utils::paginaError(403, $tituloPagina, '¡Acceso Denegado!', 'No tienes permisos suficientes para acceder al panel de administración de la web.');
 }
 
 $contenidoPrincipal = <<<EOS
-<h1>Consola de administración</h1>
+<h1 class='titulo'>Consola de administración</h1>
 <li><a href="adminUsuarios.php">Administración de usuarios</a></li>
         <li><a href="archivo2.php">Archivo 2</a></li>
         <li><a href="archivo3.php">Archivo 3</a></li>

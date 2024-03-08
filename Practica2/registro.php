@@ -7,7 +7,7 @@ $tituloPagina = 'Registro';
 
 $htmlFormReg = buildFormularioRegistro();
 $contenidoPrincipal=<<<EOS
-<h1>Registro en la web</h1>
+<h1 class='titulo'>Registro en la web</h1>
 $htmlFormReg
 EOS;
 

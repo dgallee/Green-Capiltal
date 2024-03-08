@@ -23,16 +23,16 @@ else{
 
 	$htmlFormLogin = buildFormularioLogin($username, $password);
 	$contenidoPrincipal=<<<EOS
-		<h1>Error</h1>
-		<p>El usuario o contraseña no son válidos.</p>
+		<h1 class='titulo'>Error</h1>
+		<p class='mensaje-error'>El usuario o contraseña no son válidos.</p>
 		$htmlFormLogin
 	EOS;
 	require 'includes/vistas/comun/layout.php';
 	exit();
 }
 $contenidoPrincipal=<<<EOS
-	<h1>Bienvenido {$_SESSION['username']}</h1>
-	<p>Usa el menú de la izquierda para navegar.</p>
+	<h1>¡Bienvenido {$_SESSION['username']}!</h1>
+	<p>Ya tienes acceso a las funciones habilitadas en exclusiva para tu tipo de usuario.</p>
 EOS;
 
 require 'includes/vistas/comun/layout.php';
