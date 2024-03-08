@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 20px;
-    background-color: #a9e18d; /* Color de fondo del contenedor */
+    background-color: white; /* Color de fondo del contenedor */
 }
 
 .producto {
