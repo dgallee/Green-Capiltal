@@ -1,15 +1,15 @@
 <aside id="sidebarDer">
-	<h2> ¿Aún no te has registrado?</h2>
-	<h3>Mira todas las ventajas que te pierdes...</h3>
+	<h2 class='titulo'> ¿Aún no te has registrado?</h2>
+	<h3 class='ventajas'>Mira todas las ventajas que te pierdes...</h3>
 	<ul>
-    <li>Ofertas personalizadas</li>
-    <li>Acceso prioritario a nuevos productos</li>
-    <li>Asesoramiento experto</li>
-    <li>Seguimiento de pedidos</li>
-    <li>Contenido exclusivo</li>
-	<li>Eventos únicos para usuarios registrados</li>
-	<li>Seguro antiaccidentes en el transporte</li>
+    <li><strong>Ofertas personalizadas</strong></li>
+    <li><strong>Acceso prioritario a nuevos productos</strong></li>
+    <li><strong>Asesoramiento experto</strong></li>
+    <li><strong>Seguimiento de pedidos</strong></li>
+    <li><strong>Contenido exclusivo</strong></li>
+	<li><strong>Eventos únicos para usuarios registrados</strong></li>
+	<li><strong>Seguro antiaccidentes en el transporte</strong></li>
 	</ul>
 	<p> </p>
-	<h4> No lo dudes más y regístrate ya haciendo click <a href="registro.php">aquí</a> </h4>
+	<h4 class='ventajas'> No lo dudes más y regístrate ya haciendo click <a href="registro.php">aquí</a> </h4>
 </aside>

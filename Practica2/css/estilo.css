@@ -22,7 +22,7 @@ div#contenedor {
     font-size: 2.2em; /* Tamaño del texto */
 }
 
-.mensaje-error{
+.mensaje{
 	text-align: center;
 	font-family: 'Pacifico', cursive;
     font-size: 1.2em; /* Tamaño del texto */
@@ -47,6 +47,17 @@ div#contenedor {
 	text-align: center;
 	font-family: 'Pacifico', cursive;
     font-size: 2.2em; /* Tamaño del texto */
+}
+
+.titulo2{
+	text-align: justify;
+	font-family: 'Pacifico', cursive;
+    font-size: 1.7em; /* Tamaño del texto */
+}
+
+.ventajas{
+	font-family: 'Pacifico', cursive;
+    font-size: 1.1em; /* Tamaño del texto */
 }
 
 header {
@@ -98,6 +109,21 @@ nav {
     margin: 0 auto; /* Centrar horizontalmente */
     margin-bottom: 50px; /* Ajusta según tu preferencia */
 }
+
+.descripcion2{
+	font-family: 'Pacifico', cursive;
+    font-size: 1em;
+    color: black; 
+    text-align: justify; /* Justificar el texto */
+   
+}
+
+.oferta-exclusiva{
+	font-family: 'Pacifico', cursive;
+    font-size: 1.4em;
+    color: green;
+}
+
 header a, header a:visited {
 	color: white;
 	font-weight: bold;
