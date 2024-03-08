@@ -19,7 +19,7 @@ $usuarios = Usuario::showTable();
 $tablaUsuarios = buildTablaUsuarios($usuarios);
 
 $contenidoPrincipal = <<<EOS
-<h1>Listado de Usuarios</h1>
+<h1 class='titulo'>Listado de Usuarios</h1>
 <p>$tablaUsuarios</p>
 EOS;
 
