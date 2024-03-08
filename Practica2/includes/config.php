@@ -4,7 +4,7 @@
 /* */
 
 // Parámetros de configuración generales
-define('RUTA_APP', '/Proyecto-AW/Green-Capiltal/Practica2');
+define('RUTA_APP', '/Proyecto/Practica2');
 define('RUTA_IMGS', RUTA_APP . '/img');
 define('RUTA_CSS', RUTA_APP . '/css');
 define('RUTA_JS', RUTA_APP . '/js');

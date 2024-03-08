@@ -78,10 +78,8 @@
         
             // Ejecuta la consulta
             if ($conn->query($query) === TRUE) {
-                echo "Usuario eliminado con éxito.";
                 return true;
             } else {
-                echo "Error al eliminar el usuario: " . $conn->error;
                 return false;
             }
         
@@ -114,7 +112,6 @@
             $conn = BD::getInstance()->getConexion();
             // Obtener los datos actuales del usuario
             $userActual = self::search($usuarioAntiguo);
-            echo "eeeeeeeeee";
             // Comprobar si las variables son distintas a las locales y que no estén vacías
             if (empty($nombre)) {
                 $nombre = $userActual->uName;
@@ -146,10 +143,8 @@
         
             // Ejecutar la consulta SQL
             if ($conn->query($query) === TRUE) {
-                echo "Usuario actualizado con éxito.";
                 return true;
             } else {
-                echo "Error al actualizar el usuario: " . $conn->error;
                 return false;
             }
         }
