@@ -24,3 +24,4 @@ hogar u oficina. ¡Únete a Green Capital y deja que la vida florezca en tu hoga
 EOS;
 
 require 'includes/vistas/comun/layout.php';
+?>

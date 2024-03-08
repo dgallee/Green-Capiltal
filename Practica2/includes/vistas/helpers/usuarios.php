@@ -30,3 +30,5 @@ function logout()
     session_destroy();
     session_start();
 }
+
+?>

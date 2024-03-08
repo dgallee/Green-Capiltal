@@ -51,11 +51,4 @@ function builtFormularioEditar($user, $DNI){
 
     EOS;
 }
-
-
-
-
-
-
-
 ?>

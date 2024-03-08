@@ -12,3 +12,4 @@ $htmlFormLogin
 EOS;
 
 require 'includes/vistas/comun/layout.php';
+?>

@@ -19,12 +19,10 @@
     $esValido = (Usuario::edit($name, $surname, $mail, $dire, $tfno, $dni, $username, $password, $tipo, $oldUser));
     if ($esValido){
 
-        echo "Inicio de sesión correcto.";
         header('Location: adminUsuarios.php');
     }
     else{
         
-        echo "Inicio de sesión malo.";
         header('Location: adminUsuarios.php');
     }  
 

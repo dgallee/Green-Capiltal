@@ -17,3 +17,5 @@ function buildFormularioLogin($username='', $password='')
 
     EOS;
 }
+
+?>

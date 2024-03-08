@@ -27,3 +27,5 @@ function verificaLogado($urlNoLogado)
         Utils::redirige($urlNoLogado);
     }
 }
+
+?>
