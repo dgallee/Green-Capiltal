@@ -15,6 +15,6 @@
     $password = $_POST["password"] ?? null;
 
     $esValido = ($usuario = Usuario::register($name, $surname, $mail, $dire, $tfno, $dni, $username, $password));
-    if ($esValido)  echo "Inicio de sesión correcto.";
-    else  echo "Inicio de sesión malo.";
+    if ($esValido)  header('Location: login.php');
+    else  header('Location: registro.php');
 ?>

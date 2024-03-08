@@ -4,6 +4,7 @@ function buildFormularioRegistro()
 {
     return <<<EOS
     <form action="procesarRegistro.php" method="post">
+    <fieldset>
             <h1>Registro</h1>
             <div>
                 <label for="nombre">Nombre:</label>
@@ -39,6 +40,7 @@ function buildFormularioRegistro()
                 <input type="password" name="password" id="password">
             </div>
             <button type="submit">Ingresar</button>
+        </fieldset>
         </form>
 
     EOS;
