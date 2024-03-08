@@ -9,7 +9,7 @@ abstract class Utils
     public static function paginaError($codigoRespuesta, $tituloPagina, $mensajeError, $explicacion = '')
     {
         http_response_code($codigoRespuesta);
-        $contenidoPrincipal = "<h1 class='error'>{$mensajeError}</h1><p class='mensaje-error'>{$explicacion}</p>";
+        $contenidoPrincipal = "<h1 class='error'>{$mensajeError}</h1><p class='mensaje'>{$explicacion}</p>";
         require dirname(__DIR__).'/vistas/comun/layout.php';
         exit();    
     }
