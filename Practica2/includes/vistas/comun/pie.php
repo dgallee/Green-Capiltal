@@ -1,3 +1,3 @@
 <footer>
-	Pie de página
+	© Copyright Green Capital 2024
 </footer>

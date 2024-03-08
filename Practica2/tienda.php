@@ -8,37 +8,43 @@
 </head>
 <body>
 
+<?php
+$tituloPagina = "Tienda en línea";
+$contenidoPrincipal = <<<EOS
 <h1>¡Bienvenido a nuestra tienda!</h1>
 
-<?php
+EOS;
+
 require_once "includes/src/BD.php";
 require_once "includes/config.php";
+require_once 'includes/vistas/helpers/usuarios.php';
 $conn = BD::getInstance()->getConexion();
 // Consulta SQL para recuperar los productos
-$sql = "SELECT Nombre, Descripción, Precio, Categoría, Existencias, Especie, Imagen FROM productos";
+$sql = 'SELECT Nombre, Descripción, Precio, Categoría, Existencias, Especie, Imagen FROM productos';
 $result = $conn->query($sql);
-
 if ($result->num_rows > 0) {
     // Inicio del contenedor de productos
-    echo "<div class='container'>";
+    $contenidoPrincipal .= "<div class='container'>";
 
     // Mostrar los productos
     while($row = $result->fetch_assoc()) {
-        echo "<div class='producto'>";
-        echo "<h2>" . $row["Nombre"] . "</h2>";
-        echo "<p>" . $row["Descripción"] . "</p>";
-        echo "<p>Precio: " . $row["Precio"] . "€</p>";
-        echo "<p>Existencias: " . $row["Existencias"] . " unidades</p>";
-        echo "<img src='" . $row["Imagen"] . "' alt='" . $row["Nombre"] . "' width='200'>";
-        echo "<a href='#' class='btn-comprar'>Comprar</a>";
-        echo "</div>";
+        $contenidoPrincipal .= "<div class='producto'>";
+        $contenidoPrincipal .= "<h2>" . $row["Nombre"] . "</h2>";
+        $contenidoPrincipal .= "<p>" . $row["Descripción"] . "</p>";
+        $contenidoPrincipal .= "<p>Precio: " . $row["Precio"] . "€</p>";
+        $contenidoPrincipal .= "<p>Existencias: " . $row["Existencias"] . " unidades</p>";
+        $contenidoPrincipal .= "<img src='" . $row["Imagen"] . "' alt='" . $row["Nombre"] . "' width='200'>";
+        $contenidoPrincipal .= "<a href='#' class='btn-comprar'>Comprar</a>";
+        $contenidoPrincipal .= "</div>";
     }
 
     // Fin del contenedor de productos
-    echo "</div>";
+    $contenidoPrincipal .= "</div>";
 } else {
-    echo "No se encontraron productos.";
+    $contenidoPrincipal .= "No se encontraron productos.";
 }
+
+require('includes/vistas/comun/layout.php');
 ?>
 
 </body>

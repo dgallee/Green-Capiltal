@@ -3,19 +3,17 @@
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 20px;
+    background-color: #a9e18d; /* Color de fondo del contenedor */
 }
 
 .producto {
     width: calc(25% - 20px); /* Ancho del producto, con un margen de 20px entre ellos */
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Espacio entre los productos */
     border: 1px solid #ccc;
+    background-color: #a9e18d; /* Color de fondo del producto */
     padding: 10px;
     border-radius: 5px;
     text-align: center;
-}
-
-.producto:nth-child(4n) {
-    margin-right: 0; /* Eliminar el margen derecho del último producto en cada fila */
 }
 
 .producto img {

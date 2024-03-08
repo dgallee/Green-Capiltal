@@ -5,8 +5,8 @@ require_once 'includes/config.php';
 $tituloPagina = 'Portada';
 
 $contenidoPrincipal=<<<EOS
-<h1>Página principal</h1>
-	<p> Aquí está el contenido público, visible para todos los usuarios.</p>
+<h1>Green Capital, mucho más que una tienda</h1>
+	<p> Somos los líderes en jardinería</p>
 EOS;
 
 require 'includes/vistas/comun/layout.php';
