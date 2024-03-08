@@ -24,3 +24,5 @@ $contenidoPrincipal=<<<EOS
 EOS;
 
 require 'includes/vistas/comun/layout.php';
+
+?>

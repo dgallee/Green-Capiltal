@@ -132,7 +132,7 @@
             if (empty($contrasena)) {
                 $contrasena = $userActual->uPass;
             }
-            if (empty($tipo)) {
+            if ($tipo != 0 && $tipo != 1) {
                 $tipo = $userActual->uTipo;
             }
         

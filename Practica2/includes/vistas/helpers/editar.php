@@ -36,10 +36,12 @@ function builtFormularioEditar($user, $DNI){
         <input type="password" name="password" id="password">
     </div>
     <div>
-        <label for="type">Tipo:</label>
-        <input type="number" name="type" id="type" min="0" max="1" step="1">
+    <label for="type">Tipo:</label>
+    <select name="type" id="type">
+        <option value="0">0</option>
+        <option value="1">1</option>
+    </select>
     </div>
-
 
     <input type="hidden" name="oldUser" value="$user">
     

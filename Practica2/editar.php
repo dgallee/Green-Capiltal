@@ -4,6 +4,8 @@
     require_once 'includes/vistas/helpers/editar.php';
     require_once 'usuarioDAO.php';
 
+    $tituloPagina = 'Editar';
+
     $user = $_GET['user'];
     $userEdit = Usuario::search($user);
 
