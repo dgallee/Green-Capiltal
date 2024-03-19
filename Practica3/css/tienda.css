@@ -1,0 +1,48 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+    background-color: white; /* Color de fondo del contenedor */
+}
+
+.producto {
+    width: calc(25% - 20px); /* Ancho del producto, con un margen de 20px entre ellos */
+    margin-bottom: 20px; /* Espacio entre los productos */
+    border: 1px solid #ccc;
+    background-color: #a9e18d; /* Color de fondo del producto */
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+.titulo-tienda {
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+}
+.producto img {
+    width: 100%; /* La imagen ocupará todo el ancho del contenedor del producto */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.producto h2 {
+    margin-top: 0;
+}
+
+.btn-comprar {
+    display: block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #ffffff; /* Fondo blanco */
+    color: #007bff; /* Color del texto */
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #007bff; /* Borde sólido azul */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.btn-comprar:hover {
+    background-color: #007bff; /* Cambio de color de fondo al pasar el ratón */
+    color: #ffffff; /* Cambio de color del texto al pasar el ratón */
+    border-color: #007bff; /* Cambio de color del borde al pasar el ratón */
+}
