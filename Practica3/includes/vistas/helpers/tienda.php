@@ -19,7 +19,7 @@ EOS;
         $contenido .= <<<EOS
 <div class='producto'>
 <h2>{$producto["Nombre"]}</h2>
-<p>{$producto["Descripción"]}</p>
+<p>{$producto["Descripcion"]}</p>
 <p>Precio: {$producto["Precio"]}€</p>
 <p>Existencias: {$producto["Existencias"]} unidades</p>
 <img src='{$producto["Imagen"]}' alt='{$producto["Nombre"]}' width='200'>
