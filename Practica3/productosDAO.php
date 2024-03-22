@@ -39,26 +39,6 @@ class Producto{
 
     }
 
-
-    public static function showProducts_buscados(){
-
-        $conn = BD::getInstance()->getConexion();
-        $sql = 'SELECT Nombre, Descripción, Precio, Categoría, Existencias, Especie, Imagen FROM productos';
-        $result = $conn->query($sql);
-        $productos = array();
-
-        if ($result->num_rows > 0) {
-            // Guarda los datos de cada fila en el array
-            while($row = $result->fetch_assoc()) {
-                $productos[] = $row;
-            }
-        }
-
-        return $productos;
-
-
-    }
-
     public function getNombre(){
         return $this->pNombre;
     }
