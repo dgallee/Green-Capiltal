@@ -22,7 +22,7 @@ class Producto{
 
     public static function showProducts(){
 
-        $conn = BD::getInstance()->getConexion();
+        $conn = Aplicacion::getInstance()->getConexionBD();
         $sql = 'SELECT Nombre, Descripcion, Precio, Categoria, Existencias, Especie, Imagen FROM productos';
         $result = $conn->query($sql);
         $productos = array();

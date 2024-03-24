@@ -25,7 +25,7 @@
         }
         public static function login($nombreUsuario, $password){
 
-            $conn = BD::getInstance()->getConexion();
+            $conn = Aplicacion::getInstance()->getConexionBD();
             // Consulta SQL para verificar si el usuario y la contraseña coinciden
             $user = self::search($nombreUsuario);
             if ($user && $user->compruebaPassword($password)) {
@@ -36,7 +36,7 @@
         
         public static function search($nombreUsuario){
 
-            $conn = BD::getInstance()->getConexion();            
+            $conn = Aplicacion::getInstance()->getConexionBD();            
             $query = sprintf("SELECT * FROM usuarios WHERE Usuario = '$nombreUsuario'");
             $rs = $conn->query($query);
             if ($rs->num_rows > 0) {
@@ -53,7 +53,7 @@
         public static function register($name, $surname, $mail, $dir, $tfno, $dni, $username, $password) {
             
             // Crear conexión
-            $conn = BD::getInstance()->getConexion();
+            $conn = Aplicacion::getInstance()->getConexionBD();
 
             // Preparar la consulta SQL
             $query = "INSERT INTO usuarios (Nombre, Apellidos, Correo, Direccion, Telefono, Dni, Usuario, Contrasena, Tipo) VALUES ('$name', '$surname', '$mail', '$dir', '$tfno', '$dni', '$username', '$password', 0)";
@@ -71,7 +71,7 @@
 
         public static function delete($username) {
             
-            $conn = BD::getInstance()->getConexion();
+            $conn = Aplicacion::getInstance()->getConexionBD();
 
             // Prepara la consulta SQL
             $query = "DELETE FROM usuarios WHERE Usuario = '$username'";
@@ -87,7 +87,7 @@
 
         public static function showTable(){
         
-            $conn = BD::getInstance()->getConexion();
+            $conn = Aplicacion::getInstance()->getConexionBD();
             // Consulta SQL para obtener todos los usuarios
             $query = "SELECT * FROM usuarios";
             $result = $conn->query($query);
@@ -107,7 +107,7 @@
 
         public static function edit($nombre, $apellidos, $correo, $direccion, $telefono, $dni, $usuario, $contrasena, $tipo, $usuarioAntiguo) {
             // Conexión a la base de datos
-            $conn = BD::getInstance()->getConexion();
+            $conn = Aplicacion::getInstance()->getConexionBD();
             // Obtener los datos actuales del usuario
             $userActual = self::search($usuarioAntiguo);
             // Comprobar si las variables son distintas a las locales y que no estén vacías

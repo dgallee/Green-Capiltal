@@ -6,7 +6,7 @@
 
     EOS;
 
-    require_once "includes/src/BD.php";
+    require_once "includes/src/Aplicacion.php";
     require_once "includes/config.php";
     require_once 'includes/vistas/helpers/usuarios.php';
     require_once 'productosDAO.php';
