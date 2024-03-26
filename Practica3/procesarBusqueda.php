@@ -1,13 +1,8 @@
 <?php
-
-
 require_once 'includes/config.php';
 require_once 'includes/vistas/helpers/tienda.php';
 
-
-
 $tituloPagina = 'procesarBusqueda';
-
 
 $conn = new mysqli(BD_HOST,BD_USER,BD_PASS,BD_NAME);
     if ($conn->connect_error){

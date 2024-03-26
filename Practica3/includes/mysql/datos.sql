@@ -9,7 +9,7 @@ INSERT INTO `usuarios` (`Nombre`, `Apellidos`, `Correo`, `Direccion`, `Telefono`
 ('user', 'user', 'user@ucm.es', 'calle ejemplo nº3 2ºB', 666111888, '87654321Q', 'user', 'userpass', 0);
 
 
-INSERT INTO `productos` (`Nombre`, `Descripción`, `Precio`, `Categoría`, `Existencias`, `Especie`, `Imagen`) VALUES
+INSERT INTO `productos` (`Nombre`, `Descripcion`, `Precio`, `Categoria`, `Existencias`, `Especie`, `Imagen`) VALUES
 ('Bellis', 'Bella como su nombre indica', 4.99, 'Bellis', 14, 'Bellis', 'img/bellis.png'),
 ('Palmera cocotera', 'Ideal para cualquier hogar', 6.99, 'Palmeras', 12, 'Cocotera', 'img/palmera-cocotera.png'),
 ('Cyclamen', 'Aporta vida a tu jardín', 6.00, 'Cyclamen', 11, 'Cyclamen', 'img/cyclamen.png'),

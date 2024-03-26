@@ -2,7 +2,7 @@
 
 function buildFormularioBusqueda($itemname='')
 {
-    $ruta=RUTA_APP."/procesarBusqueda.php";
+  $ruta=RUTA_APP."/procesarBusqueda.php";
     //"/includes/src/process/procesarBusqueda.php"
     return <<<EOS
     <div class= "contenedor de busqueda">
@@ -25,18 +25,23 @@ function buildFormularioBusqueda($itemname='')
         </form>
     </div>
    
-    EOS;
-
+  EOS;
 }
-
-
-/*<div class="search-container">
-  <input type="text" class="search-input" placeholder="Search...">
-  <button class="search-button">Search</button>
-</div>
-<div class="filter-container">
-  <span class="filter-item">Filter 1</span>
-  <span class="filter-item">Filter 2</span>
-  <span class="filter-item">Filter 3</span>
-  <!-- Add more filter items as needed -->
-</div>*/
+?>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var clearAllButton = document.getElementById('clear-all-filters');
+    if (clearAllButton) {
+        clearAllButton.addEventListener('click', function(event) {
+            event.preventDefault(); // Previene la acción por defecto del botón
+            var form = this.closest('form'); // Encuentra el formulario más cercano
+            if (form) {
+                var inputs = form.querySelectorAll('input[type="text"]'); // Selecciona todos los campos de texto
+                inputs.forEach(function(input) {
+                    input.value = ''; // Vacía el valor de cada campo de texto
+                });
+            }
+        });
+    }
+});
+</script>
