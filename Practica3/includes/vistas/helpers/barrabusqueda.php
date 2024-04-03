@@ -13,11 +13,23 @@ function buildFormularioBusqueda($itemname='')
             </div>
         
             <div class="filter-container">
-                <label for="filter1">Filter 1:</label>
-                <input type="text" id="filter1" name="filter1">
-                <label for="filter2">Filter 2:</label>
-                <input type="text" id="filter2" name="filter2">
-                <span class="filter-item">Filter 3</span>
+            
+                <label for="filter1">Filter by price:</label>
+                <span id="filter1-value">$0</span>
+                <input type="range" id="filter1" name="filter1" min="0" max="100" step="10" value="0">  
+                <span id="filter1-max">$100</span>
+                
+                
+                <div class="filter-item">
+                    <label for="filter2">Filter by category:</label>
+                    <select id="filter2" name="filter2">
+                        <option value="">--Select category--</option>
+                        <option value="cat1">Category 1</option>
+                        <option value="cat2">Category 2</option>
+                        <option value="cat3">Category 3</option>
+                    </select>
+                </div>
+                
                 <button type="submit">Search</button>
                 <div class="filter-item clear-all-button" id="clear-all-filters">Clear All</div>
             </div>

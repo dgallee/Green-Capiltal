@@ -22,6 +22,3 @@ $usuario_actual = estaLogado();
     </div>
   
 </header>
-<div class="busqueda">
-        <p><?= buildFormularioBusqueda()?></p>
-</div>

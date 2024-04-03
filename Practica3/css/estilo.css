@@ -119,7 +119,7 @@ header {
 	display: flex;
 	justify-content: center;
 	margin-bottom: 10px;
-	background-color: red;
+	background-color: greenyellow;
 	
 }
 
@@ -177,6 +177,9 @@ header {
   
 .filter-container {
 	display: flex;
+	flex-direction: column;
+  	align-items: flex-start;
+  	margin-bottom: 10px;
 	justify-content: center;
 	flex-wrap: wrap;
 }
@@ -201,6 +204,21 @@ header {
 	margin: 5px;
 	border-radius: 5px;
 }
+/*parte de 03/04 */
+#filter1 {
+	width: 100%;
+	margin: 10px 0;
+  }
+  
+  #filter1-value,
+  #filter1-max {
+	display: inline-block;
+	font-weight: bold;
+  }
+  
+  #filter1-max::before {
+	content: "Max: $";
+  }
 
 
 
