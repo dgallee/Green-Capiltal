@@ -14,8 +14,8 @@ INSERT INTO `productos` (`Nombre`, `Id`, `Resumen`, `Descripcion`, `Precio`, `Ca
 ('Cyclamen', '002', 'Aporta vida a tu jardín', 'aaa', 6.00, 'Cyclamen', 11, 'Cyclamen', 'img/cyclamen.png'),
 ('Dahlia', '003', 'Luminosa y con presencia', 'aaa', 4.99, 'Dahlia', 22, 'Dahlia', 'img/dahlia.png'),
 ('Margarita dimorfoteca', '004', 'La más especial de las margaritas', 'aaa', 5.99, 'Margarita', 18, 'Dimorfoteca', 'img/margarita-dimorfoteca.png'),
-('Geranio', '004', 'Fundamental para cualquier jardín', 'aaa', 3.99, 'Geranio', 18, 'Geranio', 'img/geranio.png'),
-('Margarita blanca', '005', 'Blanca y pura, básica para tu jardín', 'aaa', 3.99, 'Margaritas', 21, 'Margarita', 'img/margarita-blanca.png'),
-('Muscari', '006', 'Exótica y refinada', 'aaa', 3.99, 'Muscari', 20, 'Muscari', 'img/muscari.png'),
-('Orquídea', '007', 'Su forma y olor maravillan', 'aaa', 4.49, 'Orquidea', 24, 'Orquidea', 'img/orquidea.png'),
-('Pensamiento', '008', 'Pensarás que es una maravilla', 'aaa', 2.99, 'Pensamiento', 32, 'Pensamiento', 'img/pensamiento.png');
+('Geranio', '005', 'Fundamental para cualquier jardín', 'aaa', 3.99, 'Geranio', 18, 'Geranio', 'img/geranio.png'),
+('Margarita blanca', '006', 'Blanca y pura, básica para tu jardín', 'aaa', 3.99, 'Margaritas', 21, 'Margarita', 'img/margarita-blanca.png'),
+('Muscari', '007', 'Exótica y refinada', 'aaa', 3.99, 'Muscari', 20, 'Muscari', 'img/muscari.png'),
+('Orquídea', '008', 'Su forma y olor maravillan', 'aaa', 4.49, 'Orquidea', 24, 'Orquidea', 'img/orquidea.png'),
+('Pensamiento', '009', 'Pensarás que es una maravilla', 'aaa', 2.99, 'Pensamiento', 32, 'Pensamiento', 'img/pensamiento.png');
