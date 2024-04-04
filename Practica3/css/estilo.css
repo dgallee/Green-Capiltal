@@ -177,20 +177,27 @@ header {
   
 .filter-container {
 	display: flex;
-	flex-direction: column;
   	align-items: flex-start;
+	  margin-top: 10px;
   	margin-bottom: 10px;
 	justify-content: center;
 	flex-wrap: wrap;
 }
   
 .filter-item {
+	
 	padding: 10px;
 	font-size: 16px;
 	border: 1px solid #ccc;
 	margin: 5px;
 	border-radius: 5px;
 	cursor: pointer;
+}
+
+select {
+	 padding: 5px;
+	 border-radius: 5px;
+	 border: 1px solid #ccc;
 }
 
 
@@ -206,8 +213,8 @@ header {
 }
 /*parte de 03/04 */
 #filter1 {
-	width: 100%;
-	margin: 10px 0;
+	width: 30%;
+	margin: 10px 10px;
   }
   
   #filter1-value,

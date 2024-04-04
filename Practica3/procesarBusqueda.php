@@ -10,7 +10,12 @@ $conn = new mysqli(BD_HOST,BD_USER,BD_PASS,BD_NAME);
     }
 
 // obtener el término de búsqueda ingresado en el formulario
+
+
 $termino = isset($_GET["busqueda"]) ? trim($_GET["busqueda"]) : "";
+
+
+
 
 // buscar los items que contengan el término ingresado
 if (!empty($termino)) {
