@@ -9,14 +9,13 @@ INSERT INTO `usuarios` (`Nombre`, `Apellidos`, `Correo`, `Direccion`, `Telefono`
 ('user', 'user', 'user@ucm.es', 'calle ejemplo nº3 2ºB', 666111888, '87654321Q', 'user', 'userpass', 0);
 
 
-INSERT INTO `productos` (`Nombre`, `Descripcion`, `Precio`, `Categoria`, `Existencias`, `Especie`, `Imagen`) VALUES
-('Bellis', 'Bella como su nombre indica', 4.99, 'Bellis', 14, 'Bellis', 'img/bellis.png'),
-('Palmera cocotera', 'Ideal para cualquier hogar', 6.99, 'Palmeras', 12, 'Cocotera', 'img/palmera-cocotera.png'),
-('Cyclamen', 'Aporta vida a tu jardín', 6.00, 'Cyclamen', 11, 'Cyclamen', 'img/cyclamen.png'),
-('Dahlia', 'Luminosa y con presencia', 4.99, 'Dahlia', 22, 'Dahlia', 'img/dahlia.png'),
-('Margarita dimorfoteca', 'La más especial de las margaritas', 5.99, 'Margarita', 18, 'Dimorfoteca', 'img/margarita-dimorfoteca.png'),
-('Geranio', 'Fundamental para cualquier jardín', 3.99, 'Geranio', 18, 'Geranio', 'img/geranio.png'),
-('Margarita blanca', 'Blanca y pura, básica para tu jardín', 3.99, 'Margaritas', 21, 'Margarita', 'img/margarita-blanca.png'),
-('Muscari', 'Exótica y refinada', 3.99, 'Muscari', 20, 'Muscari', 'img/muscari.png'),
-('Orquídea', 'Su forma y olor maravillan', 4.49, 'Orquidea', 24, 'Orquidea', 'img/orquidea.png'),
-('Pensamiento', 'Pensarás que es una maravilla', 2.99, 'Pensamiento', 32, 'Pensamiento', 'img/pensamiento.png');
+INSERT INTO `productos` (`Nombre`, `Id`, `Resumen`, `Descripcion`, `Precio`, `Categoria`, `Existencias`, `Especie`, `Imagen`) VALUES
+('Palmera cocotera', '001', 'Ideal para cualquier hogar', 'aaa', 6.99, 'Palmeras', 12, 'Cocotera', 'img/palmera-cocotera.png'),
+('Cyclamen', '002', 'Aporta vida a tu jardín', 'aaa', 6.00, 'Cyclamen', 11, 'Cyclamen', 'img/cyclamen.png'),
+('Dahlia', '003', 'Luminosa y con presencia', 'aaa', 4.99, 'Dahlia', 22, 'Dahlia', 'img/dahlia.png'),
+('Margarita dimorfoteca', '004', 'La más especial de las margaritas', 'aaa', 5.99, 'Margarita', 18, 'Dimorfoteca', 'img/margarita-dimorfoteca.png'),
+('Geranio', '004', 'Fundamental para cualquier jardín', 'aaa', 3.99, 'Geranio', 18, 'Geranio', 'img/geranio.png'),
+('Margarita blanca', '005', 'Blanca y pura, básica para tu jardín', 'aaa', 3.99, 'Margaritas', 21, 'Margarita', 'img/margarita-blanca.png'),
+('Muscari', '006', 'Exótica y refinada', 'aaa', 3.99, 'Muscari', 20, 'Muscari', 'img/muscari.png'),
+('Orquídea', '007', 'Su forma y olor maravillan', 'aaa', 4.49, 'Orquidea', 24, 'Orquidea', 'img/orquidea.png'),
+('Pensamiento', '008', 'Pensarás que es una maravilla', 'aaa', 2.99, 'Pensamiento', 32, 'Pensamiento', 'img/pensamiento.png');
