@@ -403,3 +403,71 @@ a.deshabilitado {
 	color: rgba(16, 16, 16, 0.3);
 }
 
+
+/* Estilos para la página de detalles del producto */
+.detalles {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #f9f9f9;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+  
+.titulo-tienda {
+	font-size: 24px;
+	color: #333;
+	margin-bottom: 10px;
+}
+  
+.detalles img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin-bottom: 20px;
+}
+  
+.detalles .linea-botón {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.detalles .precio-existencias {
+    font-size: 1em;
+    color: #666;
+}
+
+.detalles .categoria-especie {
+    font-size: 0.8em;
+    color: #666;
+}
+
+.detalles p {
+	font-size: 16px;
+	color: #666;
+	margin-bottom: 10px;
+}
+  
+.detalles strong {
+	font-weight: bold;
+  
+}
+  
+.detalles button {
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+  
+}
+  
+.detalles button:hover {
+	background-color: #0056b3;
+  
+}
+  

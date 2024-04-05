@@ -62,12 +62,6 @@ CREATE TABLE `usuarios` (
 --
 
 --
--- Indices de la tabla `productos`
---
-ALTER TABLE `productos`
-  ADD PRIMARY KEY (`Especie`);
-
---
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`

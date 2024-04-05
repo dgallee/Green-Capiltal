@@ -1,20 +1,22 @@
 <?php
 function builtDetails($nombre, $id, $descripcion, $precio, $categoria, $existencias, $especie, $imagen) {
-    
-    $detalles = "<div class='detalles'>";
-    $detalles .= "<h1 class='titulo-tienda'>$nombre</h1>";
-    $detalles .= "<img src='$imagen' alt='$nombre'>";
-    $detalles .= "<p><strong>Precio:</strong> $precio</p>";
-    $detalles .= "<p><strong>Categoría:</strong> $categoria</p>";
-    $detalles .= "<p><strong>Existencias:</strong> $existencias</p>";
-    $detalles .= "<p><strong>Especie:</strong> $especie</p>";
-    $detalles .= "<p><strong>Descripción:</strong> $descripcion</p>";
-
-    $detalles .= "<form action='carrito.php' method='post'>";
-    $detalles .= "<input type='hidden' name='id' value='$id'>";
-    $detalles .= "<button type='submit'>Agregar al carrito</button>";
-    $detalles .= "</form>";
-    $detalles .= "</div>";
+    $detalles = <<<EOS
+<div class='detalles'>
+    <h1 class='titulo-tienda'>$nombre</h1>
+    <img src='$imagen' alt='$nombre'>
+    <p><strong></strong> $descripcion</p>
+    <div class='linea-botón'>
+        <p class='precio-existencias'><strong></strong> $precio</p>
+        <p class='precio-existencias'><strong></strong> $existencias</p>
+        <form action='carrito.php' method='post'>
+            <input type='hidden' name='id' value='$id'>
+            <button type='submit'>Agregar al carrito</button>
+        </form>
+    </div>
+    <p class='categoria-especie'><strong></strong> $categoria</p>
+    <p class='categoria-especie'><strong></strong> $especie</p>
+</div>
+EOS;
     return $detalles;
 }
 ?>

@@ -14,7 +14,6 @@
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
     $password = $_POST["password"];
     $tipo = $_POST["type"];
-    $oldUser = $_POST["oldUser"];
 
     $esValido = (Usuario::edit($name, $surname, $mail, $dire, $tfno, $dni, $username, $password, $tipo, $oldUser));
     if ($esValido){

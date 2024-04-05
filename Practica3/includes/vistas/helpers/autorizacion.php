@@ -2,23 +2,23 @@
 
 function estaLogado()
 {
-    return isset($_SESSION['nombre']);
+    return isset($_SESSION['username']);
 }
 
 
 function esMismoUsuario($usuario)
 {
-    return estaLogado() && $_SESSION['nombre'] == $usuario;
+    return estaLogado() && $_SESSION['username'] == $usuario;
 }
 
 function idUsuarioLogado()
 {
-    return $_SESSION['nombre'] ?? false;
+    return $_SESSION['username'] ?? false;
 }
 
 function esAdmin()
 {
-    return estaLogado() && ($_SESSION['esAdmin'] == 1);
+    return estaLogado() && ($_SESSION['tipo'] == 1);
 }
 
 function verificaLogado($urlNoLogado)

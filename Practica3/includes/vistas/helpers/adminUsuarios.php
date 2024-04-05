@@ -30,8 +30,8 @@ function buildTablaUsuarios($usuarios){
         <td>{$usuario['Contrasena']}</td>
         <td>{$usuario['Tipo']}</td>
         <td>
-            <button onclick="location.href='editar.php?user={$usuario['Usuario']}'">Editar</button>
-            <button onclick="location.href='eliminar.php?user={$usuario['Usuario']}'">Eliminar</button>
+            <button onclick="location.href='editar.php?user={$usuario['DNI']}'">Editar</button>
+            <button onclick="location.href='eliminar.php?user={$usuario['DNI']}'">Eliminar</button>
         </td>
         </tr>
         EOS;

@@ -1,13 +1,11 @@
 <?php
 require_once 'includes/config.php';
 require_once 'includes/vistas/helpers/registro.php';
-require_once 'includes/src/FORMULARIORegistro.php';
 
 
 $tituloPagina = 'Registro';
 
-$form= new MiProyecto\Formularios\FormularioRegistro();
-$htmlFormReg = $form->gestiona();
+$htmlFormReg = buildFormularioRegistro();
 $contenidoPrincipal=<<<EOS
 <h1 class='titulo'>Registro en la web</h1>
 $htmlFormReg
