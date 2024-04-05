@@ -23,7 +23,7 @@ EOS;
 <p>Precio: {$producto["Precio"]}€</p>
 <p>Existencias: {$producto["Existencias"]} unidades</p>
 <img src='{$producto["Imagen"]}' alt='{$producto["Nombre"]}' width='200'>
-<a href='detalles.php?prod={$producto['Id']}' class='btn-comprar'>Comprar</a>
+<a href='#' class='btn-comprar'>Comprar</a>
 </div>
 EOS;
     }
