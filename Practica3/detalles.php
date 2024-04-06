@@ -16,13 +16,8 @@ $detallesProd = builtDetails($caracteristicas->getNombre(), $caracteristicas->ge
 
 $contenidoPrincipal = <<<EOS
 <p>$detallesProd</p>
-<form id="form-cantidad">
-    <p>Unidades a comprar: <span id="unidades-comprar">$cantidad</span></p>
-    <input type="hidden" id="cantidad" name="cantidad" value="$cantidad">
-    <button type="button" id="btn-sumar">+</button>
-    <button type="button" id="btn-restar">-</button>
-</form>
 EOS;
+
 
 require('includes/vistas/comun/layout.php');
 ?>
