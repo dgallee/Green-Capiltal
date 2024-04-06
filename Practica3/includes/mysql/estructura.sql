@@ -51,10 +51,19 @@ CREATE TABLE `usuarios` (
   `Correo` varchar(50) NOT NULL,
   `Direccion` varchar(100) DEFAULT NULL,
   `Telefono` int(9) DEFAULT NULL,
-  `DNI` varchar(9) NOT NULL,
+  `DNI` varchar(9) NOT NULL PRIMARY KEY,
   `Usuario` varchar(20) NOT NULL,
   `Contrasena` varchar(20) DEFAULT NULL,
   `Tipo` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+CREATE TABLE carrito (
+    `Id` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    `DNI_usuario` varchar(9) NOT NULL,
+    `Id_producto` varchar(3) NOT NULL,
+    `Cantidad` INT NOT NULL,
+    FOREIGN KEY (`DNI_usuario`) REFERENCES usuarios(`DNI`),
+    FOREIGN KEY (`Id_producto`) REFERENCES productos(`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
@@ -64,9 +73,6 @@ CREATE TABLE `usuarios` (
 --
 -- Indices de la tabla `usuarios`
 --
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`DNI`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
