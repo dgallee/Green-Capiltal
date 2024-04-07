@@ -156,7 +156,21 @@ class Producto{
         }
     }    
     
-
+    public static function reducirUnidades($idProducto, $cantidad) {
+        // Conexión a la base de datos
+        $conn = Aplicacion::getInstance()->getConexionBD();
+    
+        // Consulta para actualizar las existencias del producto
+        $query = "UPDATE productos SET Existencias = Existencias - $cantidad WHERE Id = '$idProducto'";
+    
+        // Ejecutar la consulta SQL
+        if ($conn->query($query) === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     public function getNombre(){
         return $this->pNombre;
     }

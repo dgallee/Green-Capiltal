@@ -6,18 +6,19 @@ function builtDetails($nombre, $id, $descripcion, $precio, $categoria, $existenc
     <img src='$imagen' alt='$nombre'>
     <p><strong></strong> $descripcion</p>
     <div class='linea-botón'>
-        <p class='precio-existencias'><strong></strong> $precio</p>
-        <p class='precio-existencias'><strong></strong> $existencias</p>
-        <form id="form-cantidad">
+        <p class='precio-existencias'><strong></strong> Precio: $precio €</p>
+        <p class='precio-existencias'><strong></strong> Existencias: $existencias</p>
+        <form id="form-cantidad" action="procesarAgregarCarrito.php" method="post">
+            <input type="hidden" name="prodId" value=$id>
             <p>Unidades a comprar: <span id="unidades-comprar">1</span></p>
             <input type="hidden" id="cantidad" name="cantidad" value="1">
             <button type="button" id="btn-sumar">+</button>
             <button type="button" id="btn-restar">-</button>
-            <button type="button" id="btn-add-to-cart">Añadir al carrito</button>
+            <button type="submit" id="btn-add-articulo">Añadir al carrito</button>
         </form>
     </div>
-    <p class='categoria-especie'><strong></strong> $categoria</p>
-    <p class='categoria-especie'><strong></strong> $especie</p>
+    <p class='categoria-especie'><strong></strong> Categoria: $categoria</p>
+    <p class='categoria-especie'><strong></strong> Especie: $especie</p>
     </div>
     EOS;
     return $detalles;

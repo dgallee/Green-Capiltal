@@ -17,7 +17,7 @@ class Carrito{
     public static function mostrarCarrito($cDniusuario){
 
         $conn = Aplicacion::getInstance()->getConexionBD();
-        $sql = 'SELECT Id, DNI_usuario, Id_producto, Cantidad FROM carrito WHERE DNI_usuario = '$cDniusuario'';
+        $sql = "SELECT Id, DNI_usuario, Id_producto, Cantidad FROM carrito WHERE DNI_usuario = '$cDniusuario'";
         $result = $conn->query($sql);
         $articulos = array();
 
@@ -112,12 +112,24 @@ class Carrito{
 
     }
 
-    public static function add($cId, $cDniusuario, $cIdProducto, $cCantidad) {
+    public static function add($cDniusuario, $cIdProducto, $cCantidad) {
         // Conexión a la base de datos
         $conn = Aplicacion::getInstance()->getConexionBD();
     
-        // Preparar la consulta SQL
-        $query = "INSERT INTO carrito (`Id`, `DNI_usuario`, `Id_producto`, `Cantidad`) VALUES ('$cId', '$cDniusuario', '$cIdProducto', '$cCantidad')";
+        // Verificar si ya existe una fila con el mismo DNI de usuario y ID de producto
+        $query = "SELECT * FROM carrito WHERE DNI_usuario = '$cDniusuario' AND Id_producto = '$cIdProducto'";
+        $result = $conn->query($query);
+    
+        if ($result && $result->num_rows > 0) {
+            // Si ya existe una fila, realizar la actualización de la cantidad
+            $row = $result->fetch_assoc();
+            $cantidadExistente = $row['Cantidad'];
+            $nuevaCantidad = $cantidadExistente + $cCantidad;
+            $query = "UPDATE carrito SET Cantidad = '$nuevaCantidad' WHERE DNI_usuario = '$cDniusuario' AND Id_producto = '$cIdProducto'";
+        } else {
+            // Si no existe una fila, realizar la inserción de una nueva fila
+            $query = "INSERT INTO carrito (`DNI_usuario`, `Id_producto`, `Cantidad`) VALUES ('$cDniusuario', '$cIdProducto', '$cCantidad')";
+        }
     
         // Ejecutar la consulta SQL
         if ($conn->query($query) === TRUE) {
@@ -125,7 +137,7 @@ class Carrito{
         } else {
             return false;
         }
-    }    
+    }  
     
 
     public function getId(){

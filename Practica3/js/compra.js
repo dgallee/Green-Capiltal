@@ -1,5 +1,4 @@
 
-console.log("El script de compra.js se ha cargado correctamente.");
 document.addEventListener("DOMContentLoaded", function() {
     var btnSumar = document.getElementById("btn-sumar");
     var btnRestar = document.getElementById("btn-restar");
