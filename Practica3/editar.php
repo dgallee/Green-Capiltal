@@ -6,32 +6,19 @@
 
     $tituloPagina = 'Editar';
 
-    $user = $_GET['user'];
-    $userEdit = Usuario::search($user);
+    $dni = $_GET['user'];
+    $userEdit = Usuario::search($dni);
 
     if($userEdit){
-        $infoant = <<<EOS
-        Nombre: {$userEdit->getUName()}<br>
-        Apellidos: {$userEdit->getUSurname()}<br>
-        Correo: {$userEdit->getUEmail()}<br>
-        Dirección: {$userEdit->getUDir()}<br>
-        Teléfono: {$userEdit->getUTel()}<br>
-        DNI: {$userEdit->getuDNI()}<br>
-        Usuario: {$userEdit->getUUser()}<br>
-        Contraseña: {$userEdit->getUPass()}<br>
-        Tipo: {$userEdit->getUTipo()}<br>
-        EOS;
+ 
+        $formEdit = builtFormularioEditar($userEdit->getUName(), $userEdit->getUSurname(), $userEdit->getUEmail(), $userEdit->getUDir(), $userEdit->getUTel(), $userEdit->getuDNI(), $userEdit->getUUser(), $userEdit->getUPass(), $userEdit->getUTipo());
         
     } else {
-        echo "El usuario no existe.";
-        $infoant= "";
+        $formEdit = "El usuario no existe.";
     }
 
-    $formEdit = builtFormularioEditar($user, $userEdit->getuDNI());
     $contenidoPrincipal=<<<EOS
     <h1>Editar usuarios</h1>
-    $infoant
-    <p></p>
     $formEdit
     EOS;
 

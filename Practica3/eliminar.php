@@ -5,7 +5,7 @@
     require_once 'usuarioDAO.php';
 
     $user = $_GET['user'];
-    $delete = Usuario::delete($user);
+    $dni = Usuario::delete($user);
     
     if ($delete){
         header('Location: adminUsuarios.php');
