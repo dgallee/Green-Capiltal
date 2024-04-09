@@ -191,6 +191,7 @@ class FormularioRegistro extends Formulario {
                $usuario= Usuario::register($nombre,$apellidos,$correo,$direccion,$telefono,$dni,$nombreUsuario,$password);
                $_SESSION["username"] = $nombreUsuario;
                $_SESSION["password"] = $password;
+               $_SESSION["DNI"] = $dni;
                $_SESSION["tipo"]=0;
             }
         }

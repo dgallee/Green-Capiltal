@@ -25,7 +25,7 @@ function builtTablaCarrito($carrito) {
 
     $tablaCarrito .= "</table>";
 
-    $tablaCarrito .= '<button onclick="location.href=\'añadirProducto.php\'">PAGAR</button>';
+    $tablaCarrito .= '<button onclick="location.href=\'agregarProducto.php\'">PAGAR</button>';
 
     return $tablaCarrito;
 }

@@ -76,7 +76,8 @@ class FormularioLogin extends Formulario
                 //$_SESSION['nombre'] = $usuario->getUName();
                 $_SESSION["username"] = $nombreUsuario;
 	            $_SESSION["password"] = $password;
-                $_SESSION['tipo'] = $usuario->getUTipo();
+                $_SESSION["DNI"] = $usuario->getUDNI();
+                $_SESSION["tipo"] = $usuario->getUTipo();
 
                 echo'correcto';
             }

@@ -25,6 +25,7 @@ function logout()
     //Doble seguridad: unset + destroy
     unset($_SESSION['username']);
     unset($_SESSION['tipo']);
+    unset($_SESSION['DNI']);
     unset($_SESSION['password']);
     
     session_destroy();

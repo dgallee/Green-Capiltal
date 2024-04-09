@@ -12,24 +12,22 @@ document.addEventListener('DOMContentLoaded', function () {
   var clearAllButton = document.getElementById('clear-all-filters');
   if (clearAllButton) {
     clearAllButton.addEventListener('click', function (event) {
-      event.preventDefault(); 
-      var form = this.closest('form'); 
+      event.preventDefault();
+      var form = this.closest('form');
       if (form) {
-        var inputs = form.querySelectorAll('input[type="text"], select'); 
+        var inputs = form.querySelectorAll('input[type="text"], select');
         inputs.forEach(function (input) {
           if (input.type === 'text') {
-            input.value = ''; 
+            input.value = '';
           } else if (input.tagName === 'SELECT') {
-            input.selectedIndex = 0;
+            input.selectedIndex = 0; // Reset the value of the select element
           }
         });
 
-        
+
         filter1.value = 0;
         filter1Max.innerText = '100%';
       }
     });
   }
 });
-
-

@@ -16,6 +16,7 @@ if ($esValido) {
 
 	$_SESSION["username"] = $username;
 	$_SESSION["password"] = $password;
+	$_SESSION["DNI"] = $usuario->getUDNI();
 	$_SESSION["tipo"] = $usuario->getUTipo();
 
 }

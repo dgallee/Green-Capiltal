@@ -14,7 +14,7 @@ function builtDetails($nombre, $id, $descripcion, $precio, $categoria, $existenc
             <input type="hidden" id="cantidad" name="cantidad" value="1">
             <button type="button" id="btn-sumar">+</button>
             <button type="button" id="btn-restar">-</button>
-            <button type="submit" id="btn-add-articulo">Añadir al carrito</button>
+            <button type="submit" id="btn-add-articulo">Agregar al carrito</button>
         </form>
     </div>
     <p class='categoria-especie'><strong></strong> Categoria: $categoria</p>

@@ -88,7 +88,6 @@ if (!empty($termino)) {
 
 } 
 else {
-
     if (!empty($categoria) || !empty($categoria)) {//busqueda sin termino 
         
         if (!empty($precio)) {//busqueda solo por precio
@@ -147,8 +146,6 @@ else {
         $contenidoPrincipal = "<p>No se encontraron items.</p>";
         require_once RAIZ_APP."/vistas/comun/layout.php";
     }
-
-    
 }
 ?>
 

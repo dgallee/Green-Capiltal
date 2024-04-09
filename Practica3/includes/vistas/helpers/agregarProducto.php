@@ -1,8 +1,8 @@
 <?php
 
-function builtFormularioAñadirProducto(){
+function builtFormularioAgregarProducto(){
     return <<<EOS
-    <form action="procesarAñadirProducto.php" method="post">
+    <form action="procesarAgregarProducto.php" method="post">
     <fieldset>
     <div>
         <label for="nombre">Nombre:</label>
