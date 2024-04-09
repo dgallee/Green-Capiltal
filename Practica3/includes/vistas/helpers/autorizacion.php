@@ -31,6 +31,10 @@ function esAdmin()
     return estaLogado() && ($_SESSION['tipo'] == 1);
 }
 
+function esComerciante(){
+    return estaLogado() && ($_SESSION['tipo'] == 2);
+}
+
 function verificaLogado($urlNoLogado)
 {
     if (! estaLogado()) {

@@ -22,6 +22,10 @@ $dni = dniUsuarioLogado();
         <h2><a href="admin.php">Administración</a></h2>
     <?php endif; ?>
 
+    <?php if ($usuario_actual && esComerciante()): ?>
+        <h2><a href="comerciante.php">Centro de comerciantes</a></h2>
+    <?php endif; ?>
+
     <?php if ($usuario_actual): ?>
         <h2><a href="carrito.php?DNI=<?php echo $dni; ?>">Carrito</a></h2>
     <?php endif; ?>

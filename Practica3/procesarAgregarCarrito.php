@@ -9,13 +9,10 @@ require_once 'carritoDAO.php';
 if (isset($_POST['prodId']) && isset($_POST['cantidad'])) {
     $prodId = $_POST['prodId'];
     $cantidad = $_POST['cantidad'];
-    echo "Valor de prodId: ";
-    var_dump($prodId);
-    // Aquí debes verificar si el usuario está logeado. Si no lo está, puedes redirigirlo a la página de inicio de sesión.
-    // Ejemplo:
+
     verificaLogado('login.php');
 
-    // Aquí debes obtener el ID del usuario logeado.
+    
     $nombreUsuario = idUsuarioLogado();
     $usuario = Usuario::searchLogin($nombreUsuario);
     // agrego en la tabla carritos o actualizo si ya estaba

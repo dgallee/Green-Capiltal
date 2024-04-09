@@ -43,13 +43,16 @@ class Producto{
 
     }
 
-    public static function showTable(){
+    public static function showTable($dniVendedor){
         
         $conn = Aplicacion::getInstance()->getConexionBD();
         // Consulta SQL para obtener todos los usuarios
-        $query = "SELECT * FROM productos";
+        if($dniVendedor == "admin"){
+            $query = "SELECT * FROM productos";
+        } else{
+            $query = "SELECT * FROM productos WHERE DniVendedor = '$dniVendedor'";
+        }
         $result = $conn->query($query);
-    
         $productos = array();
     
         if ($result->num_rows > 0) {
@@ -135,7 +138,7 @@ class Producto{
         }
     }
 
-    public static function add($name, $res, $desc, $precio, $cat, $existencias, $esp, $img) {
+    public static function add($name, $res, $desc, $precio, $cat, $existencias, $esp, $img, $dniVendedor) {
         // Conexión a la base de datos
         $conn = Aplicacion::getInstance()->getConexionBD();
     
@@ -146,7 +149,7 @@ class Producto{
         $id = $max_id['max_id'] + 1;
     
         // Preparar la consulta SQL
-        $query = "INSERT INTO productos (`Nombre`, `Id`, `Resumen`, `Descripcion`, `Precio`, `Categoria`, `Existencias`, `Especie`, `Imagen`) VALUES ('$name', '$id', '$res', '$desc', $precio, '$cat', $existencias, '$esp', '$img')";
+        $query = "INSERT INTO productos (`Nombre`, `Id`, `Resumen`, `Descripcion`, `Precio`, `Categoria`, `Existencias`, `Especie`, `Imagen`, `DniVendedor`) VALUES ('$name', '$id', '$res', '$desc', $precio, '$cat', $existencias, '$esp', '$img', '$dniVendedor')";
     
         // Ejecutar la consulta SQL
         if ($conn->query($query) === TRUE) {

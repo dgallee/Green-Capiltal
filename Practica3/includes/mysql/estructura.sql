@@ -24,21 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `productos`
+
 --
 
-CREATE TABLE `productos` (
-  `Nombre` varchar(30) NOT NULL,
-  `Id` varchar(3) NOT NULL,
-  `Resumen` text NOT NULL,
-  `Descripcion` text NOT NULL,
-  `Precio` decimal(4,2) NOT NULL,
-  `Categoria` varchar(15) NOT NULL,
-  `Existencias` int(2) NOT NULL,
-  `Especie` varchar(30) NOT NULL,
-  `Imagen` varchar(100) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
 -- --------------------------------------------------------
 
 --
@@ -57,13 +46,31 @@ CREATE TABLE `usuarios` (
   `Tipo` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-CREATE TABLE carrito (
+-- Estructura de tabla para la tabla `productos`
+
+CREATE TABLE `productos` (
+  `Nombre` varchar(30) NOT NULL,
+  `Id` varchar(3) NOT NULL PRIMARY KEY,
+  `Resumen` text NOT NULL,
+  `Descripcion` text NOT NULL,
+  `Precio` decimal(4,2) NOT NULL,
+  `Categoria` varchar(15) NOT NULL,
+  `Existencias` int(2) NOT NULL,
+  `Especie` varchar(30) NOT NULL,
+  `Imagen` varchar(100) NOT NULL,
+  `DniVendedor`varchar(9) NOT NULL,
+  FOREIGN KEY (`DniVendedor`) REFERENCES usuarios(`DNI`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+-- Estructura de tabla para la tabla `productos`
+
+CREATE TABLE `carrito` (
     `Id` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    `DNI_usuario` varchar(9) NOT NULL,
-    `Id_producto` varchar(3) NOT NULL,
+    `DniUsuario` varchar(9) NOT NULL,
+    `IdProducto` varchar(3) NOT NULL,
     `Cantidad` INT NOT NULL,
-    FOREIGN KEY (`DNI_usuario`) REFERENCES usuarios(`DNI`),
-    FOREIGN KEY (`Id_producto`) REFERENCES productos(`Id`)
+    FOREIGN KEY (`DniUsuario`) REFERENCES usuarios(`DNI`),
+    FOREIGN KEY (`IdProducto`) REFERENCES productos(`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --

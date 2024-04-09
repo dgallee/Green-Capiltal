@@ -42,7 +42,7 @@ function buildTablaProductos($productos){
     
 
     // Añadir producto button
-    $tablaProductos .= '<button onclick="location.href=\'añadirProducto.php\'">Añadir producto</button>';
+    $tablaProductos .= '<button onclick="location.href=\'agregarProducto.php\'">Añadir producto</button>';
     $tablaProductos .= '</div>'; 
    
 

@@ -5,14 +5,23 @@ require_once 'includes/vistas/helpers/autorizacion.php';
 require_once 'includes/vistas/helpers/adminProductos.php';
 require_once 'productosDAO.php';
 
-$tituloPagina = 'Admin Productos';
+$tituloPagina = 'Gestion Productos';
 
-if (!esAdmin()) {
-	Utils::paginaError(403, $tituloPagina, '¡Acceso Denegado!', 'No tienes permisos suficientes para acceder al panel de administración de la web.');
+if (!esAdmin() && !esComerciante()) {
+	Utils::paginaError(403, $tituloPagina, '¡Acceso Denegado!', 'No tienes permisos suficientes para administrar y gestionar los productos');
 }
 
+$parametro;
+
+if(esAdmin()){
+	$parametro = "admin";
+}
+else if(esComerciante()){
+	$dni = $_SESSION["DNI"];
+	$parametro = $dni;
+}
 // Obtén el array de usuarios
-$productos = Producto::showTable();
+$productos = Producto::showTable($parametro);
 
 // Comienza a construir la tabla
 

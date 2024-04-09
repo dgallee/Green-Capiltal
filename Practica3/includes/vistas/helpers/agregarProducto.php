@@ -37,7 +37,6 @@ function builtFormularioAgregarProducto(){
         <label for="imagen">Imagen:</label>
         <input type="imagen" name="imagen" id="imagen" required>
     </div>
-
     <button type="submit">Ingresar</button>
     </fieldset>
     </form>

@@ -106,6 +106,7 @@ class FormularioEditar extends Formulario {
         <select name="type" id="type" selected="$tipo"/>
             <option value="0">0</option>
             <option value="1">1</option>
+            <option value="2">2</option>
         </select>
         </div>
     

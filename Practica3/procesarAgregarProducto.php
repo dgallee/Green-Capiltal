@@ -13,8 +13,9 @@
     $existencias = $_POST["existencias"];
     $esp = $_POST["especie"];
     $img = $_POST["imagen"];
+    $dniVendedor = $_SESSION["DNI"];
 
-    $esValido = (Producto::add($name, $res, $desc, $precio, $cat, $existencias, $esp, $img));
+    $esValido = (Producto::add($name, $res, $desc, $precio, $cat, $existencias, $esp, $img, $dniVendedor));
     if ($esValido){
 
         header('Location: adminProductos.php');

@@ -17,7 +17,7 @@ class Carrito{
     public static function mostrarCarrito($cDniusuario){
 
         $conn = Aplicacion::getInstance()->getConexionBD();
-        $sql = "SELECT Id, DNI_usuario, Id_producto, Cantidad FROM carrito WHERE DNI_usuario = '$cDniusuario'";
+        $sql = "SELECT Id, DniUsuario, IdProducto, Cantidad FROM carrito WHERE DniUsuario = '$cDniusuario'";
         $result = $conn->query($sql);
         $articulos = array();
 
@@ -69,7 +69,7 @@ class Carrito{
         $conn = Aplicacion::getInstance()->getConexionBD();
 
         // Prepara la consulta SQL
-        $query = "DELETE FROM carrito WHERE DNI_usuario = '$cDniusuario'";
+        $query = "DELETE FROM carrito WHERE DniUsuario = '$cDniusuario'";
     
         // Ejecuta la consulta
         if ($conn->query($query) === TRUE) {
@@ -103,7 +103,7 @@ class Carrito{
         $rs = $conn->query($query);
         if ($rs->num_rows > 0) {
             $row = $rs->fetch_assoc();
-            $carrito = new Carrito($row['Id'], $row['DNI_usuario'], $row['Id_producto'], $row['Cantidad']);
+            $carrito = new Carrito($row['Id'], $row['DniUsuario'], $row['IdProducto'], $row['Cantidad']);
             $rs->free();
             return $carrito;
         }
@@ -117,7 +117,7 @@ class Carrito{
         $conn = Aplicacion::getInstance()->getConexionBD();
     
         // Verificar si ya existe una fila con el mismo DNI de usuario y ID de producto
-        $query = "SELECT * FROM carrito WHERE DNI_usuario = '$cDniusuario' AND Id_producto = '$cIdProducto'";
+        $query = "SELECT * FROM carrito WHERE DniUsuario = '$cDniusuario' AND IdProducto = '$cIdProducto'";
         $result = $conn->query($query);
     
         if ($result && $result->num_rows > 0) {
@@ -125,10 +125,10 @@ class Carrito{
             $row = $result->fetch_assoc();
             $cantidadExistente = $row['Cantidad'];
             $nuevaCantidad = $cantidadExistente + $cCantidad;
-            $query = "UPDATE carrito SET Cantidad = '$nuevaCantidad' WHERE DNI_usuario = '$cDniusuario' AND Id_producto = '$cIdProducto'";
+            $query = "UPDATE carrito SET Cantidad = '$nuevaCantidad' WHERE DniUsuario = '$cDniusuario' AND IdProducto = '$cIdProducto'";
         } else {
             // Si no existe una fila, realizar la inserción de una nueva fila
-            $query = "INSERT INTO carrito (`DNI_usuario`, `Id_producto`, `Cantidad`) VALUES ('$cDniusuario', '$cIdProducto', '$cCantidad')";
+            $query = "INSERT INTO carrito (`DniUsuario`, `IdProducto`, `Cantidad`) VALUES ('$cDniusuario', '$cIdProducto', '$cCantidad')";
         }
     
         // Ejecutar la consulta SQL
