@@ -30,6 +30,10 @@ if (isset($_POST['prodId']) && isset($_POST['cantidad'])) {
         else{
             echo "Error al reducir las existencias del producto";
         }
+
+        $dni = $usuario->getUDNI();
+        header("Location: carrito.php?DNI={$dni}");
+        
     } else {
         // Manejar el error, por ejemplo, mostrando un mensaje al usuario.
         echo "Error al agregar el producto al carrito.";

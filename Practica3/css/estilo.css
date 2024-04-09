@@ -482,3 +482,40 @@ a.deshabilitado {
   
 }
   
+
+/*Tabla del carrito*/
+.tablaCarrito {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+
+.tablaCarrito th, .tablaCarrito td {
+    padding: 15px;
+    text-align: left;
+}
+
+.tablaCarrito tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
+}
+
+.tablaCarrito th {
+    background-color: #f2f2f2;
+}
+
+.tablaCarrito button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
