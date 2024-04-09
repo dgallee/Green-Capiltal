@@ -111,10 +111,11 @@ header {
 	display: flex;
 	align-items: center;
 	float: left;
+	font-family: 'Pacifico', cursive;
+	font-size: 16px;
 }
-  
-  /*--------------------------------*/
-.contenedor-de-busqueda {
+
+.admin-container {
 	
 	margin-top: 0%;
 	background-color: greenyellow;
@@ -124,6 +125,23 @@ header {
 	border: 1px solid #ccc;
 	margin: 5px;
 	border-radius: 5px;
+	cursor: pointer;
+	
+}
+
+.mi-pie-de-pagina{
+	font-family: 'Pacifico', cursive;
+
+}
+
+
+/*--------------------------------*/
+.contenedor-de-busqueda {
+	
+	margin-top: 0%;
+	font-family: 'Pacifico', cursive;
+	padding: 10px;
+	font-size: 16px;
 	cursor: pointer;
 	
 }
@@ -414,108 +432,3 @@ a.deshabilitado {
 	color: rgba(16, 16, 16, 0.3);
 }
 
-
-/* Estilos para la página de detalles del producto */
-.detalles {
-	max-width: 600px;
-	margin: 0 auto;
-	padding: 20px;
-	background-color: #f9f9f9;
-	border: 1px solid #ddd;
-	border-radius: 5px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-  
-.titulo-tienda {
-	font-size: 24px;
-	color: #333;
-	margin-bottom: 10px;
-}
-  
-.detalles img {
-	max-width: 100%;
-	height: auto;
-	display: block;
-	margin-bottom: 20px;
-}
-  
-.detalles .linea-botón {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.detalles .precio-existencias {
-    font-size: 1em;
-    color: #666;
-}
-
-.detalles .categoria-especie {
-    font-size: 0.8em;
-    color: #666;
-}
-
-.detalles p {
-	font-size: 16px;
-	color: #666;
-	margin-bottom: 10px;
-}
-  
-.detalles strong {
-	font-weight: bold;
-  
-}
-  
-.detalles button {
-	background-color: #007bff;
-	color: #fff;
-	border: none;
-	padding: 10px 20px;
-	border-radius: 5px;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
-  
-}
-  
-.detalles button:hover {
-	background-color: #0056b3;
-  
-}
-  
-
-/*Tabla del carrito*/
-.tablaCarrito {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-
-
-.tablaCarrito th, .tablaCarrito td {
-    padding: 15px;
-    text-align: left;
-}
-
-.tablaCarrito tr {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
-}
-
-.tablaCarrito th {
-    background-color: #f2f2f2;
-}
-
-.tablaCarrito button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}

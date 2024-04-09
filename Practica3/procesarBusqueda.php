@@ -60,9 +60,6 @@ if (!empty($termino)) {
         $statement->bind_param("ss", $termino, $termino);
     }
 
-    echo "Query: ". $query; // Add this line to print the query
-
-    
     $statement->execute();
     $items = $statement->get_result()->fetch_all(MYSQLI_ASSOC);
 
@@ -91,9 +88,67 @@ if (!empty($termino)) {
 
 } 
 else {
-    $items = [];
-    $contenidoPrincipal = "<p>No se encontraron items.</p>";
-    require_once RAIZ_APP."/vistas/comun/layout.php";
+
+    if (!empty($categoria) || !empty($categoria)) {//busqueda sin termino 
+        
+        if (!empty($precio)) {//busqueda solo por precio
+       
+            $query .= " AND Categoria = ?";
+        }
+        if (!empty($precio)) {//busqueda solo por precio
+       
+            $query .= " AND Precio <= ?";
+        }
+
+        $statement = $conn->prepare($query);
+        $termino = "%".$termino."%";
+        if(!empty($categoria)  and !empty($precio)){
+            $statement->bind_param("sd",$categoria, $precio);
+            
+        }
+        else if(!empty($categoria)){
+            $statement->bind_param("s", $categoria);
+        }
+        else if(!empty($precio)){
+            $statement->bind_param("d", $precio);
+        }
+        
+        $statement->execute();
+        $items = $statement->get_result()->fetch_all(MYSQLI_ASSOC);
+    
+        if (!empty($items)) {
+            
+            $contenidoTienda = builtContent($items);
+            
+            foreach ($items as $item) {
+                
+                if(isset($item)){
+                    $contenidoPrincipal = <<<EOS
+                    <h1 class="titulo-tienda">Tienda</h1>
+                    <p>$contenidoTienda</p>
+                    EOS;
+                }
+                else{
+                    $contenidoPrincipal = "<p>No se encontraron items.</p>";
+                }
+            }
+            
+        } else {
+            $contenidoPrincipal = "<p>No se encontraron items.</p>";
+        }
+        
+        require_once RAIZ_APP."/vistas/comun/layout.php";
+
+    }
+
+    else{
+        
+        $items = [];
+        $contenidoPrincipal = "<p>No se encontraron items.</p>";
+        require_once RAIZ_APP."/vistas/comun/layout.php";
+    }
+
+    
 }
 ?>
 

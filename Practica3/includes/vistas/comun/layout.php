@@ -29,5 +29,6 @@ require('pie.php');
 
 ?>
 </div>
+<script src="<?= RUTA_JS ?>/busqueda.js"></script>
 </body>
 </html>
