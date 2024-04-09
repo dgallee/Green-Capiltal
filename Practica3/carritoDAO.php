@@ -1,5 +1,5 @@
 <?php
-
+require_once 'productosDAO.php';
 class Carrito{
 
     private $cId;
@@ -139,6 +139,28 @@ class Carrito{
         }
     }  
     
+    public static function elimina($cIdProducto, $cDniusuario){
+        $conn = Aplicacion::getInstance()->getConexionBD();
+
+        // Obtener la cantidad del producto en el carrito
+        $queryCantidad = "SELECT Cantidad FROM carrito WHERE IdProducto = '$cIdProducto' AND DniUsuario = '$cDniusuario'";
+        $resultCantidad = $conn->query($queryCantidad);
+        if ($resultCantidad && $resultCantidad->num_rows > 0) {
+            $row = $resultCantidad->fetch_assoc();
+            $cantidad = $row['Cantidad'];
+        } else {
+            return false; // No se encontró el producto en el carrito
+        }
+
+        // Eliminar el producto del carrito
+        $queryEliminar = "DELETE FROM carrito WHERE IdProducto = '$cIdProducto' AND DniUsuario = '$cDniusuario'";
+        if ($conn->query($queryEliminar) === TRUE) {
+            Producto::sumarUnidades($cIdProducto, $cantidad);
+            return true; // Éxito al eliminar la fila y actualizar el stock
+        } else {
+            return false; // Error al ejecutar la consulta
+        }
+    }
 
     public function getId(){
         return $this->cId;

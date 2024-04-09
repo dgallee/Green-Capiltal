@@ -16,6 +16,14 @@ div#contenedor {
     text-align: center;
 }
 
+.logo {
+    flex: 2.41; /* El logo tomará todo el espacio restante */
+	/*display: flex;*/
+	align-items: center;
+  	margin-right: 0.2px;
+  	float: left;
+}
+
 .error{
 	text-align: center;
 	font-family: 'Pacifico', cursive;
@@ -82,14 +90,6 @@ header {
 	background-color: green;
   	/*box-shadow: 0 1px 0px 0px rgba(0,0,0,0.1);*/
   	overflow: hidden
-}
-
-.logo {
-    flex: 0.41; /* El logo tomará todo el espacio restante */
-	/*display: flex;*/
-	align-items: center;
-  	margin-right: 0.2px;
-  	float: left;
 }
 
 .menu {

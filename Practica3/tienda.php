@@ -3,7 +3,6 @@
     $tituloPagina = "Tienda en línea";
     $contenidoPrincipal = <<<EOS
     <h1>¡Bienvenido a nuestra tienda!</h1>
-
     EOS;
 
     require_once "includes/src/Aplicacion.php";

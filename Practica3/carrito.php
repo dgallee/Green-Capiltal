@@ -6,8 +6,7 @@
     require_once 'productosDAO.php';
 
     $tituloPagina = 'Editar';
-
-    $DNI = $_GET['DNI'];
+    $DNI = $_SESSION["DNI"];
     $carrito = Carrito::mostrarCarrito($DNI);
 
     if($carrito){
@@ -15,12 +14,11 @@
         $formCar = builtTablaCarrito($carrito);    
     
     } else {
-        echo "El producto no existe.";
-        $formCar= "";
+        $formCar= "No hay productos aún en el carrito. Visita nuestra tienda para llenarlo de maravillosas flores.";
     }
 
     $contenidoPrincipal=<<<EOS
-    <h1>Carrito</h1>
+    <h1 class="titulo-tienda">Carrito</h1>
     $formCar
     EOS;
 
