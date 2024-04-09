@@ -5,7 +5,7 @@
     require_once 'carritoDAO.php';
     require_once 'productosDAO.php';
 
-    $tituloPagina = 'Editar';
+    $tituloPagina = 'Carrito';
     $DNI = $_SESSION["DNI"];
     $carrito = Carrito::mostrarCarrito($DNI);
 

@@ -16,14 +16,6 @@ div#contenedor {
     text-align: center;
 }
 
-.logo {
-    flex: 2.41; /* El logo tomará todo el espacio restante */
-	/*display: flex;*/
-	align-items: center;
-  	margin-right: 0.2px;
-  	float: left;
-}
-
 .error{
 	text-align: center;
 	font-family: 'Pacifico', cursive;

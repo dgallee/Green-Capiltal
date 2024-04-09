@@ -57,7 +57,6 @@ class FormularioLogin extends Formulario
         if ( ! $nombreUsuario || empty($nombreUsuario) ) {
             $this->errores['nombreUsuario'] = 'El nombre de usuario no puede estar vacío';
         }
-        echo 'aqui entra';
         
         $password = trim($datos['password'] ?? '');
         $password = filter_var($password, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -78,8 +77,6 @@ class FormularioLogin extends Formulario
 	            $_SESSION["password"] = $password;
                 $_SESSION["DNI"] = $usuario->getUDNI();
                 $_SESSION["tipo"] = $usuario->getUTipo();
-
-                echo'correcto';
             }
         }
     }

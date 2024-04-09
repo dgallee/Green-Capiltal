@@ -30,7 +30,7 @@ para macetas o parterres.', 4.99, 'Dahlia', 22, 'Dahlia', 'img/dahlia.png', '123
 con heladas leves y poco duraderas, pero prefiere los climas cálidos de primavera y verano, que es cuando florece abundantemente. Tiene un rápido 
 crecimiento y abundante floración similar a la margarita y las hojas verdes y tupidas. Las flores se abren con el sol y se cierran con la sombra. 
 Desprenden una suave fragancia muy característica. Hay múltiples colores. Planta tupida y muy rústica que se suele cultivar en macetas o en el suelo 
-directamente.', 5.99, 'Margarita', 18, 'Dimorfoteca', 'img/margarita-dimorfoteca.png', '12345678O'),
+directamente.', 5.99, 'Margaritas', 18, 'Dimorfoteca', 'img/margarita-dimorfoteca.png', '12345678O'),
 ('Geranio', '005', 'Fundamental para cualquier jardín', 'El geranio común, procedente de Sudáfrica, es la planta por excelencia para decorar balcones 
 y terrazas. Tiene bonitas hojas de un verde oscuro manchado, y flores espectaculares que nos ofrece durante primavera, verano y otoño, y en muchos 
 colores diferentes. Es una planta que destaca por su gran capacidad de floración. Recomendamos situarlo en un espacio de sol y caluroso en verano, 
