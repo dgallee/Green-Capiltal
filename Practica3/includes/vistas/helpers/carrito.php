@@ -10,7 +10,7 @@ function builtTablaCarrito($carrito) {
 
     foreach ($carrito as $articulos) {
         
-        $infoProd = Producto::search($articulos['Id_producto']);
+        $infoProd = Producto::search($articulos['IdProducto']);
         
         $tablaCarrito .= <<<EOS
         <tr>

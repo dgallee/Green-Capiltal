@@ -9,6 +9,7 @@ define('RUTA_APP', '/Proyecto-AW/Green-Capiltal/Practica3');
 define('RUTA_IMGS', RUTA_APP . '/img');
 define('RUTA_CSS', RUTA_APP . '/css');
 define('RUTA_JS', RUTA_APP . '/js');
+define('IMAG', 'C:/xampp/htdocs/Proyecto-AW/Green-Capiltal/Practica3/img/');
 define('INSTALADA', true);
 
 // Parámetros de configuración de la BD

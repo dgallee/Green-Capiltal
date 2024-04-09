@@ -2,7 +2,7 @@
 
 function builtFormularioAgregarProducto(){
     return <<<EOS
-    <form action="procesarAgregarProducto.php" method="post">
+    <form action="procesarAgregarProducto.php" method="post" enctype="multipart/form-data">
     <fieldset>
     <div>
         <label for="nombre">Nombre:</label>
@@ -35,7 +35,7 @@ function builtFormularioAgregarProducto(){
     </div>
     <div>
         <label for="imagen">Imagen:</label>
-        <input type="imagen" name="imagen" id="imagen" required>
+        <input type="file" name="imagen" id="imagen" required>
     </div>
     <button type="submit">Ingresar</button>
     </fieldset>
