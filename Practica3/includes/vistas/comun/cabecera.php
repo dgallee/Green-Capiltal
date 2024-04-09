@@ -7,7 +7,7 @@ $usuario_actual = estaLogado();
 <header class="mi-cabecera">
     <div class="logo">
         <a href="index.php">
-            <img src= "<?= RUTA_IMGS.'/logo.png'?>" alt="Logo de Green Capital">
+            <img src="/Practica3/img/logo.png" alt="Logo de Green Capital">
         </a>
     </div>
     <h2><a href="index.php">Inicio</a></h2>

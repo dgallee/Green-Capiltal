@@ -20,6 +20,8 @@ class FormularioLogin extends Formulario
         // Se reutiliza el nombre de usuario introducido previamente o se deja en blanco
         $nombreUsuario = $datos['nombreUsuario'] ?? '';
 
+        
+
         // Se generan los mensajes de error si existen.
         $htmlErroresGlobales = self::generaListaErroresGlobales($this->errores);
         $erroresCampos = self::generaErroresCampos(['nombreUsuario', 'password'], $this->errores, 'span', array('class' => 'error'));
@@ -55,6 +57,7 @@ class FormularioLogin extends Formulario
         if ( ! $nombreUsuario || empty($nombreUsuario) ) {
             $this->errores['nombreUsuario'] = 'El nombre de usuario no puede estar vacío';
         }
+        echo 'aqui entra';
         
         $password = trim($datos['password'] ?? '');
         $password = filter_var($password, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -68,9 +71,14 @@ class FormularioLogin extends Formulario
             if (!$usuario) {
                 $this->errores[] = "El usuario o el password no coinciden";
             } else {
-                $_SESSION['login'] = true;
-                $_SESSION['nombre'] = $usuario->getNombre();
-                $_SESSION['esAdmin'] = $usuario->tieneRol(Usuario::ADMIN_ROLE);
+                //Pongo comentarios por si lo volvemos a usar
+                //$_SESSION['login'] = true;
+                //$_SESSION['nombre'] = $usuario->getUName();
+                $_SESSION["username"] = $nombreUsuario;
+	            $_SESSION["password"] = $password;
+                $_SESSION['tipo'] = $usuario->getUTipo();
+
+                echo'correcto';
             }
         }
     }

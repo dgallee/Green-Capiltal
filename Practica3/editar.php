@@ -3,6 +3,7 @@
     require_once 'includes/vistas/helpers/autorizacion.php';
     require_once 'includes/vistas/helpers/editar.php';
     require_once 'usuarioDAO.php';
+    require_once 'includes/src/FORMULARIOEditar.php';
 
     $tituloPagina = 'Editar';
 
@@ -10,8 +11,14 @@
     $userEdit = Usuario::search($dni);
 
     if($userEdit){
- 
-        $formEdit = builtFormularioEditar($userEdit->getUName(), $userEdit->getUSurname(), $userEdit->getUEmail(), $userEdit->getUDir(), $userEdit->getUTel(), $userEdit->getuDNI(), $userEdit->getUUser(), $userEdit->getUPass(), $userEdit->getUTipo());
+          
+
+    
+        
+        //echo $_GET['user'];
+        //$formEdit = builtFormularioEditar($userEdit->getUName(), $userEdit->getUSurname(), $userEdit->getUEmail(), $userEdit->getUDir(), $userEdit->getUTel(), $userEdit->getuDNI(), $userEdit->getUUser(), $userEdit->getUPass(), $userEdit->getUTipo());
+        $form= new MiProyecto\Formularios\FormularioEditar($userEdit->getUName(), $userEdit->getUSurname(), $userEdit->getUEmail(), $userEdit->getUDir(), $userEdit->getUTel(), $userEdit->getuDNI(), $userEdit->getUUser(), $userEdit->getUPass(), $userEdit->getUTipo());
+        $formEdit = $form->gestiona();
         
     } else {
         $formEdit = "El usuario no existe.";
