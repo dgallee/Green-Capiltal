@@ -29,7 +29,7 @@ if (isset($_POST['prodId']) && isset($_POST['cantidad'])) {
         }
 
         $dni = $usuario->getUDNI();
-        header("Location: carrito.php?DNI={$dni}");
+        header("Location: carrito.php");
         
     } else {
         // Manejar el error, por ejemplo, mostrando un mensaje al usuario.
