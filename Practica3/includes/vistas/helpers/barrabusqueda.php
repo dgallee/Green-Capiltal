@@ -29,14 +29,14 @@ function buildFormularioBusqueda($itemname = '', $itemCat = '') {
             </div>
         
             <div class="filter-container">
-                <label for="filter1">Price:</label>
-                <span id="filter1-value">$0</span>
+                <label for="filter1">Precio: </label>
+                <span id="filter1-value">0 €</span>
                 <input type="range" id="filter1" name="filter1" min="0" max="100" step="0,1" value="100">  
-                <span id="filter1-max">100</span>
+                <span id="filter1-max">100 €  </span>
                 
                 
 
-                <label for="filter2">Filter by category:</label>
+                <label for="filter2"> Filter by category:</label>
                 <select id="filter2" name="filter2" placeholder="$itemCat">
                 <option value="">--Select category--</option>
 EOS;
