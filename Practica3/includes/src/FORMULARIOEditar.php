@@ -69,40 +69,41 @@ class FormularioEditar extends Formulario {
 
         $html = <<<EOS
         <form action="procesarEditar.php" method="post">
-        <fieldset>
+        <fieldset class="formulario">
+
+        <label for="nombre">Nombre:</label>
         <div>
-            <label for="nombre">Nombre:</label>
             <input type="text" name="nombre" id="nombre" value="$nombre"/>
         </div>
+        <label for="apellidos">Apellidos:</label>
         <div>
-            <label for="apellidos">Apellidos:</label>
             <input type="text" name="apellidos" id="apellidos" value="$apellido"/>
         </div>
+        <label for="correo">Correo:</label>
         <div>
-            <label for="correo">Correo:</label>
             <input type="email" name="correo" id="correo" value="$email"/>
         </div>
+        <label for="direccion">Dirección:</label>
         <div>
-            <label for="direccion">Dirección:</label>
             <input type="text" name="direccion" id="direccion" value="$dir"/>
         </div>
+        <label for="telefono">Teléfono:</label>
         <div>
-            <label for="telefono">Teléfono:</label>
             <input type="text" name="telefono" id="telefono" value="$tel" pattern="[0-9]{9}" title="Por favor, introduzca exactamente 9 números.">
         </div>
     
         <input type="hidden" name="dni" value="$DNI">
-    
+
+        <label for="username">Usuario:</label>
         <div>
-            <label for="username">Usuario:</label>
             <input type="text" name="username" id="username" value="$user"/>
         </div>
+        <label for="password">Contraseña:</label>
         <div>
-            <label for="password">Contraseña:</label>
             <input type="password" name="password" id="password" value="$pass"/>
         </div>
-        <div>
         <label for="type">Tipo:</label>
+        <div>
         <select name="type" id="type">
             <option value="0" . ($tipo == 0 ? 'selected' : '') . >Usuario</option>
             <option value="1" . ($tipo == 1 ? 'selected' : '') . >Admin</option>

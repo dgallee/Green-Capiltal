@@ -28,58 +28,63 @@ class FormularioRegistro extends Formulario {
         
         $html = <<<EOF
         $htmlErroresGlobales
-        <fieldset>
+        <fieldset class="formulario">
             <legend>Datos para el registro</legend>
-            <div>
-                <label for="nombre">Nombre:</label>
-                <input id="nombre" type="text" name="nombre" value="$nombre" />
-                {$erroresCampos['nombre']}
-            </div>
-             <div>
-                     <label for="apellidos">Apellidos:</label>
-                     <input type="text" name="apellidos" id="apellidos" required>
-                     {$erroresCampos['apellidos']}
-            </div>
-             <div>
-                     <label for="correo">Correo:</label>
-                     <input type="email" name="correo" id="correo" required>
-                      {$erroresCampos['correo']}
-                 </div>
-
-                  <div>
-                     <label for="direccion">Dirección:</label>
-                     <input type="text" name="direccion" id="direccion" required>
-                      {$erroresCampos['direccion']}
-                 </div>
-                 <div>
-                     <label for="telefono">Teléfono:</label>
-                     <input type="text" name="telefono" id="telefono" pattern="[0-9]{9}" title="Por favor, introduzca exactamente 9 números." required>
-                      {$erroresCampos['telefono']}
-                 </div>
-                  <div>
-                     <label for="dni">DNI:</label>
-                     <input type="text" name="dni" id="dni" pattern="[0-9]{8}[A-Za-z]" title="Por favor, introduzca 8 números seguidos de una letra." required>
-                     {$erroresCampos['dni']}
-                 </div>
-
-          
             
-               <div>
-                     <label for="username">Usuario:</label>
-                     <input type="text" name="username" id="username">
-                     {$erroresCampos['username']}
-                 </div>
+            <label for="nombre">Nombre:</label>
             <div>
-                     <label for="password">Contraseña:</label>
-                     <input type="password" name="password" id="password">
-                     {$erroresCampos['password']}
-                 </div>
-        
-            <div>
-                <label for="password2">Reintroduce la contraseña :</label>
-                <input id="password2" type="password" name="password2" />
-                {$erroresCampos['password2']}
+                <input id="nombre" type="text" name="nombre" value="$nombre" />
             </div>
+            {$erroresCampos['nombre']}
+            
+            <label for="apellidos">Apellidos:</label>
+             <div>
+                <input type="text" name="apellidos" id="apellidos" required>
+            </div>
+            {$erroresCampos['apellidos']}
+
+            <label for="correo">Correo:</label>
+             <div>
+                <input type="email" name="correo" id="correo" required>
+            </div>
+            {$erroresCampos['apellidos']}
+
+            <label for="direccion">Dirección:</label>
+            <div>
+                <input type="text" name="direccion" id="direccion" required>
+            </div>
+            {$erroresCampos['direccion']}
+
+            <label for="telefono">Teléfono:</label>
+            <div>
+                <input type="text" name="telefono" id="telefono" pattern="[0-9]{9}" title="Por favor, introduzca exactamente 9 números." required>
+            </div>
+            {$erroresCampos['telefono']}
+
+            <label for="dni">DNI:</label>
+            <div>
+                <input type="text" name="dni" id="dni" pattern="[0-9]{8}[A-Za-z]" title="Por favor, introduzca 8 números seguidos de una letra." required>
+            </div>
+            {$erroresCampos['dni']}
+
+            <label for="username">Usuario:</label>
+            <div>     
+                <input type="text" name="username" id="username">
+            </div>
+            {$erroresCampos['username']}
+            
+            <label for="password">Contraseña:</label>
+            <div>
+                <input type="password" name="password" id="password">
+            </div>
+            {$erroresCampos['password']}
+
+            <label for="password2">Repetir contraseña:</label>
+            <div>
+                <input id="password2" type="password" name="password2" />
+            </div>
+            {$erroresCampos['password2']}
+
             <div>
                 <button type="submit" name="registro">Registrar</button>
             </div>

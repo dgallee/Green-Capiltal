@@ -271,10 +271,6 @@ select {
 	font-weight: bold;
 	
 }
-  
-#filter1-max::before {
-	content: "Max: $";
-}
 
 #filter2-label {
     margin-left: 10px;
@@ -608,3 +604,67 @@ a.deshabilitado {
     margin: 4px 2px;
     cursor: pointer;
 }
+
+.formulario {
+    width: 500px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+	background-color: rgb(238, 235, 235);
+}
+
+.formulario fieldset {
+    border: none;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.formulario legend {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+	color: #000; 
+}
+
+.formulario label {
+    display: block;
+    width: 100px;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.formulario select {
+	width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+	background-color: white;
+}
+
+.formulario input[type="text"],
+.formulario input[type="password"],
+.formulario input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.formulario button {
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+	margin-right: 10px;
+	
+}
+
+/* cuando se pone el cursor encima el botón se vuelve azul, implementar en demás botones */
+.formulario button:hover {
+    background-color: #0056b3;
+}
+
+.formulario .error {
+    display: block;
+    font-size: 10px;
+    color: #FF0000; 
+    margin-top: 5px;
+}
+

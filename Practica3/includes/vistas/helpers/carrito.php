@@ -7,12 +7,13 @@ function builtTablaCarrito($carrito) {
     $tablaCarrito = <<<EOS
     <table class="tablaCarrito">
     EOS;
-
+    
     $precioTotal = 0;
 
     foreach ($carrito as $articulos) {
         
         $infoProd = Producto::search($articulos['IdProducto']);
+        
         $precioProducto = $infoProd->getPrecio();
         $articuloPrecioTotal = $articulos['PrecioTotal'];
         $precioTotal = $precioTotal + $articuloPrecioTotal;

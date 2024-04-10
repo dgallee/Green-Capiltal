@@ -26,11 +26,8 @@ $dni = dniUsuarioLogado();
     <?php endif; ?>
 
     <?php if ($usuario_actual): ?>
-        <h2><a href="carrito.php">Carrito</a></h2>
-    <?php endif; ?>
-
-    <?php if ($usuario_actual): ?>
         <h2><a href="pedidos.php">Mis pedidos</a></h2>
+        <h2><a href="carrito.php">Carrito</a></h2>
     <?php endif; ?>
 
     <div class="user-login">
