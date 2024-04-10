@@ -37,10 +37,10 @@ function builtFormularioEditar($nombre, $apellido, $email, $dir, $tel, $DNI, $us
     </div>
     <div>
     <label for="type">Tipo:</label>
-    <select name="type" id="type" selected="$tipo"/>
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
+    <select name="type" id="type">
+        <option value="0" . ($tipo == 0 ? 'selected' : '') . >0</option>
+        <option value="1" . ($tipo == 1 ? 'selected' : '') . >1</option>
+        <option value="2" . ($tipo == 2 ? 'selected' : '') . >2</option>
     </select>
     </div>
 
@@ -50,4 +50,5 @@ function builtFormularioEditar($nombre, $apellido, $email, $dir, $tel, $DNI, $us
 
     EOS;
 }
+
 ?>

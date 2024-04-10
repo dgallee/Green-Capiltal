@@ -16,6 +16,25 @@ div#contenedor {
     text-align: center;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
 .error{
 	text-align: center;
 	font-family: 'Pacifico', cursive;
@@ -108,7 +127,7 @@ header {
 }
   
   /*--------------------------------*/
-.admin-container {
+/* .admin-container {
 	
 	margin-top: 0%;
 	background-color: greenyellow;
@@ -120,7 +139,7 @@ header {
 	border-radius: 5px;
 	cursor: pointer;
 	
-}
+} */
 
 mi-pie-de-pagina{
 	font-family: 'Pacifico', cursive;
@@ -498,6 +517,7 @@ a.deshabilitado {
 .tablaCarrito {
     width: 100%;
     border-collapse: collapse;
+	border: 0px;
 }
 
 
@@ -505,6 +525,7 @@ a.deshabilitado {
 .tablaCarrito th, .tablaCarrito td {
     padding: 15px;
     text-align: left;
+	border: 0px;
 }
 
 .tablaCarrito tr {

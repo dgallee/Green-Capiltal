@@ -103,10 +103,10 @@ class FormularioEditar extends Formulario {
         </div>
         <div>
         <label for="type">Tipo:</label>
-        <select name="type" id="type" selected="$tipo"/>
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
+        <select name="type" id="type">
+            <option value="0" . ($tipo == 0 ? 'selected' : '') . >Usuario</option>
+            <option value="1" . ($tipo == 1 ? 'selected' : '') . >Admin</option>
+            <option value="2" . ($tipo == 2 ? 'selected' : '') . >Comerciante</option>
         </select>
         </div>
     
@@ -115,7 +115,6 @@ class FormularioEditar extends Formulario {
         </form>
     
         EOS;
-
         return $html;
     }
 

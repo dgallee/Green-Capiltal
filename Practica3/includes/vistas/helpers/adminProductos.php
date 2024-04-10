@@ -2,13 +2,13 @@
 
 function buildTablaProductos($productos){
     $tablaProductos = <<<EOS
-    <div class="admin-container">
     <table>
     <tr>
     <th>Nombre</th>
     <th>Precio</th>
     <th>Existencias</th>
     <th>Id</th>
+    <th>Acciones</th>
     </tr>
     EOS;
 
