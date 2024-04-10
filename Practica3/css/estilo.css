@@ -16,8 +16,8 @@ div#contenedor {
     text-align: center;
 }
 
-table {
-    width: 100%;
+/* table {
+    width: 90%;
     border-collapse: collapse;
 }
 
@@ -33,7 +33,7 @@ th, td {
 th {
     background-color: #4CAF50;
     color: white;
-}
+}  */
 
 .error{
 	text-align: center;
@@ -127,7 +127,7 @@ header {
 }
   
   /*--------------------------------*/
-/* .admin-container {
+  /* .admin-container {
 	
 	margin-top: 0%;
 	background-color: greenyellow;
@@ -146,9 +146,12 @@ header {
     font-size: 1.4em;
     color: black; 
     text-align: justify; /* Justificar el texto */
-   
 }
 
+.botonImagen {
+    width: 50px;
+    height: auto;
+}
 
 mi-pie-de-pagina{
 	font-family: 'Pacifico', cursive;
@@ -267,7 +270,10 @@ select {
 	font-weight: bold;
 	
 }
-
+  
+#filter1-max::before {
+	content: "Max: $";
+}
 
 #filter2-label {
     margin-left: 10px;
@@ -550,6 +556,50 @@ a.deshabilitado {
     border: none;
     color: white;
     padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.tableContainer {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tableAdmin {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+}
+
+.tableAdmin th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+.tableAdmin td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.tableAdmin tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tableAdmin tr:hover {
+    background-color: #ddd;
+}
+
+.tableAdmin button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;

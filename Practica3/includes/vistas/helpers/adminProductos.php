@@ -2,7 +2,8 @@
 
 function buildTablaProductos($productos){
     $tablaProductos = <<<EOS
-    <table>
+    <div class="tableContainer">
+    <table class="tableAdmin">
     <tr>
     <th>Nombre</th>
     <th>Precio</th>
@@ -15,7 +16,6 @@ function buildTablaProductos($productos){
     // Añade una fila a la tabla para cada usuario
     $ruta = RUTA_APP . "/procesarsumarexistencias.php";
     foreach ($productos as $producto) {
-//me molaria alinear al centro las tablas pero primero haz lo del form
         $tablaProductos .= <<<EOS
         <tr>
         <td>{$producto['Nombre']}</td>
@@ -30,8 +30,12 @@ function buildTablaProductos($productos){
         </td>
         <td>{$producto['Id']}</td>
         <td>
-            <button onclick="location.href='editarProducto.php?prod={$producto['Id']}'">Editar información</button>
-            <button onclick="location.href='eliminarProducto.php?prod={$producto['Id']}'">Eliminar producto</button>
+            <a href="editarProducto.php?prod={$producto['Id']}">
+                <img src="img/editar.png" alt="Editar información" class="botonImagen" />
+            </a>
+            <a href="eliminarProducto.php?prod={$producto['Id']}">
+                <img src="img/eliminar.png" alt="Eliminar información" class="botonImagen" />
+            </a>
         </td>
         </tr>
         EOS;
@@ -39,12 +43,10 @@ function buildTablaProductos($productos){
 
     // Cierra la tabla
     $tablaProductos .= "</table>";
-    
 
     // Añadir producto button
     $tablaProductos .= '<button onclick="location.href=\'agregarProducto.php\'">Añadir producto</button>';
     $tablaProductos .= '</div>'; 
-   
 
     return $tablaProductos;
 }

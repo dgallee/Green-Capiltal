@@ -2,7 +2,8 @@
 
 function buildTablaUsuarios($usuarios){
     $tablaUsuarios = <<<EOS
-    <table class="table table-striped">
+    <div class="tableContainer">
+    <table class="tableAdmin">
     <tr>
     <th>Nombre</th>
     <th>Apellidos</th>
@@ -17,7 +18,6 @@ function buildTablaUsuarios($usuarios){
     </tr>
     EOS;
 
-    // Añade una fila a la tabla para cada usuario
     foreach ($usuarios as $usuario) {
         $tipoUsuario = '';
         if ($usuario['Tipo'] == 0) {
@@ -40,15 +40,19 @@ function buildTablaUsuarios($usuarios){
         <td>{$usuario['Contrasena']}</td>
         <td>{$tipoUsuario}</td>
         <td>
-            <button onclick="location.href='editar.php?user={$usuario['DNI']}'">Editar</button>
-            <button onclick="location.href='eliminar.php?user={$usuario['DNI']}'">Eliminar</button>
+            <a href="editar.php?user={$usuario['DNI']}">
+            <img src="img/editar.png" alt="Editar" class="botonImagen" />
+            </a>
+            <a href="eliminar.php?user={$usuario['DNI']}">
+            <img src="img/eliminar.png" alt="Eliminar" class="botonImagen" />
+            </a>
         </td>
         </tr>
         EOS;
     }
 
     // Cierra la tabla
-    $tablaUsuarios .= "</table>";
+    $tablaUsuarios .= "</table></div>";
 
     return $tablaUsuarios;
 }
