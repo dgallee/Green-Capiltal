@@ -141,6 +141,15 @@ header {
 	
 } */
 
+.adminopciones{
+	font-family: 'Pacifico', cursive;
+    font-size: 1.4em;
+    color: black; 
+    text-align: justify; /* Justificar el texto */
+   
+}
+
+
 mi-pie-de-pagina{
 	font-family: 'Pacifico', cursive;
 
