@@ -10,6 +10,7 @@ function builtDetails($nombre, $id, $descripcion, $precio, $categoria, $existenc
         <p class='precio-existencias'><strong></strong> Existencias: $existencias</p>
         <form id="form-cantidad" action="procesarAgregarCarrito.php" method="post">
             <input type="hidden" name="prodId" value=$id>
+            <input type="hidden" name="precioProducto" value="$precio">
             <p>Unidades a comprar: <span id="unidades-comprar">1</span></p>
             <input type="hidden" id="cantidad" name="cantidad" value="1">
             <button type="button" id="btn-sumar">+</button>

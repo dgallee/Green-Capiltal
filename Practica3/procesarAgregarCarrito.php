@@ -9,6 +9,8 @@ require_once 'carritoDAO.php';
 if (isset($_POST['prodId']) && isset($_POST['cantidad'])) {
     $prodId = $_POST['prodId'];
     $cantidad = $_POST['cantidad'];
+    $precio = $_POST['precioProducto'];
+    var_dump($precio);
 
     verificaLogado('login.php');
 
@@ -16,7 +18,7 @@ if (isset($_POST['prodId']) && isset($_POST['cantidad'])) {
     $nombreUsuario = idUsuarioLogado();
     $usuario = Usuario::searchLogin($nombreUsuario);
     // agrego en la tabla carritos o actualizo si ya estaba
-    $esValido = Carrito::add($usuario->getUDNI(), $prodId, $cantidad);
+    $esValido = Carrito::add($usuario->getUDNI(), $prodId, $cantidad, $precio);
 
     if ($esValido) {
         // Redirigir al usuario a la página de detalles del producto o al carrito de compras.

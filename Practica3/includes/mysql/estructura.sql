@@ -69,6 +69,19 @@ CREATE TABLE `carrito` (
     `DniUsuario` varchar(9) NOT NULL,
     `IdProducto` varchar(3) NOT NULL,
     `Cantidad` INT NOT NULL,
+    `PrecioTotal` decimal(4,2) NOT NULL,
+    FOREIGN KEY (`DniUsuario`) REFERENCES usuarios(`DNI`),
+    FOREIGN KEY (`IdProducto`) REFERENCES productos(`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+
+CREATE TABLE `pedidos` (
+    `Id` INT NOT NULL,
+    `DniUsuario` varchar(9) NOT NULL,
+    `IdProducto` varchar(3) NOT NULL,
+    `Unidades` INT NOT NULL,
+    `PrecioTotal` decimal(4,2) NOT NULL,
+    PRIMARY KEY (`Id`, `DniUsuario`, `IdProducto`),
     FOREIGN KEY (`DniUsuario`) REFERENCES usuarios(`DNI`),
     FOREIGN KEY (`IdProducto`) REFERENCES productos(`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
