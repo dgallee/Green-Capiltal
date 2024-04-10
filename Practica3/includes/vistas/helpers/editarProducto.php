@@ -3,7 +3,7 @@
 function builtFormularioEditarProducto($name, $id, $res, $desc, $precio, $cat, $existencias, $esp, $img){
     return <<<EOS
     <form action="procesarEditarProducto.php" method="post">
-    <fieldset>
+    <fieldset class="formulario">
     <div>
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" id="nombre"  value="$name"/> 

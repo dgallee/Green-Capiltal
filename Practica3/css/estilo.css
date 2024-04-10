@@ -640,6 +640,8 @@ a.deshabilitado {
 
 .formulario input[type="text"],
 .formulario input[type="password"],
+.formulario input[type="number"],
+.formulario input[type="file"],
 .formulario input[type="email"] {
     width: 100%;
     padding: 10px;

@@ -3,7 +3,7 @@
 function builtFormularioAgregarProducto(){
     return <<<EOS
     <form action="procesarAgregarProducto.php" method="post" enctype="multipart/form-data">
-    <fieldset>
+    <fieldset class="formulario">
     <div>
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" id="nombre" required>
