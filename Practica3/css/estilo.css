@@ -258,10 +258,7 @@ select {
 	font-weight: bold;
 	
 }
-  
-#filter1-max::before {
-	content: "Max: $";
-}
+
 
 #filter2-label {
     margin-left: 10px;
