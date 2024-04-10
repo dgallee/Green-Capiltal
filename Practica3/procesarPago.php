@@ -9,7 +9,7 @@
     $ok = Carrito::finalizaPago($DNI);
 
     if ($ok){
-        header('Location: pedidos.php');
+        header('Location: pedidoRealizado.php');
     }
 
     else {
