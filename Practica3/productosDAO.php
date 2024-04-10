@@ -43,16 +43,13 @@ class Producto{
 
     }
 
-    public static function showTable($dniVendedor){
+    public static function showTable(){
         
         $conn = Aplicacion::getInstance()->getConexionBD();
         // Consulta SQL para obtener todos los usuarios
-        if($dniVendedor == "admin"){
-            $query = "SELECT * FROM productos";
-        } else{
-            $query = "SELECT * FROM productos WHERE DniVendedor = '$dniVendedor'";
-        }
+        $query = "SELECT * FROM productos";
         $result = $conn->query($query);
+    
         $productos = array();
     
         if ($result->num_rows > 0) {
@@ -138,7 +135,7 @@ class Producto{
         }
     }
 
-    public static function add($name, $res, $desc, $precio, $cat, $existencias, $esp, $img, $dniVendedor) {
+    public static function add($name, $res, $desc, $precio, $cat, $existencias, $esp, $img) {
         // Conexión a la base de datos
         $conn = Aplicacion::getInstance()->getConexionBD();
     
@@ -149,7 +146,7 @@ class Producto{
         $id = $max_id['max_id'] + 1;
     
         // Preparar la consulta SQL
-        $query = "INSERT INTO productos (`Nombre`, `Id`, `Resumen`, `Descripcion`, `Precio`, `Categoria`, `Existencias`, `Especie`, `Imagen`, `DniVendedor`) VALUES ('$name', '$id', '$res', '$desc', $precio, '$cat', $existencias, '$esp', '$img', '$dniVendedor')";
+        $query = "INSERT INTO productos (`Nombre`, `Id`, `Resumen`, `Descripcion`, `Precio`, `Categoria`, `Existencias`, `Especie`, `Imagen`) VALUES ('$name', '$id', '$res', '$desc', $precio, '$cat', $existencias, '$esp', '$img')";
     
         // Ejecutar la consulta SQL
         if ($conn->query($query) === TRUE) {
@@ -174,19 +171,125 @@ class Producto{
         }
     }
 
-    public static function sumarUnidades($idProducto, $cantidad) {
-        // Conexión a la base de datos
+    public static function  getCategorias() {
         $conn = Aplicacion::getInstance()->getConexionBD();
+        $sql = "SELECT Categoria FROM productos";
+        $resultado = $conn->query($sql);
+        $categorias = array();
     
-        // Consulta para actualizar las existencias del producto
-        $query = "UPDATE productos SET Existencias = Existencias + $cantidad WHERE Id = '$idProducto'";
-    
-        // Ejecutar la consulta SQL
-        if ($conn->query($query) === TRUE) {
-            return true;
-        } else {
-            return false;
+        while ($fila = $resultado->fetch_assoc()) {
+            $categorias[] = $fila['Categoria'];
         }
+    
+        // Elimina duplicados
+        $categorias = array_unique($categorias);
+    
+        return $categorias;
+    }
+
+    public static function queryBusqueda() {
+
+        $conn = Aplicacion::getInstance()->getConexionBD();
+        if ($conn->connect_error){
+            die("La conexión ha fallado" . $conn->connect_error);
+        }
+    
+        $termino = isset($_GET["busqueda"]) ? trim($_GET["busqueda"]) : "";
+       
+
+
+        if (isset($_GET["filter2"]) && $_GET["filter2"] != "") {
+            $categoria = $_GET["filter2"];
+        }
+        
+        if (isset($_GET["filter1"])) {
+            $precio = $_GET["filter1"];
+        }
+
+        $query = "SELECT * FROM productos WHERE 1";
+
+        
+        if (!empty($termino)) {
+            
+           
+            $query .= " AND (Nombre LIKE ? OR Descripcion LIKE ?)";
+        
+            if (!empty($categoria)) {
+                
+                $query .= " AND Categoria = ?";
+            }
+            
+            if (!empty($precio)) {
+            
+                $query .= " AND Precio <= ?";
+            }
+            
+
+            $statement = $conn->prepare($query);
+
+            $termino = "%".$termino."%";
+            
+            if(!empty($categoria) and !empty($precio)){
+                
+                $statement->bind_param("sssd", $termino, $termino,$categoria, $precio);
+                
+            }
+            else if(!empty($categoria)){//aqui nunca entra
+                
+                $statement->bind_param("sss", $termino, $termino, $categoria);
+            }
+            else if(!empty($precio)){
+               
+                $statement->bind_param("ssd", $termino, $termino, $precio);
+            }
+            else{//aqui tampoco
+                
+                $statement->bind_param("ss", $termino, $termino);
+                
+            }
+        
+            $statement->execute();
+           
+            $items = $statement->get_result()->fetch_all(MYSQLI_ASSOC);
+            
+
+        }
+        else {
+           
+
+            if (!empty($categoria) || !empty($precio)) {//busqueda sin termino 
+                
+                if (!empty($categoria)) {//busqueda solo por precio
+               
+                    $query .= " AND Categoria = ?";
+                }
+
+                if (!empty($precio)) {//busqueda solo por precio
+               
+                    $query .= " AND Precio <= ?";
+                }
+                
+        
+                $statement = $conn->prepare($query);
+                $termino = "%".$termino."%";
+                if(!empty($categoria)  and !empty($precio)){
+                    $statement->bind_param("sd",$categoria, $precio);
+                    
+                }
+                else if(!empty($categoria)){
+                    $statement->bind_param("s", $categoria);
+                }
+                else if(!empty($precio)){
+                    $statement->bind_param("d", $precio);
+                }
+                
+                $statement->execute();
+                $items = $statement->get_result()->fetch_all(MYSQLI_ASSOC);
+                
+            }
+        }
+        return $items;
+
     }
     
     public function getNombre(){
@@ -226,6 +329,4 @@ class Producto{
         return $this->pImagen;
     }
 }
-
-
 ?>

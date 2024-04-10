@@ -5,7 +5,7 @@
 
 // Parámetros de configuración generales
 define('RAIZ_APP', str_replace('\\','/',__DIR__));
-define('RUTA_APP', '/Proyecto-AW/Green-Capiltal/Practica3');
+define('RUTA_APP', '/greencap/Practica3p');
 define('RUTA_IMGS', RUTA_APP . '/img');
 define('RUTA_CSS', RUTA_APP . '/css');
 define('RUTA_JS', RUTA_APP . '/js');
@@ -72,5 +72,6 @@ Mensaje::init();
 /* */
 require_once 'src/Aplicacion.php';
 require_once 'usuarioDAO.php';
+require_once 'productosDAO.php';
 
 Aplicacion::getInstance()->init(array('host'=>BD_HOST,'user'=>BD_USER,'pass'=>BD_PASS,'name'=>BD_NAME));
