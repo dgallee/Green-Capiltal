@@ -14,7 +14,7 @@
         $formCar = builtTablaCarrito($carrito);    
     
     } else {
-        $formCar= "No hay productos aún en el carrito. Visita nuestra tienda para llenarlo de maravillosas flores.";
+        $formCar= "<div class='descripcion2'>No hay productos aún en el carrito. Visita nuestra tienda para llenarlo de maravillosas flores.</div>";
     }
 
     $contenidoPrincipal=<<<EOS

@@ -1,23 +1,26 @@
 <?php
 require_once 'productosDAO.php';
+require_once 'pedidosDAO.php';
 class Carrito{
 
     private $cId;
     private $cDniusuario;
     private $cIdProducto;
     private $cCantidad;
+    private $precioTotal;
 
-    public function __construct($cId, $cDniusuario, $cIdProducto, $cCantidad){
+    public function __construct($cId, $cDniusuario, $cIdProducto, $cCantidad, $precioTotal){
         $this->cId = $cId;
         $this->cDniusuario = $cDniusuario;
         $this->cIdProducto = $cIdProducto;
         $this->cCantidad = $cCantidad;
+        $this->precioTotal = $precioTotal;
     }
 
     public static function mostrarCarrito($cDniusuario){
 
         $conn = Aplicacion::getInstance()->getConexionBD();
-        $sql = "SELECT Id, DniUsuario, IdProducto, Cantidad FROM carrito WHERE DniUsuario = '$cDniusuario'";
+        $sql = "SELECT Id, DniUsuario, IdProducto, Cantidad, PrecioTotal FROM carrito WHERE DniUsuario = '$cDniusuario'";
         $result = $conn->query($sql);
         $articulos = array();
 
@@ -103,7 +106,7 @@ class Carrito{
         $rs = $conn->query($query);
         if ($rs->num_rows > 0) {
             $row = $rs->fetch_assoc();
-            $carrito = new Carrito($row['Id'], $row['DniUsuario'], $row['IdProducto'], $row['Cantidad']);
+            $carrito = new Carrito($row['Id'], $row['DniUsuario'], $row['IdProducto'], $row['Cantidad'], $row['PrecioTotal']);
             $rs->free();
             return $carrito;
         }
@@ -112,7 +115,7 @@ class Carrito{
 
     }
 
-    public static function add($cDniusuario, $cIdProducto, $cCantidad) {
+    public static function add($cDniusuario, $cIdProducto, $cCantidad, $precio) {
         // Conexión a la base de datos
         $conn = Aplicacion::getInstance()->getConexionBD();
     
@@ -125,10 +128,12 @@ class Carrito{
             $row = $result->fetch_assoc();
             $cantidadExistente = $row['Cantidad'];
             $nuevaCantidad = $cantidadExistente + $cCantidad;
-            $query = "UPDATE carrito SET Cantidad = '$nuevaCantidad' WHERE DniUsuario = '$cDniusuario' AND IdProducto = '$cIdProducto'";
+            $nuevoPrecio = $nuevaCantidad * $precio;
+            $query = "UPDATE carrito SET Cantidad = '$nuevaCantidad', PrecioTotal = '$nuevoPrecio' WHERE DniUsuario = '$cDniusuario' AND IdProducto = '$cIdProducto'";
         } else {
             // Si no existe una fila, realizar la inserción de una nueva fila
-            $query = "INSERT INTO carrito (`DniUsuario`, `IdProducto`, `Cantidad`) VALUES ('$cDniusuario', '$cIdProducto', '$cCantidad')";
+            $precioTotal = $precio * $cCantidad;
+            $query = "INSERT INTO carrito (`DniUsuario`, `IdProducto`, `Cantidad`, `PrecioTotal`) VALUES ('$cDniusuario', '$cIdProducto', '$cCantidad', $precioTotal)";
         }
     
         // Ejecutar la consulta SQL
@@ -159,6 +164,74 @@ class Carrito{
             return true; // Éxito al eliminar la fila y actualizar el stock
         } else {
             return false; // Error al ejecutar la consulta
+        }
+    }
+
+    public static function acabaCompra($cIdProducto, $cDniusuario){
+        $conn = Aplicacion::getInstance()->getConexionBD();
+
+        // Obtener la cantidad del producto en el carrito
+        $queryCantidad = "SELECT Cantidad FROM carrito WHERE IdProducto = '$cIdProducto' AND DniUsuario = '$cDniusuario'";
+        $resultCantidad = $conn->query($queryCantidad);
+        if ($resultCantidad && $resultCantidad->num_rows > 0) {
+            $row = $resultCantidad->fetch_assoc();
+        } else {
+            return false; // No se encontró el producto en el carrito
+        }
+
+        // Eliminar el producto del carrito
+        $queryEliminar = "DELETE FROM carrito WHERE IdProducto = '$cIdProducto' AND DniUsuario = '$cDniusuario'";
+        if ($conn->query($queryEliminar) === TRUE) {
+            return true; // Éxito al eliminar la fila
+        } else {
+            return false; // Error al ejecutar la consulta
+        }
+    }
+
+    public static function finalizaPago($cDniusuario){
+        $carrito = self::mostrarCarrito($cDniusuario);
+        if (!$carrito) {
+            return false; // No hay elementos en el carrito del usuario
+        }
+        $idPedido = Pedido::obtenerIdActual();
+        $idPedido += 1;
+        $numProductos = self::numeroProductosEnCarrito($cDniusuario);
+        // Iterar sobre cada artículo en el carrito
+        foreach ($carrito as $articulo) {
+            // Obtener el precio total del artículo del carrito
+            $precioTotalArticulo = $articulo['PrecioTotal'];
+            $cantidad = $articulo['Cantidad'];
+            $dni = $articulo['DniUsuario'];
+            // Obtener el ID del producto
+            $idProducto = $articulo['IdProducto'];
+            // Eliminar el artículo del carrito
+            self::acabaCompra($idProducto, $cDniusuario);
+            Pedido::addPedido($idPedido, $idProducto, $cantidad, $precioTotalArticulo, $dni);
+        }
+
+        return true;
+    }
+
+    public static function numeroProductosEnCarrito($cDniusuario) {
+        // Conexión a la base de datos
+        $conn = Aplicacion::getInstance()->getConexionBD();
+    
+        // Consulta para obtener el número de productos en el carrito del usuario
+        $query = "SELECT SUM(Cantidad) AS totalProductos FROM carrito WHERE DniUsuario = '$cDniusuario'";
+        $result = $conn->query($query);
+    
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $totalProductos = $row['totalProductos'];
+            if ($totalProductos !== null) {
+                return $totalProductos;
+            } else {
+                // Si no hay productos en el carrito, devolvemos 0
+                return 0;
+            }
+        } else {
+            // Error al ejecutar la consulta, devolvemos 0
+            return 0;
         }
     }
 

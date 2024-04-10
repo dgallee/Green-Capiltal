@@ -36,7 +36,7 @@ function buildFormularioBusqueda($itemname = '', $itemCat = '') {
                 
                 
 
-                <label for="filter2"> Filter by category:</label>
+                <label for="filter2"> Categoria :</label>
                 <select id="filter2" name="filter2" placeholder="$itemCat">
                 <option value="">--Select category--</option>
 EOS;
