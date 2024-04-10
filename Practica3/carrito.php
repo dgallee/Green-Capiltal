@@ -14,7 +14,8 @@
         $formCar = builtTablaCarrito($carrito);    
     
     } else {
-        $formCar= "<div class='descripcion2'>No hay productos aún en el carrito. Visita nuestra tienda para llenarlo de maravillosas flores.</div>";    
+        $formCar= '<div class="descripcion2">No hay productos aún en el carrito.
+        Visita nuestra <a href="tienda.php">tienda</a> para llenarlo de maravillosas flores.</div>';    
     }
     $contenidoPrincipal=<<<EOS
     <h1 class="titulo-tienda">Carrito</h1>

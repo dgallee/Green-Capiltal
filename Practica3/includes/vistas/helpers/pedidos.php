@@ -16,12 +16,11 @@ function builtTablaPedidos($pedidos) {
         $precioProducto = $infoProd->getPrecio();
         $articuloPrecioTotal = $articulos['PrecioTotal'];
         $precioTotal = $precioTotal + $articuloPrecioTotal;
-        $tablaCarrito .= <<<EOS
+        $tablaPedidos .= <<<EOS
         <tr>
         <td> Artículo: {$infoProd->getNombre()}</td>
-        <td>{$infoProd->getRes()}</td>
         <td> Precio: {$infoProd->getPrecio()} €</td>
-        <td> Cantidad: {$articulos['Cantidad']}</td>
+        <td> Cantidad: {$articulos['Unidades']}</td>
         <td> Precio total del artículo: {$articuloPrecioTotal} €</td>
         <td><img src='{$infoProd->getImagen()}' alt='' width='200'></td>
         </tr>
