@@ -43,11 +43,15 @@ class Producto{
 
     }
 
-    public static function showTable(){
-        
+    public static function showTable($dniVendedor){        
         $conn = Aplicacion::getInstance()->getConexionBD();
         // Consulta SQL para obtener todos los usuarios
-        $query = "SELECT * FROM productos";
+        
+        if($dniVendedor == "admin"){
+            $query = "SELECT * FROM productos";
+        } else{
+            $query = "SELECT * FROM productos WHERE DniVendedor = '$dniVendedor'";
+        }
         $result = $conn->query($query);
     
         $productos = array();
@@ -135,7 +139,7 @@ class Producto{
         }
     }
 
-    public static function add($name, $res, $desc, $precio, $cat, $existencias, $esp, $img) {
+    public static function add($name, $res, $desc, $precio, $cat, $existencias, $esp, $img, $dniVendedor) {
         // Conexión a la base de datos
         $conn = Aplicacion::getInstance()->getConexionBD();
     
@@ -146,8 +150,7 @@ class Producto{
         $id = $max_id['max_id'] + 1;
     
         // Preparar la consulta SQL
-        $query = "INSERT INTO productos (`Nombre`, `Id`, `Resumen`, `Descripcion`, `Precio`, `Categoria`, `Existencias`, `Especie`, `Imagen`) VALUES ('$name', '$id', '$res', '$desc', $precio, '$cat', $existencias, '$esp', '$img')";
-    
+        $query = "INSERT INTO productos (`Nombre`, `Id`, `Resumen`, `Descripcion`, `Precio`, `Categoria`, `Existencias`, `Especie`, `Imagen`, `DniVendedor`) VALUES ('$name', '$id', '$res', '$desc', $precio, '$cat', $existencias, '$esp', '$img', '$dniVendedor')";    
         // Ejecutar la consulta SQL
         if ($conn->query($query) === TRUE) {
             return true;
@@ -171,6 +174,19 @@ class Producto{
         }
     }
 
+    public static function sumarUnidades($idProducto, $cantidad) {
+        // Conexión a la base de datos
+        $conn = Aplicacion::getInstance()->getConexionBD();
+        // Consulta para actualizar las existencias del producto
+        $query = "UPDATE productos SET Existencias = Existencias + $cantidad WHERE Id = '$idProducto'";
+        // Ejecutar la consulta SQL
+        if ($conn->query($query) === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
     public static function  getCategorias() {
         $conn = Aplicacion::getInstance()->getConexionBD();
         $sql = "SELECT Categoria FROM productos";

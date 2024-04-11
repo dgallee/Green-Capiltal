@@ -17,7 +17,7 @@ function builtTablaPedidos($pedidos) {
     //Scrollbar linea 19 a implementar en tienda?
     $tablaPedidos = <<<EOS
     <div style="width: 100%; height: 400px; overflow-y: scroll;">
-    <table class="tablaCarrito">
+    <table class="tablaPedidos">
     EOS;
 
     foreach ($pedidosAgrupados as $idPedido => $articulos) {
@@ -30,13 +30,14 @@ function builtTablaPedidos($pedidos) {
             $infoProd = Producto::search($articulo['IdProducto']);
             $articuloPrecioTotal = $articulo['PrecioTotal'];
             $precioTotal += $articuloPrecioTotal;
-
             $tablaPedidos .= <<<EOS
+            <tr>
             <td> Artículo: {$infoProd->getNombre()}</td>
             <td> Precio: {$infoProd->getPrecio()} €</td>
             <td> Cantidad: {$articulo['Unidades']}</td>
             <td> Precio total del artículo: {$articuloPrecioTotal} €</td>
             <td><img src='{$infoProd->getImagen()}' alt='' width='200'></td>
+            </tr>
             EOS;
         }
 

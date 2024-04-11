@@ -20,7 +20,7 @@ function builtTablaCarrito($carrito) {
         $tablaCarrito .= <<<EOS
         <tr>
         <td> Artículo: {$infoProd->getNombre()}</td>
-        <td>{$infoProd->getRes()}</td>
+
         <td> Precio: {$infoProd->getPrecio()} €</td>
         <td> Cantidad: {$articulos['Cantidad']}</td>
         <td> Precio total del artículo: {$articuloPrecioTotal} €</td>
@@ -37,9 +37,10 @@ function builtTablaCarrito($carrito) {
     }
 
     $tablaCarrito .= "</table>";
-    $tablaCarrito .= '<p class="descripcion2">El precio total del pedido es de ' . $precioTotal . '€</p>';
-    $tablaCarrito .= '<button onclick="location.href=\'procesarPago.php\'">Finalizar el pedido y pagar</button>';
-
+    $tablaCarrito .= <<<EOS
+    <p class="descripcion2">El precio total del pedido es de $precioTotal €</p>
+    <button onclick="location.href=\'procesarPago.php\'">Finalizar el pedido y pagar</button>
+    EOS;
     return $tablaCarrito;
 }
 

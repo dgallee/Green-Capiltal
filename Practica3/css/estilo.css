@@ -530,7 +530,7 @@ a.deshabilitado {
   
 
 /*Tabla del carrito*/
-.tablaCarrito {
+/* .tablaCarrito {
     width: 100%;
     border-collapse: collapse;
 	border: 0px;
@@ -566,7 +566,96 @@ a.deshabilitado {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+} */
+
+
+/* Estilo para la tabla */
+.tablaCarrito {
+    width: 100%;
+    border-collapse: collapse;
 }
+
+/* Estilo para las celdas de la tabla */
+.tablaCarrito td {
+    /* border: 1px solid #ddd; */
+    padding: 8px;
+    text-align: left;
+}
+
+/* Estilo para las filas de la tabla */
+.tablaCarrito tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tablaCarrito tr:hover {
+    background-color: #ddd;
+}
+
+/* Estilo para las imágenes de los productos */
+.tablaCarrito img {
+    width: 100px;
+    height: auto;
+}
+
+/* Estilo para el botón de eliminar */
+.tablaCarrito button {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: none;
+    padding: 10px 24px;
+}
+
+/* Estilo para el botón de finalizar el pedido */
+body > button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: none;
+}
+
+
+/* Estilo para la tabla */
+.tablaPedidos {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Estilo para las celdas de la tabla */
+.tablaPedidos td {
+    padding: 8px;
+    text-align: left;
+}
+
+/* Estilo para las filas de la tabla */
+.tablaPedidos tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tablaPedidos tr:hover {
+    background-color: #ddd;
+}
+
+/* Estilo para las imágenes de los productos */
+.tablaPedidos img {
+    width: 100px;
+    height: auto;
+}
+
+
+/* Estilo para el texto del precio total */
+
 
 .tableContainer {
     width: 100%;
