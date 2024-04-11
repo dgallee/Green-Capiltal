@@ -96,7 +96,6 @@ header {
     display: flex;
     justify-content: space-between; /* Alinea los elementos a lo largo del eje principal (horizontal) con espacio entre ellos */
     align-items: center; /* Centra verticalmente los elementos */
-	padding: 20px;
 	margin-top: 0;
 	width:95.8%;
 	background-color: green;

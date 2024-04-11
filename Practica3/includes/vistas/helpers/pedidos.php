@@ -1,34 +1,53 @@
 <?php
 
 require_once 'productosDAO.php';
+require_once 'pedidos.php';
 
 function builtTablaPedidos($pedidos) {
 
+    $pedidosAgrupados = [];
+    foreach ($pedidos as $pedido) {
+        $idPedido = $pedido['Id'];
+        if (!isset($pedidosAgrupados[$idPedido])) {
+            $pedidosAgrupados[$idPedido] = [];
+        }
+        $pedidosAgrupados[$idPedido][] = $pedido;
+    }
+
+    //Scrollbar linea 19 a implementar en tienda?
     $tablaPedidos = <<<EOS
+    <div style="width: 100%; height: 400px; overflow-y: scroll;">
     <table class="tablaCarrito">
     EOS;
 
-    $precioTotal = 0;
-
-    foreach ($pedidos as $articulos) {
-        
-        $infoProd = Producto::search($articulos['IdProducto']);
-        $precioProducto = $infoProd->getPrecio();
-        $articuloPrecioTotal = $articulos['PrecioTotal'];
-        $precioTotal = $precioTotal + $articuloPrecioTotal;
+    foreach ($pedidosAgrupados as $idPedido => $articulos) {
+        $precioTotal = 0;
         $tablaPedidos .= <<<EOS
         <tr>
-        <td> Artículo: {$infoProd->getNombre()}</td>
-        <td> Precio: {$infoProd->getPrecio()} €</td>
-        <td> Cantidad: {$articulos['Unidades']}</td>
-        <td> Precio total del artículo: {$articuloPrecioTotal} €</td>
-        <td><img src='{$infoProd->getImagen()}' alt='' width='200'></td>
+        <tr><td>Pedido $idPedido:</td></tr>
+        EOS;
+        foreach ($articulos as $articulo) {
+            $infoProd = Producto::search($articulo['IdProducto']);
+            $articuloPrecioTotal = $articulo['PrecioTotal'];
+            $precioTotal += $articuloPrecioTotal;
+
+            $tablaPedidos .= <<<EOS
+            <td> Artículo: {$infoProd->getNombre()}</td>
+            <td> Precio: {$infoProd->getPrecio()} €</td>
+            <td> Cantidad: {$articulo['Unidades']}</td>
+            <td> Precio total del artículo: {$articuloPrecioTotal} €</td>
+            <td><img src='{$infoProd->getImagen()}' alt='' width='200'></td>
+            EOS;
+        }
+
+        $tablaPedidos .= <<<EOS
+        <tr><td>Precio total del pedido con id $idPedido: $precioTotal €</td></tr>
         </tr>
         EOS;
     }
 
     $tablaPedidos .= "</table>";
-    $tablaPedidos .= '<p class="descripcion2">El precio total del pedido es de ' . $precioTotal . '€</p>';
+    $tablaPedidos .= "</div>";
 
     return $tablaPedidos;
 }
