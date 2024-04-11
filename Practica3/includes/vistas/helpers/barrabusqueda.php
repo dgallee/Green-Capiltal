@@ -16,9 +16,9 @@ function buildFormularioBusqueda($itemname = '', $itemCat = '') {
         
             <div class="filter-container">
                 <label for="filter1">Price:</label>
-                <span id="filter1-value">$0</span>
+                <span id="filter1-value">0€</span>
                 <input type="range" id="filter1" name="filter1" min="0" max="100" step="0,1" value="100">  
-                <span id="filter1-max">100</span>
+                <span id="filter1-max">100€</span>
                 
                 
 

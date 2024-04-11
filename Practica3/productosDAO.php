@@ -223,8 +223,6 @@ class Producto{
             
                 $query .= " AND Precio <= ?";
             }
-            
-
             $statement = $conn->prepare($query);
 
             $termino = "%".$termino."%";
@@ -234,18 +232,9 @@ class Producto{
                 $statement->bind_param("sssd", $termino, $termino,$categoria, $precio);
                 
             }
-            else if(!empty($categoria)){//aqui nunca entra
-                
-                $statement->bind_param("sss", $termino, $termino, $categoria);
-            }
             else if(!empty($precio)){
                
                 $statement->bind_param("ssd", $termino, $termino, $precio);
-            }
-            else{//aqui tampoco
-                
-                $statement->bind_param("ss", $termino, $termino);
-                
             }
         
             $statement->execute();
@@ -276,9 +265,6 @@ class Producto{
                     $statement->bind_param("sd",$categoria, $precio);
                     
                 }
-                else if(!empty($categoria)){
-                    $statement->bind_param("s", $categoria);
-                }
                 else if(!empty($precio)){
                     $statement->bind_param("d", $precio);
                 }
@@ -289,6 +275,23 @@ class Producto{
             }
         }
         return $items;
+
+    }
+
+    public static function sumarExistencias(){
+        $conn = Aplicacion::getInstance()->getConexionBD();
+
+        $id_item = isset($_POST["id"]) ? $_POST["id"] : null;
+        $cantidad = isset($_POST["cantidad"]) ? $_POST["cantidad"] : null;
+
+        if (!empty($cantidad)) {
+            
+            $query = "UPDATE productos SET existencias = existencias + ? WHERE id = ?";
+        
+            $statement = $conn->prepare($query);
+            $statement->bind_param("ii", $cantidad, $id_item);
+            $statement->execute();
+        }
 
     }
     

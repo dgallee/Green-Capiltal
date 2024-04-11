@@ -4,7 +4,7 @@ const filter1Max = document.getElementById("filter1-max");
 // Update the max value based on the range value
 filter1.addEventListener("input", function () {
   const maxValue = parseFloat(filter1.value) / parseFloat(filter1.max) * 100;
-  filter1Max.innerText = maxValue.toFixed(1);
+  filter1Max.innerText = maxValue.toFixed(1) + "€";
 });
 
 
@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
 
-        filter1.value = 0;
-        filter1Max.innerText = '100%';
+        filter1.value = 100;
+        filter1Max.innerText = '100€';
       }
     });
   }
