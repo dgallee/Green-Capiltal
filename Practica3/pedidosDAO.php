@@ -63,6 +63,17 @@ class Pedido{
         }
     }
 
+    public static function deletePedidos($dni) {
+        $conn = Aplicacion::getInstance()->getConexionBD();
+
+        $query = "DELETE FROM pedidos WHERE DniUsuario = '$dni'";
+
+        $result = $conn->query($query);
+
+        return true;
+    }
+
+
     
     public function getId(){
         return $this->pId;

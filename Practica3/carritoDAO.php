@@ -66,6 +66,16 @@ class Carrito{
 
 
     }
+
+    public static function eliminarUsuario($dni){
+
+        $conn = Aplicacion::getInstance()->getConexionBD();
+
+        $query = "DELETE FROM carrito WHERE DniUsuario = '$dni'";
+
+        return true;
+
+    }
     
     public static function usuarioEliminado($cDniusuario) {
             

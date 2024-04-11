@@ -1,4 +1,8 @@
 <?php
+
+    require_once "pedidosDAO.php";
+    require_once "carritoDAO.php";
+
     class Usuario{
 
         private $uName;
@@ -90,6 +94,8 @@
             $conn = Aplicacion::getInstance()->getConexionBD();
 
             // Prepara la consulta SQL
+            Pedido::deletePedidos($dni);
+            Carrito::eliminarUsuario($dni);
             $query = "DELETE FROM usuarios WHERE DNI = '$dni'";
         
             // Ejecuta la consulta
