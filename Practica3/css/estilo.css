@@ -360,6 +360,21 @@ nav {
    
 }
 
+.descripcion4{
+	font-family: 'Pacifico';
+    font-size: 1.2em;
+    color: black; 
+    text-align: justify; /* Justificar el texto */
+   
+}
+
+.descripcion5{
+	font-family: 'Pacifico';
+    font-size: 1em;
+    color: black; 
+    text-align: justify; /* Justificar el texto */
+   
+}
 .oferta-exclusiva{
 	font-family: 'Pacifico', cursive;
     font-size: 1.4em;

@@ -1,17 +1,23 @@
 <?php
 
 function buildTablaProductos($productos){
-    $tablaProductos = <<<EOS
-    <div class="tableContainer">
-    <table class="tableAdmin">
-    <tr>
-    <th>Nombre</th>
-    <th>Precio</th>
-    <th>Existencias</th>
-    <th>Id</th>
-    <th>Acciones</th>
-    </tr>
-    EOS;
+    $tablaProductos = '';
+
+    // Verifica si $productos no está vacío
+    if(!empty($productos)){
+        // Agrega la estructura HTML para la tabla si $productos no está vacío
+        $tablaProductos .= <<<EOS
+        <div class="tableContainer">
+            <table class="tableAdmin">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Existencias</th>
+                    <th>Id</th>
+                    <th>Acciones</th>
+                </tr>
+        EOS;
+    }
 
     // Añade una fila a la tabla para cada usuario
     $ruta = RUTA_APP . "/procesarsumarexistencias.php";

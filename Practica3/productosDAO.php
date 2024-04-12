@@ -371,7 +371,7 @@ class Producto{
         $result = $conn->query($query);
         if ($result && $result->num_rows > 0) {
             $row = $result->fetch_assoc();
-            $resultado->free();
+            $result->free();
             return $row['Existencias'];
         } else {
             // Manejo de error si la consulta falla o no devuelve resultados
