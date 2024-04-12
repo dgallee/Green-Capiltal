@@ -75,6 +75,10 @@
             // Crear conexión
             $conn = Aplicacion::getInstance()->getConexionBD();
 
+            //Hasheo
+
+            $password=password_hash($password,PASSWORD_DEFAULT);
+
             // Preparar la consulta SQL
             $query = "INSERT INTO usuarios (Nombre, Apellidos, Correo, Direccion, Telefono, Dni, Usuario, Contrasena, Tipo) VALUES ('$name', '$surname', '$mail', '$dir', '$tfno', '$dni', '$username', '$password', 0)";
         
@@ -157,10 +161,15 @@
             if ($tipo != 0 && $tipo != 1 && $tipo != 2) {
                 $tipo = $userActual->uTipo;
             }
+            $contrasena=password_hash($contrasena,PASSWORD_DEFAULT);
         
             // Preparar la consulta SQL
             $query = "UPDATE usuarios SET Nombre='$nombre', Apellidos='$apellidos', Correo='$correo', Direccion='$direccion', Telefono=$telefono, DNI='$dni', Usuario='$usuario', Contrasena='$contrasena', Tipo=$tipo WHERE DNI='$dni'";
         
+
+            
+            
+
             // Ejecutar la consulta SQL
             if ($conn->query($query) === TRUE) {
                 return true;
@@ -172,8 +181,10 @@
         
 
         public function compruebaPassword($password){
-            return $password == $this->uPass;
-            /*return password_verify($password, $this->password); */
+           // return $password == $this->uPass;
+            return password_verify($password, $this->getUPass()); 
+
+            
         }
 
         public function getUName() {
