@@ -125,6 +125,7 @@
                 while($row = $result->fetch_assoc()) {
                     $usuarios[] = $row;
                 }
+                $result->free();
             }
         
             // Devuelve el array de usuarios
