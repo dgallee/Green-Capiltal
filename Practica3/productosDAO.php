@@ -153,7 +153,7 @@ class Producto{
         $query = "INSERT INTO productos (`Nombre`, `Id`, `Resumen`, `Descripcion`, `Precio`, `Categoria`, `Existencias`, `Especie`, `Imagen`, `DniVendedor`) VALUES ('$name', '$id', '$res', '$desc', $precio, '$cat', $existencias, '$esp', '$img', '$dniVendedor')";    
         // Ejecutar la consulta SQL
         if ($conn->query($query) === TRUE) {
-            return true;
+            return $id;
         } else {
             return false;
         }
@@ -180,6 +180,28 @@ class Producto{
             return true;
         } else {
             error_log("Error al ejecutar la consulta: " . $stmt->error);
+            return false;
+        }
+    }
+
+
+    public static function actualizarImagen($idProducto, $rutaImagen) {
+        // Conexión a la base de datos
+        $conn = Aplicacion::getInstance()->getConexionBD();
+
+        // Preparar la consulta SQL para actualizar la ruta de la imagen
+        $query = "UPDATE productos SET Imagen = ? WHERE Id = ?";
+
+        // Preparar la declaración
+        $statement = $conn->prepare($query);
+
+        // Vincular los parámetros
+        $statement->bind_param("si", $rutaImagen, $idProducto);
+
+        // Ejecutar la consulta
+        if ($statement->execute()) {
+            return true;
+        } else {
             return false;
         }
     }
