@@ -120,7 +120,7 @@ header {
 	height: 60px;
 	background-color: #a9e18d;
 	color: white;
-	width: 93.7%;
+	width: 100%;
 	padding: 40px;
 	margin-right:10%;
 }
@@ -375,6 +375,7 @@ nav {
     text-align: justify; /* Justificar el texto */
    
 }
+
 .oferta-exclusiva{
 	font-family: 'Pacifico', cursive;
     font-size: 1.4em;
@@ -436,7 +437,7 @@ footer	 {
 	color: white;
 	text-align: center;
 	background-color: green;
-	width:93.7%;
+	width:100%;
 }
 
 div.saludo {

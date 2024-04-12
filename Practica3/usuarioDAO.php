@@ -182,10 +182,7 @@
         
 
         public function compruebaPassword($password){
-           // return $password == $this->uPass;
-            return password_verify($password, $this->getUPass()); 
-
-            
+           return $password == $this->uPass;
         }
 
         public function getUName() {
