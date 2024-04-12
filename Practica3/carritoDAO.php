@@ -29,6 +29,7 @@ class Carrito{
             while($row = $result->fetch_assoc()) {
                 $articulos[] = $row;
             }
+            $result->free();
         }
         return $articulos;
     }
@@ -46,6 +47,7 @@ class Carrito{
             while($row = $result->fetch_assoc()) {
                 $carrito[] = $row;
             }
+            $result->free();
         }
         return $carrito;
     }
@@ -147,6 +149,7 @@ class Carrito{
         if ($result && $result->num_rows > 0) {
             // Si ya existe una fila, realizar la actualización de la cantidad
             $row = $result->fetch_assoc();
+            $result->free();
             $cantidadExistente = $row['Cantidad'];
             if(!$cantidadExistente > $cCantidad){
                 error_log("No hay suficientes unidades para el número que se desea eliminar");
@@ -179,6 +182,7 @@ class Carrito{
         if ($result && $result->num_rows > 0) {
             // Si ya existe una fila, realizar la actualización de la cantidad
             $row = $result->fetch_assoc();
+            $result->free();
             $cantidadExistente = $row['Cantidad'];
             $nuevaCantidad = $cantidadExistente + $cCantidad;
             $nuevoPrecio = $nuevaCantidad * $precio;
@@ -205,6 +209,7 @@ class Carrito{
         $resultCantidad = $conn->query($queryCantidad);
         if ($resultCantidad && $resultCantidad->num_rows > 0) {
             $row = $resultCantidad->fetch_assoc();
+            $resultCantidad->free();
             $cantidad = $row['Cantidad'];
         } else {
             return false; // No se encontró el producto en el carrito
@@ -228,6 +233,7 @@ class Carrito{
         $resultCantidad = $conn->query($queryCantidad);
         if ($resultCantidad && $resultCantidad->num_rows > 0) {
             $row = $resultCantidad->fetch_assoc();
+            $resultCantidad->free();
         } else {
             return false; // No se encontró el producto en el carrito
         }
@@ -275,6 +281,7 @@ class Carrito{
     
         if ($result && $result->num_rows > 0) {
             $row = $result->fetch_assoc();
+            $result->free();
             $totalProductos = $row['totalProductos'];
             if ($totalProductos !== null) {
                 return $totalProductos;

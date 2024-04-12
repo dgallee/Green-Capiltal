@@ -42,6 +42,7 @@ class Pedido{
             while($row = $result->fetch_assoc()) {
                 $articulos[] = $row;
             }
+            $result->free();
         }
         return $articulos;
     }
@@ -56,6 +57,7 @@ class Pedido{
 
         if ($result && $result->num_rows > 0) {
             $row = $result->fetch_assoc();
+            $result->free();
             $idActual = $row['MaxId'];
             return $idActual ? $idActual : 0;
         } else {

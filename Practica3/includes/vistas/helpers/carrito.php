@@ -30,17 +30,17 @@ function builtTablaCarrito($carrito) {
                 <form method="post" action="eliminarCarrito.php">
                     <input type="hidden" name="idProducto" value="{$articulos['IdProducto']}">
                     <input type="hidden" name="precioProducto" value="{$precioProducto}">
-                    <button class="red" type="submit">Eliminar</button>
+                    <button class="botonElimina" type="submit">Eliminar</button>
                 </form>
-                <form method="post" action="sumaUnidadCarrito.php">
+                <form method="post" action="sumaUnidadCarrito.php" class="botonContainerCarrito">
                     <input type="hidden" name="idProducto" value="{$articulos['IdProducto']}">
                     <input type="hidden" name="Cantidad" value="{$cantidad}">
-                    <button type="submit">+</button>
+                    <button class="botonCarrito" type="submit">+</button>
                 </form>
-                <form method="post" action="restaUnidadCarrito.php">
+                <form method="post" action="restaUnidadCarrito.php" class="botonContainerCarrito">
                     <input type="hidden" name="idProducto" value="{$articulos['IdProducto']}">
                     <input type="hidden" name="Cantidad" value="{$cantidad}">
-                    <button type="submit">-</button>
+                    <button class="botonCarrito" type="submit">-</button>
                 </form>
 
         </td>
@@ -51,7 +51,7 @@ function builtTablaCarrito($carrito) {
     $tablaCarrito .= "</table>";
     $tablaCarrito .= <<<EOS
     <p class="descripcion2">El precio total del pedido es de $precioTotal €</p>
-    <button class="finalizar-pedido" onclick="location.href='procesarPago.php'">Finalizar el pedido y pagar</button>
+    <button class="finalizarPedido" onclick="location.href='procesarPago.php'">Finalizar el pedido y pagar</button>
     EOS;
     return $tablaCarrito;
 }

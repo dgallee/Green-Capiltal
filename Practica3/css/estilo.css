@@ -17,10 +17,42 @@ div#contenedor {
     text-align: center;
 }
 
-.red{
-	background-color: red;
+.finalizarPedido{
+	padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+	margin-right: 10px;
 }
 
+.botonElimina{
+	background-color: red;
+	padding: 10px 36px;
+	text-align: center;
+	display: inline-block;
+    color: white;
+    border: none;
+    cursor: pointer;
+	margin-right: 10px;
+}
+
+.botonCarrito{
+	background-color: skyblue;
+	color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: none;
+    padding: 12px 24px;
+}
+
+.botonContainerCarrito{
+	display: inline-block;
+}
 /* table {
     width: 90%;
     border-collapse: collapse;
@@ -273,18 +305,20 @@ select {
 
 #filter1 {
 	width: 30%;
-	margin: 10px 10px;
+    margin-right: 10px; 
+    margin-bottom: 10px; 
 }
   
 #filter1-value,
 #filter1-max {
 	display: inline-block;
 	font-weight: bold;
-	
+	margin-right: 20px;
 }
 
 #filter2-label {
     margin-left: 10px;
+	margin-right: 10px; 
 }
  
 
@@ -555,9 +589,8 @@ a.deshabilitado {
     height: auto;
 }
 
-/* Estilo para el botón de eliminar */
+/* Estilo para el botón de eliminar 
 .tablaCarrito button {
-    background-color: #4CAF50;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -568,7 +601,7 @@ a.deshabilitado {
     border: none;
     padding: 10px 24px;
 }
-
+*/
 /* Estilo para el botón de finalizar el pedido */
 body > button {
     background-color: #4CAF50;

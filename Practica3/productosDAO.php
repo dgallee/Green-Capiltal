@@ -39,6 +39,7 @@ class Producto{
             while($row = $result->fetch_assoc()) {
                 $productos[] = $row;
             }
+            $result->free();
         }
 
         return $productos;
@@ -64,6 +65,7 @@ class Producto{
             while($row = $result->fetch_assoc()) {
                 $productos[] = $row;
             }
+            $result->free();
         }
     
         // Devuelve el array de usuarios
@@ -153,6 +155,7 @@ class Producto{
         $result = $conn->query($query1);
         $max_id = $result->fetch_assoc();
         $id = $max_id['max_id'] + 1;
+        $result->free();
     
         // Preparar la consulta SQL
         $query = "INSERT INTO productos (`Nombre`, `Id`, `Resumen`, `Descripcion`, `Precio`, `Categoria`, `Existencias`, `Especie`, `Imagen`, `DniVendedor`) VALUES ('$name', '$id', '$res', '$desc', $precio, '$cat', $existencias, '$esp', '$img', '$dniVendedor')";    
@@ -233,7 +236,7 @@ class Producto{
         while ($fila = $resultado->fetch_assoc()) {
             $categorias[] = $fila['Categoria'];
         }
-    
+        $resultado->free();
         // Elimina duplicados
         $categorias = array_unique($categorias);
     
@@ -293,7 +296,7 @@ class Producto{
             $statement->execute();
            
             $items = $statement->get_result()->fetch_all(MYSQLI_ASSOC);
-            
+            $statement->free();
 
         }
         else {
@@ -324,7 +327,7 @@ class Producto{
                 
                 $statement->execute();
                 $items = $statement->get_result()->fetch_all(MYSQLI_ASSOC);
-                
+                $statement->free();
             }
         }
         return $items;
@@ -354,6 +357,7 @@ class Producto{
         $result = $conn->query($query);
         if ($result && $result->num_rows > 0) {
             $row = $result->fetch_assoc();
+            $result->free();
             return $row['Precio'];
         } else {
             // Manejo de error si la consulta falla o no devuelve resultados
@@ -367,6 +371,7 @@ class Producto{
         $result = $conn->query($query);
         if ($result && $result->num_rows > 0) {
             $row = $result->fetch_assoc();
+            $resultado->free();
             return $row['Existencias'];
         } else {
             // Manejo de error si la consulta falla o no devuelve resultados
