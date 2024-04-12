@@ -51,7 +51,7 @@ function builtTablaCarrito($carrito) {
     $tablaCarrito .= "</table>";
     $tablaCarrito .= <<<EOS
     <p class="descripcion2">El precio total del pedido es de $precioTotal €</p>
-    <button onclick="location.href='procesarPago.php'">Finalizar el pedido y pagar</button>
+    <button class="finalizar-pedido" onclick="location.href='procesarPago.php'">Finalizar el pedido y pagar</button>
     EOS;
     return $tablaCarrito;
 }
