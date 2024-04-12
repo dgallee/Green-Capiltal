@@ -42,7 +42,7 @@ CREATE TABLE `usuarios` (
   `Telefono` int(9) DEFAULT NULL,
   `DNI` varchar(9) NOT NULL PRIMARY KEY,
   `Usuario` varchar(20) NOT NULL,
-  `Contrasena` varchar(20) DEFAULT NULL,
+  `Contrasena` varchar(300) DEFAULT NULL,
   `Tipo` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
