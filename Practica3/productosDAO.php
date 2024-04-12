@@ -1,5 +1,8 @@
 <?php
 
+require_once "pedidosDAO.php";
+require_once "carritoDAO.php";
+
 class Producto{
 
     private $pNombre;
@@ -72,6 +75,8 @@ class Producto{
             
         $conn = Aplicacion::getInstance()->getConexionBD();
 
+        Pedido::deleteProd($id);
+        Carrito::deleteProd($id);
         // Prepara la consulta SQL
         $query = "DELETE FROM productos WHERE Id = '$id'";
     

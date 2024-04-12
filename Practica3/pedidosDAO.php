@@ -63,6 +63,16 @@ class Pedido{
         }
     }
 
+    public static function deleteProd($id) {
+        $conn = Aplicacion::getInstance()->getConexionBD();
+
+        $query = "DELETE FROM pedidos WHERE IdProducto = '$id'";
+
+        $result = $conn->query($query);
+
+        return true;
+    }
+
     public static function deletePedidos($dni) {
         $conn = Aplicacion::getInstance()->getConexionBD();
 
@@ -72,7 +82,6 @@ class Pedido{
 
         return true;
     }
-
 
     
     public function getId(){
