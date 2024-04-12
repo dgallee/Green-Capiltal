@@ -163,13 +163,23 @@ class Producto{
         // Conexión a la base de datos
         $conn = Aplicacion::getInstance()->getConexionBD();
     
-        // Consulta para actualizar las existencias del producto
-        $query = "UPDATE productos SET Existencias = Existencias - $cantidad WHERE Id = '$idProducto'";
+        // Preparar la consulta SQL
+        $query = "UPDATE productos SET Existencias = Existencias - ? WHERE Id = ?";
+        $stmt = $conn->prepare($query);
     
-        // Ejecutar la consulta SQL
-        if ($conn->query($query) === TRUE) {
+        if (!$stmt) {
+            error_log("Error al preparar la consulta: " . $conn->error);
+            return false;
+        }
+    
+        // Enlazar parámetros
+        $stmt->bind_param("ii", $cantidad, $idProducto);
+    
+        // Ejecutar la consulta preparada
+        if ($stmt->execute()) {
             return true;
         } else {
+            error_log("Error al ejecutar la consulta: " . $stmt->error);
             return false;
         }
     }
@@ -309,6 +319,32 @@ class Producto{
             $statement->execute();
         }
 
+    }
+
+    public static function precio($pId){
+        $conn = Aplicacion::getInstance()->getConexionBD();
+        $query = "SELECT Precio FROM productos WHERE Id = '$pId'";
+        $result = $conn->query($query);
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return $row['Precio'];
+        } else {
+            // Manejo de error si la consulta falla o no devuelve resultados
+            return false;
+        }
+    }
+
+    public static function existencias($pId){
+        $conn = Aplicacion::getInstance()->getConexionBD();
+        $query = "SELECT Existencias FROM productos WHERE Id = '$pId'";
+        $result = $conn->query($query);
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return $row['Existencias'];
+        } else {
+            // Manejo de error si la consulta falla o no devuelve resultados
+            return false;
+        }
     }
     
     public function getNombre(){

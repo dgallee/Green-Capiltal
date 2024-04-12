@@ -17,6 +17,10 @@ div#contenedor {
     text-align: center;
 }
 
+.red{
+	background-color: red;
+}
+
 /* table {
     width: 90%;
     border-collapse: collapse;

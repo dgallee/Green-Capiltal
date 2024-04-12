@@ -24,7 +24,7 @@ function builtTablaPedidos($pedidos) {
         $precioTotal = 0;
         $tablaPedidos .= <<<EOS
         <tr>
-        <tr><td>Pedido $idPedido:</td></tr>
+        <tr><td>Pedido con ID #$idPedido:</td></tr>
         EOS;
         foreach ($articulos as $articulo) {
             $infoProd = Producto::search($articulo['IdProducto']);
@@ -42,7 +42,7 @@ function builtTablaPedidos($pedidos) {
         }
 
         $tablaPedidos .= <<<EOS
-        <tr><td>Precio total del pedido con id $idPedido: $precioTotal €</td></tr>
+        <tr><td>Precio total del pedido: $precioTotal €</td></tr>
         </tr>
         EOS;
     }

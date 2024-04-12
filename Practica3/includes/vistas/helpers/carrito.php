@@ -16,21 +16,33 @@ function builtTablaCarrito($carrito) {
         
         $precioProducto = $infoProd->getPrecio();
         $articuloPrecioTotal = $articulos['PrecioTotal'];
+        $cantidad = $articulos['Cantidad'];
         $precioTotal = $precioTotal + $articuloPrecioTotal;
         $tablaCarrito .= <<<EOS
         <tr>
         <td> Artículo: {$infoProd->getNombre()}</td>
 
         <td> Precio: {$infoProd->getPrecio()} €</td>
-        <td> Cantidad: {$articulos['Cantidad']}</td>
+        <td> Cantidad: {$cantidad}</td>
         <td> Precio total del artículo: {$articuloPrecioTotal} €</td>
         <td><img src='{$infoProd->getImagen()}' alt='' width='200'></td>
         <td>
                 <form method="post" action="eliminarCarrito.php">
                     <input type="hidden" name="idProducto" value="{$articulos['IdProducto']}">
                     <input type="hidden" name="precioProducto" value="{$precioProducto}">
-                    <button type="submit">Eliminar</button>
+                    <button class="red" type="submit">Eliminar</button>
                 </form>
+                <form method="post" action="sumaUnidadCarrito.php">
+                    <input type="hidden" name="idProducto" value="{$articulos['IdProducto']}">
+                    <input type="hidden" name="Cantidad" value="{$cantidad}">
+                    <button type="submit">+</button>
+                </form>
+                <form method="post" action="restaUnidadCarrito.php">
+                    <input type="hidden" name="idProducto" value="{$articulos['IdProducto']}">
+                    <input type="hidden" name="Cantidad" value="{$cantidad}">
+                    <button type="submit">-</button>
+                </form>
+
         </td>
         </tr>
         EOS;

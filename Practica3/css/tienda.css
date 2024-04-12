@@ -28,6 +28,9 @@
 .producto h2 {
     margin-top: 0;
 }
+.red{
+	background-color: red;
+}
 
 .btn-comprar {
     display: block;

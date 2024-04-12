@@ -125,6 +125,38 @@ class Carrito{
 
     }
 
+    public static function restaUnidades($cDniusuario, $cIdProducto, $cCantidad, $precio){
+        // Conexión a la base de datos
+        $conn = Aplicacion::getInstance()->getConexionBD();
+    
+        // Verificar si ya existe una fila con el mismo DNI de usuario y ID de producto
+        $query = "SELECT * FROM carrito WHERE DniUsuario = '$cDniusuario' AND IdProducto = '$cIdProducto'";
+        $result = $conn->query($query);
+    
+        if ($result && $result->num_rows > 0) {
+            // Si ya existe una fila, realizar la actualización de la cantidad
+            $row = $result->fetch_assoc();
+            $cantidadExistente = $row['Cantidad'];
+            if(!$cantidadExistente > $cCantidad){
+                error_log("No hay suficientes unidades para el número que se desea eliminar");
+                return false;
+            }
+            $nuevaCantidad = $cantidadExistente - $cCantidad;
+            $nuevoPrecio = $nuevaCantidad * $precio;
+            $query = "UPDATE carrito SET Cantidad = '$nuevaCantidad', PrecioTotal = '$nuevoPrecio' WHERE DniUsuario = '$cDniusuario' AND IdProducto = '$cIdProducto'";
+        } else {
+            error_log("El producto que se desea eliminar no existe");
+            return false;
+        }
+    
+        // Ejecutar la consulta SQL
+        if ($conn->query($query) === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public static function add($cDniusuario, $cIdProducto, $cCantidad, $precio) {
         // Conexión a la base de datos
         $conn = Aplicacion::getInstance()->getConexionBD();
