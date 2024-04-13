@@ -179,11 +179,6 @@ class FormularioRegistro extends Formulario {
         $dni = trim($datos['dni']??'');
         $dni = filter_var($dni, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-
-
-
-
-
         if (count($this->errores) === 0) {
            // $usuario = Usuario::buscaUsuario($nombreUsuario);
 

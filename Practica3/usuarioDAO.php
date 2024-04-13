@@ -31,6 +31,7 @@
 
             $conn = Aplicacion::getInstance()->getConexionBD();
             // Consulta SQL para verificar si el usuario y la contraseña coinciden
+            $nombreUsuario = $conn->real_escape_string($nombreUsuario);
             $user = self::searchLogin($nombreUsuario);
             if ($user && $user->compruebaPassword($password)) {
                 return $user;
@@ -40,7 +41,8 @@
         
         public static function searchLogin($usuario){
 
-            $conn = Aplicacion::getInstance()->getConexionBD();            
+            $conn = Aplicacion::getInstance()->getConexionBD();          
+            $usuario = $conn->real_escape_string($usuario);  
             $query = sprintf("SELECT * FROM usuarios WHERE Usuario = '$usuario'");
             $rs = $conn->query($query);
             if ($rs->num_rows > 0) {
@@ -56,7 +58,8 @@
 
         public static function search($dni){
 
-            $conn = Aplicacion::getInstance()->getConexionBD();            
+            $conn = Aplicacion::getInstance()->getConexionBD();          
+            $dni = $conn->real_escape_string($dni);  
             $query = sprintf("SELECT * FROM usuarios WHERE DNI = '$dni'");
             $rs = $conn->query($query);
             if ($rs->num_rows > 0) {
@@ -76,10 +79,17 @@
             $conn = Aplicacion::getInstance()->getConexionBD();
 
             //Hasheo
-
+            $password = $conn->real_escape_string($password);
             $password=password_hash($password,PASSWORD_DEFAULT);
-
+            
             // Preparar la consulta SQL
+            $name = $conn->real_escape_string($name);
+            $surname = $conn->real_escape_string($surname);
+            $mail = $conn->real_escape_string($mail);
+            $dir = $conn->real_escape_string($dir);
+            $tfno = $conn->real_escape_string($tfno);
+            $dni = $conn->real_escape_string($dni);
+            $username = $conn->real_escape_string($username);
             $query = "INSERT INTO usuarios (Nombre, Apellidos, Correo, Direccion, Telefono, Dni, Usuario, Contrasena, Tipo) VALUES ('$name', '$surname', '$mail', '$dir', '$tfno', '$dni', '$username', '$password', 0)";
         
             // Ejecutar la consulta SQL
@@ -96,7 +106,7 @@
         public static function delete($dni) {
             
             $conn = Aplicacion::getInstance()->getConexionBD();
-
+            $dni = $conn->real_escape_string($dni);
             // Prepara la consulta SQL
             Pedido::deletePedidos($dni);
             Carrito::eliminarUsuario($dni);
@@ -136,8 +146,19 @@
             // Conexión a la base de datos
             $conn = Aplicacion::getInstance()->getConexionBD();
             // Obtener los datos actuales del usuario
+            $nombre = $conn->real_escape_string($nombre);
+            $apellidos = $conn->real_escape_string($apellidos);
+            $correo = $conn->real_escape_string($correo);
+            $direccion = $conn->real_escape_string($direccion);
+            $telefono = $conn->real_escape_string($telefono);
+            $dni = $conn->real_escape_string($dni);
+            $usuario = $conn->real_escape_string($usuario);
+            $contrasena = $conn->real_escape_string($contrasena);
+            $tipo = $conn->real_escape_string($tipo);
+
             $userActual = self::search($dni);
             // Comprobar si las variables son distintas a las locales y que no estén vacías
+
             if (empty($nombre)) {
                 $nombre = $userActual->uName;
             }
@@ -159,17 +180,17 @@
             if (empty($contrasena)) {
                 $contrasena = $userActual->uPass;
             }
+            else if(!password_verify($contrasena, $userActual->uPass)) {
+                $contrasena=password_hash($contrasena,PASSWORD_DEFAULT);
+            }
+
             if ($tipo != 0 && $tipo != 1 && $tipo != 2) {
                 $tipo = $userActual->uTipo;
             }
-            $contrasena=password_hash($contrasena,PASSWORD_DEFAULT);
+            
         
             // Preparar la consulta SQL
             $query = "UPDATE usuarios SET Nombre='$nombre', Apellidos='$apellidos', Correo='$correo', Direccion='$direccion', Telefono=$telefono, DNI='$dni', Usuario='$usuario', Contrasena='$contrasena', Tipo=$tipo WHERE DNI='$dni'";
-        
-
-            
-            
 
             // Ejecutar la consulta SQL
             if ($conn->query($query) === TRUE) {
@@ -179,8 +200,6 @@
             }
         }
         
-        
-
         public function compruebaPassword($password){
            return password_verify($password, $this->uPass);
         }
