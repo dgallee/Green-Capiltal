@@ -50,7 +50,7 @@ class Producto{
     public static function showTable($dniVendedor){        
         $conn = Aplicacion::getInstance()->getConexionBD();
         // Consulta SQL para obtener todos los usuarios
-        
+        $dniVendedor = $conn->real_escape_string($dniVendedor);
         if($dniVendedor == "admin"){
             $query = "SELECT * FROM productos";
         } else{
@@ -76,7 +76,7 @@ class Producto{
     public static function delete($id) {
             
         $conn = Aplicacion::getInstance()->getConexionBD();
-
+        $id = $conn->real_escape_string($id);
         Pedido::deleteProd($id);
         Carrito::deleteProd($id);
         // Prepara la consulta SQL
@@ -94,6 +94,7 @@ class Producto{
     public static function search($id){
 
         $conn = Aplicacion::getInstance()->getConexionBD();
+        $id = $conn->real_escape_string($id);
         $query = sprintf("SELECT * FROM productos WHERE Id = '$id'");
         $rs = $conn->query($query);
         if ($rs->num_rows > 0) {
@@ -111,6 +112,7 @@ class Producto{
         // Conexión a la base de datos
         $conn = Aplicacion::getInstance()->getConexionBD();
         // Obtener los datos actuales del usuario
+        $id = $conn->real_escape_string($id);
         $prodActual = self::search($id);
         // Comprobar si las variables son distintas a las locales y que no estén vacías
         if (empty($name)) {
@@ -134,7 +136,12 @@ class Producto{
         if (empty($img)) {
             $img = $prodActual->pImagen;
         }
-    
+        $name = $conn->real_escape_string($name);
+        $res = $conn->real_escape_string($res);
+        $desc = $conn->real_escape_string($desc);
+        $cat = $conn->real_escape_string($cat);
+        $esp = $conn->real_escape_string($esp);
+        $img = $conn->real_escape_string($img);
         // Preparar la consulta SQL
         $query = "UPDATE productos SET Nombre = '$name', Resumen = '$res', Descripcion = '$desc', Precio = '$precio', Categoria = '$cat', Especie = '$esp', Imagen = '$img' WHERE Id = '$id'";
     
@@ -157,6 +164,12 @@ class Producto{
         $id = $max_id['max_id'] + 1;
         $result->free();
     
+        $name = $conn->real_escape_string($name);
+        $res = $conn->real_escape_string($res);
+        $desc = $conn->real_escape_string($desc);
+        $cat = $conn->real_escape_string($cat);
+        $esp = $conn->real_escape_string($esp);
+        $img = $conn->real_escape_string($img);
         // Preparar la consulta SQL
         $query = "INSERT INTO productos (`Nombre`, `Id`, `Resumen`, `Descripcion`, `Precio`, `Categoria`, `Existencias`, `Especie`, `Imagen`, `DniVendedor`) VALUES ('$name', '$id', '$res', '$desc', $precio, '$cat', $existencias, '$esp', '$img', '$dniVendedor')";    
         // Ejecutar la consulta SQL
@@ -170,7 +183,7 @@ class Producto{
     public static function reducirUnidades($idProducto, $cantidad) {
         // Conexión a la base de datos
         $conn = Aplicacion::getInstance()->getConexionBD();
-    
+        $idProducto = $conn->real_escape_string($idProducto);
         // Preparar la consulta SQL
         $query = "UPDATE productos SET Existencias = Existencias - ? WHERE Id = ?";
         $stmt = $conn->prepare($query);
@@ -196,7 +209,8 @@ class Producto{
     public static function actualizarImagen($idProducto, $rutaImagen) {
         // Conexión a la base de datos
         $conn = Aplicacion::getInstance()->getConexionBD();
-
+        $idProducto = $conn->real_escape_string($idProducto);
+        $rutaImagen = $conn->real_escape_string($rutaImagen);
         // Preparar la consulta SQL para actualizar la ruta de la imagen
         $query = "UPDATE productos SET Imagen = ? WHERE Id = ?";
 
@@ -217,6 +231,7 @@ class Producto{
     public static function sumarUnidades($idProducto, $cantidad) {
         // Conexión a la base de datos
         $conn = Aplicacion::getInstance()->getConexionBD();
+        $idProducto = $conn->real_escape_string($idProducto);
         // Consulta para actualizar las existencias del producto
         $query = "UPDATE productos SET Existencias = Existencias + $cantidad WHERE Id = '$idProducto'";
         // Ejecutar la consulta SQL
@@ -246,6 +261,9 @@ class Producto{
     public static function queryBusqueda($busqueda, $filter1, $filter2) {
 
         $conn = Aplicacion::getInstance()->getConexionBD();
+        $busqueda = $conn->real_escape_string($busqueda);
+        $filter1 = $conn->real_escape_string($filter1);
+        $filter2 = $conn->real_escape_string($filter2);
         if ($conn->connect_error){
             die("La conexión ha fallado" . $conn->connect_error);
         }
@@ -332,10 +350,10 @@ class Producto{
         return $items;
 
     }
-
+    /*
     public static function sumarExistencias(){
         $conn = Aplicacion::getInstance()->getConexionBD();
-
+        
         $id_item = isset($_POST["id"]) ? $_POST["id"] : null;
         $cantidad = isset($_POST["cantidad"]) ? $_POST["cantidad"] : null;
 
@@ -349,9 +367,11 @@ class Producto{
         }
 
     }
+    */
 
     public static function precio($pId){
         $conn = Aplicacion::getInstance()->getConexionBD();
+        $pId = $conn->real_escape_string($pId);
         $query = "SELECT Precio FROM productos WHERE Id = '$pId'";
         $result = $conn->query($query);
         if ($result && $result->num_rows > 0) {
@@ -366,6 +386,7 @@ class Producto{
 
     public static function existencias($pId){
         $conn = Aplicacion::getInstance()->getConexionBD();
+        $pId = $conn->real_escape_string($pId);
         $query = "SELECT Existencias FROM productos WHERE Id = '$pId'";
         $result = $conn->query($query);
         if ($result && $result->num_rows > 0) {
