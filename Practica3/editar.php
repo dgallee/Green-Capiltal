@@ -11,12 +11,6 @@
     $userEdit = Usuario::search($dni);
 
     if($userEdit){
-          
-
-    
-        
-        //echo $_GET['user'];
-        //$formEdit = builtFormularioEditar($userEdit->getUName(), $userEdit->getUSurname(), $userEdit->getUEmail(), $userEdit->getUDir(), $userEdit->getUTel(), $userEdit->getuDNI(), $userEdit->getUUser(), $userEdit->getUPass(), $userEdit->getUTipo());
         $form= new MiProyecto\Formularios\FormularioEditar($userEdit->getUName(), $userEdit->getUSurname(), $userEdit->getUEmail(), $userEdit->getUDir(), $userEdit->getUTel(), $userEdit->getuDNI(), $userEdit->getUUser(), $userEdit->getUPass(), $userEdit->getUTipo());
         $formEdit = $form->gestiona();
         

@@ -1,7 +1,7 @@
 <?php
     require_once 'includes/config.php';
     require_once 'includes/vistas/helpers/autorizacion.php';
-    require_once 'includes/vistas/helpers/editarProducto.php';
+    require_once 'includes/src/FORMULARIOEditarProducto.php';
     require_once 'productosDAO.php';
 
     $tituloPagina = 'Editar';
@@ -11,8 +11,8 @@
 
     if($prodEdit){
     
-        $formEdit = builtFormularioEditarProducto($prodEdit->getNombre(), $prodEdit->getId(), $prodEdit->getRes(), $prodEdit->getDesc(), $prodEdit->getPrecio(), $prodEdit->getCategoria(), $prodEdit->getExistencias(), $prodEdit->getEspecie(), $prodEdit->getImagen());
-    
+        $form = new MiProyecto\Formularios\FormularioEditarProducto($prodEdit->getNombre(), $prodEdit->getRes(), $prodEdit->getDesc(), $prodEdit->getPrecio(), $prodEdit->getCategoria(), $prodEdit->getId(), $prodEdit->getExistencias(), $prodEdit->getEspecie(), $prodEdit->getImagen());
+        $formEdit= $form->gestiona();
     } else {
         echo "El producto no existe.";
         $infoant= "";

@@ -36,25 +36,12 @@ class FormularioEditar extends Formulario {
         $this->pass=$pass;
         $this->tipo=$tipo;
 
-        parent::__construct('formEdit');
+        parent::__construct('formEdit', ['urlRedireccion' => 'adminUsuarios.php']);
     }
     protected function generaCamposFormulario(&$datos)
     {
         // Aquí puedes definir los campos del formulario de edición
 
-      
-
-        /*
-        $nombre = $datos['nombre'] ?? '';
-        $apellido = $datos['apellidos'] ?? '';
-        $email = $datos['correo'] ?? '';
-        $dir = $datos['direccion'] ?? '';
-        $tel = $datos['telefono'] ?? '';
-        $DNI = $datos['dni'] ?? '';
-        $user = $datos['username'] ?? '';
-        $pass = $datos['password'] ?? '';
-        $tipo = $datos['type'] ?? '';
-        */
         $nombre= $this->name;
         $apellido = $this->surname;
         $email = $this->email;
@@ -64,8 +51,6 @@ class FormularioEditar extends Formulario {
         $user=$this->user;
         $pass=$this->pass;
         $tipo=$this->tipo;
-
-        
 
         $html = <<<EOS
         <form action="procesarEditar.php" method="post">
@@ -134,12 +119,6 @@ class FormularioEditar extends Formulario {
 
         
         $esValido = (Usuario::edit($name, $surname, $mail, $dire, $tfno, $dni, $username, $password, $tipo));
-        if ($esValido){
-            header('Location: adminUsuarios.php');
-        }
-        else{
-            header('Location: adminUsuarios.php');
-        }
     }
 }
 

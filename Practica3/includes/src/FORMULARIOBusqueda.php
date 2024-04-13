@@ -5,6 +5,7 @@ require_once __DIR__.'\..\config.php';
 require_once __DIR__.'/../vistas/helpers/tienda.php';
 require_once __DIR__.'/../src/Formulario.php'; // Asegúrate de incluir el archivo donde está definida la clase Formulario
 require_once "productosDAO.php";
+require_once RAIZ_APP."/vistas/comun/layout.php";
 use Aplicacion;
 use mysqli;
 use Producto;
@@ -15,7 +16,7 @@ use Producto;
 class FormularioBusqueda extends Formulario {
 
     public function __construct() {
-        parent::__construct('formSearch', ['urlRedireccion' => 'procesarBusqueda.php']);
+        parent::__construct('formSearch');
     }
 
     protected function generaCamposFormulario(&$datos)
@@ -76,7 +77,6 @@ EOS;
         $filter2 = $datos['filter2'] ?? '';
 
         $items = Producto::queryBusqueda($busqueda, $filter1, $filter2);
-
         if (!empty($items)) {
             $contenidoTienda = builtContent($items);
             foreach ($items as $item) {
@@ -90,7 +90,6 @@ EOS;
                 else{
                    
                     $contenidoPrincipal = "<p id='busqueda-vacia'>No se encontraron items.</p>";
-
                 }
             }
             
@@ -101,9 +100,9 @@ EOS;
             $contenidoPrincipal = "<p id='busqueda-vacia'>No se encontraron items.</p>";
 
         }
-        require_once RAIZ_APP."/vistas/comun/layout.php";
-    }
 
+        $this->setRedirectUrl("procesarformulario.php?cont={$contenidoPrincipal}");
+    }
 }
 
 ?>

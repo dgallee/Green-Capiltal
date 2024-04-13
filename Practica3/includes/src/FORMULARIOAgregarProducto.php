@@ -11,7 +11,7 @@ use Producto;
 
 class FormularioAgregarProducto extends Formulario {
     public function __construct() {
-        parent::__construct('formAgregarProducto', ['urlRedireccion' => 'adminProductos.php']);
+        parent::__construct('formAgregarProducto', ['urlRedireccion' => 'adminProductos.php', 'method'=>'POST', 'enctype'=>'multipart/form-data']);
     }
     
     protected function generaCamposFormulario(&$datos)
@@ -19,7 +19,7 @@ class FormularioAgregarProducto extends Formulario {
         $htmlErroresGlobales = self::generaListaErroresGlobales($this->errores);
         $erroresCampos = self::generaErroresCampos(['nombre', 'resumen', 'descripcion', 'precio','categoria','existencias','especie'], $this->errores, 'span', array('class' => 'error'));
 
-        $html = <<<EOF
+        $html = <<<EOS
         $htmlErroresGlobales
         <form method="POST" enctype="multipart/form-data">
         <fieldset class="formulario">
@@ -65,7 +65,7 @@ class FormularioAgregarProducto extends Formulario {
         <button type="submit">Ingresar</button>
         </fieldset>
         </form>
-        EOF;
+        EOS;
 
         return $html;
     }
