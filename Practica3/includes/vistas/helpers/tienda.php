@@ -12,6 +12,7 @@
 
 function builtContent($productos) {
     $contenido = <<<EOS
+    
     <div class='container'>
     EOS;
 
