@@ -4,7 +4,6 @@ namespace MiProyecto\Formularios;
 require_once 'includes/src/Formulario.php'; 
 require_once 'includes/config.php';
 require_once 'includes/vistas/helpers/autorizacion.php';
-require_once 'includes/vistas/helpers/login.php';
 require_once 'productosDAO.php';
 
 use Producto;
@@ -88,7 +87,7 @@ class FormularioAgregarProducto extends Formulario {
             $this->errores['existencias'] = "Las existencias deben ser al menos 1.";
         }
          // Validar si el nombre del producto ya existe en la base de datos
-        if (Producto::existeNombre($name)) {
+        if (!Producto::nombreRepetido($name)) {
             $this->errores['nombre'] = "El nombre de producto ya está en uso.";
         }
         // Si hay errores, retornar false para indicar que el formulario no se procesó correctamente

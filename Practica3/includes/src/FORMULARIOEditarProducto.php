@@ -59,22 +59,27 @@ class FormularioEditarProducto extends Formulario {
             <label for="nombre">Nombre:</label>
             <input type="text" name="nombre" id="nombre"  value="$name"/> 
         </div>
+        {$erroresCampos['nombre']}
         <div>
             <label for="resumen">Resumen:</label>
             <input type="text" name="resumen" id="resumen"  value="$res"/>  
         </div>
+        {$erroresCampos['resumen']}
         <div>
             <label for="descripcion">Descripción:</label>
             <input type="text" name="descripcion" id="descripcion" value= "$desc"/>
         </div>
+        {$erroresCampos['descripcion']}
         <div>
         <label for="precio">Precio:</label>
         <input type="text" name="precio" id="precio" value="$precio" pattern="^\d+(\.\d{1,2})?$" title="Por favor, introduce un número con hasta dos decimales.">
         </div>
+        {$erroresCampos['precio']}
         <div>
             <label for="categoria">Categoría:</label>
             <input type="text" name="categoria" id="categoria" value= "$cat"/>
         </div>
+        {$erroresCampos['categoria']}    
      
         <input type="hidden" name="id" value="$id">
      
@@ -82,6 +87,7 @@ class FormularioEditarProducto extends Formulario {
             <label for="especie">Especie:</label>
             <input type="text" name="especie" id="especie"  value="$esp"/>
         </div>
+        {$erroresCampos['especie']}
         <div>
             <label for="imagen">Imagen:</label>
             <input type="file" name="imagen" id="imagen"/>
@@ -104,11 +110,17 @@ class FormularioEditarProducto extends Formulario {
         $cat = $datos["categoria"];
         $id = $datos["id"];
         $esp = $datos["especie"];
-        $img = $datos["imagen"];
 
-        
+        // Validar si el nombre del producto ya existe en la base de datos
+        if ($name != $this->name && !Producto::nombreRepetido($name)) {
+            $this->errores['nombre'] = "El nombre de producto ya está en uso.";
+        }
+        // Si hay errores, retornar false para indicar que el formulario no se procesó correctamente
+        if (count($this->errores) > 0) {
+            return false;
+        }
     
-        $esValido = (Producto::edit($name, $res, $desc, $precio, $cat, $id, $esp, $img));
+        $esValido = (Producto::edit($name, $res, $desc, $precio, $cat, $id, $esp, ''));
 
         
         if(isset($_FILES['imagen'])) {

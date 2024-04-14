@@ -3,8 +3,6 @@ namespace MiProyecto\Formularios;
 
 require_once 'includes/config.php';
 require_once 'includes/vistas/helpers/autorizacion.php';
-require_once 'includes/vistas/helpers/login.php';
-require_once 'includes/vistas/helpers/registro.php';
 require_once 'includes/src/Formulario.php'; // Asegúrate de incluir el archivo donde está definida la clase Formulario
 require_once 'includes/src/FORMULARIOLogin.php';//Desconozco porque hay que incluirlo o da excepción
 use Usuario;

@@ -351,6 +351,24 @@ class Producto{
 
     }
 
+    public static function nombreRepetido($nombre){
+
+        $conn = Aplicacion::getInstance()->getConexionBD();
+        $pNombre = $conn->real_escape_string($nombre);
+        $query = "SELECT Nombre FROM productos WHERE Nombre = '$pNombre'";
+        $result = $conn->query($query);
+
+        if ($result && $result->num_rows > 0) {
+            $result->free();
+            return false;
+        } else {
+            // Manejo de error si la consulta falla o no devuelve resultados
+            $result->free();
+            return true;
+        }
+
+    }
+
     public static function precio($pId){
         $conn = Aplicacion::getInstance()->getConexionBD();
         $pId = $conn->real_escape_string($pId);
@@ -381,18 +399,18 @@ class Producto{
         }
     }
     
-    public static function existeNombre($nombre) {
-        $conn = Aplicacion::getInstance()->getConexionBD();
-        $nombre = $conn->real_escape_string($nombre);
-        $sql = "SELECT COUNT(*) AS total FROM productos WHERE LOWER(Nombre) = LOWER(?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $nombre);
-        $stmt->execute();
-        $stmt->bind_result($total);
-        $stmt->fetch();
-        $stmt->close(); //no habra que hacer free() ya que close libera los recursos asociados
-        return $total > 0;
-    }
+    // public static function existeNombre($nombre) {
+    //     $conn = Aplicacion::getInstance()->getConexionBD();
+    //     $nombre = $conn->real_escape_string($nombre);
+    //     $sql = "SELECT COUNT(*) AS total FROM productos WHERE LOWER(Nombre) = LOWER(?)";
+    //     $stmt = $conn->prepare($sql);
+    //     $stmt->bind_param("s", $nombre);
+    //     $stmt->execute();
+    //     $stmt->bind_result($total);
+    //     $stmt->fetch();
+    //     $stmt->close(); //no habra que hacer free() ya que close libera los recursos asociados
+    //     return $total > 0;
+    // }
 
     public function getNombre(){
         return $this->pNombre;

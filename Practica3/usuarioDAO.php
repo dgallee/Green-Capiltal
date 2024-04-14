@@ -180,7 +180,7 @@
             if (empty($contrasena)) {
                 $contrasena = $userActual->uPass;
             }
-            else if(!password_verify($contrasena, $userActual->uPass)) {
+            else if(!password_verify($contrasena, password_hash($userActual->getUPass(),PASSWORD_DEFAULT))) {
                 $contrasena=password_hash($contrasena,PASSWORD_DEFAULT);
             }
 

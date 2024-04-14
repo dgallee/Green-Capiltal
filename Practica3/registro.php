@@ -1,6 +1,5 @@
 <?php
 require_once 'includes/config.php';
-require_once 'includes/vistas/helpers/registro.php';
 require_once 'includes/src/FORMULARIORegistro.php';
 
 $tituloPagina = 'Registro';

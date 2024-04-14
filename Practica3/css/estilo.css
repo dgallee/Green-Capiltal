@@ -53,24 +53,6 @@ div#contenedor {
 .botonContainerCarrito{
 	display: inline-block;
 }
-/* table {
-    width: 90%;
-    border-collapse: collapse;
-}
-
-table, th, td {
-    border: 1px solid black;
-}
-
-th, td {
-    text-align: left;
-    padding: 8px;
-}
-
-th {
-    background-color: #4CAF50;
-    color: white;
-}  */
 
 .error{
 	text-align: center;
@@ -605,19 +587,6 @@ a.deshabilitado {
     height: auto;
 }
 
-/* Estilo para el botón de eliminar 
-.tablaCarrito button {
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border: none;
-    padding: 10px 24px;
-}
-*/
 /* Estilo para el botón de finalizar el pedido */
 body > button {
     background-color: #4CAF50;
@@ -773,3 +742,44 @@ body > button {
     margin-top: 5px;
 }
 
+/* CSS anterior */
+
+@media screen and (max-width: 1249px) {
+	.menu {
+		display: none; /* Ocultar el menú en pantallas pequeñas */
+	}
+
+	header {
+		padding: 10px; /* Reducir el espacio de padding en la cabecera */
+	}
+
+	/* Agregar reglas para ocultar los sidebars */
+	nav {
+		display: none;
+	}
+	aside {
+		display: none;
+	}
+
+	main {
+		width: 100%;
+	}
+
+	.mi-cabecera a {
+		font-size: 10px;
+		padding: 10px;
+	}
+
+	.mi-cabecera img {
+		width: 16px;
+	}
+
+	.mi-cabecera .logo {
+		display: none;
+	}
+
+	  
+.user-login {
+	font-size: 10px;
+}
+}

@@ -27,8 +27,32 @@ function buildTablaUsuarios($usuarios){
         } elseif ($usuario['Tipo'] == 2) {
             $tipoUsuario = 'comerciante';
         }
+        if ($usuario['Tipo'] == 1){
 
-        $tablaUsuarios .= <<<EOS
+            $tablaUsuarios .= <<<EOS
+        <tr>
+        <td>{$usuario['Nombre']}</td>
+        <td>{$usuario['Apellidos']}</td>
+        <td>{$usuario['Correo']}</td>
+        <td>{$usuario['Direccion']}</td>
+        <td>{$usuario['Telefono']}</td>
+        <td>{$usuario['DNI']}</td>
+        <td>{$usuario['Usuario']}</td>
+        <td>{$usuario['Contrasena']}</td>
+        <td>{$tipoUsuario}</td>
+        <td>
+            <a href="editar.php?user={$usuario['DNI']}">
+            <img src="img/editar.png" alt="Editar" class="botonImagen" />
+            </a>
+        </td>
+        </tr>
+        EOS;
+
+        }
+
+        else {
+
+            $tablaUsuarios .= <<<EOS
         <tr>
         <td>{$usuario['Nombre']}</td>
         <td>{$usuario['Apellidos']}</td>
@@ -49,6 +73,8 @@ function buildTablaUsuarios($usuarios){
         </td>
         </tr>
         EOS;
+        }
+        
     }
 
     // Cierra la tabla

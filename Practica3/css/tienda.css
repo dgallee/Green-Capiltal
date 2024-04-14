@@ -49,3 +49,21 @@
     color: #ffffff; /* Cambio de color del texto al pasar el ratón */
     border-color: #007bff; /* Cambio de color del borde al pasar el ratón */
 }
+
+@media screen and (max-width: 1249px) {
+	
+    .producto h2 {
+        font-size: 16px;
+    }
+
+    .producto p {
+
+        font-size: 10px;
+    }
+
+    .producto .btn-comprar{
+
+        font-size: 16px;
+        padding: 10px;
+    }
+}
