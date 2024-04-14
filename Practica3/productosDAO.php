@@ -258,7 +258,100 @@ class Producto{
         return $categorias;
     }
 
-    public static function queryBusqueda($busqueda, $filter1, $filter2) {
+    // public static function queryBusqueda($busqueda, $filter1, $filter2) {
+
+    //     $conn = Aplicacion::getInstance()->getConexionBD();
+    //     $busqueda = $conn->real_escape_string($busqueda);
+    //     $filter1 = $conn->real_escape_string($filter1);
+    //     $filter2 = $conn->real_escape_string($filter2);
+    //     if ($conn->connect_error){
+    //         die("La conexión ha fallado" . $conn->connect_error);
+    //     }
+    
+    //     $termino = isset($busqueda) ? trim($busqueda) : "";
+       
+
+
+    //     if (isset($filter2) && $filter2 != "") {
+    //         $categoria = $filter2;
+    //     }
+        
+    //     if (isset($filter1)) {
+    //         $precio = $filter1;
+    //     }
+
+    //     $query = "SELECT * FROM productos WHERE 1";
+
+        
+    //     if (!empty($termino)) {
+            
+           
+    //         $query .= " AND (Nombre LIKE ? OR Descripcion LIKE ?)";
+        
+    //         if (!empty($categoria)) {
+                
+    //             $query .= " AND Categoria = ?";
+    //         }
+            
+    //         if (!empty($precio)) {
+            
+    //             $query .= " AND Precio <= ?";
+    //         }
+    //         $statement = $conn->prepare($query);
+
+    //         $termino = "%".$termino."%";
+            
+    //         if(!empty($categoria) and !empty($precio)){
+                
+    //             $statement->bind_param("sssd", $termino, $termino,$categoria, $precio);
+                
+    //         }
+    //         else if(!empty($precio)){
+               
+    //             $statement->bind_param("ssd", $termino, $termino, $precio);
+    //         }
+        
+    //         $statement->execute();
+           
+    //         $items = $statement->get_result()->fetch_all(MYSQLI_ASSOC);
+    //         $statement->free_result();
+    //     }
+    //     else {
+           
+
+    //         if (!empty($categoria) || !empty($precio)) {//busqueda sin termino 
+                
+    //             if (!empty($categoria)) {//busqueda solo por precio
+               
+    //                 $query .= " AND Categoria = ?";
+    //             }
+
+    //             if (!empty($precio)) {//busqueda solo por precio
+               
+    //                 $query .= " AND Precio <= ?";
+    //             }
+                
+        
+    //             $statement = $conn->prepare($query);
+    //             $termino = "%".$termino."%";
+    //             if(!empty($categoria)  and !empty($precio)){
+    //                 $statement->bind_param("sd",$categoria, $precio);
+                    
+    //             }
+    //             else if(!empty($precio)){
+    //                 $statement->bind_param("d", $precio);
+    //             }
+                
+    //             $statement->execute();
+    //             $items = $statement->get_result()->fetch_all(MYSQLI_ASSOC);
+    //             $statement->free_result();
+    //         }
+    //     }
+    //     return $items;
+
+    // }
+
+    public static function queryBusqueda() {
 
         $conn = Aplicacion::getInstance()->getConexionBD();
         $busqueda = $conn->real_escape_string($busqueda);
@@ -268,8 +361,7 @@ class Producto{
             die("La conexión ha fallado" . $conn->connect_error);
         }
     
-        $termino = isset($busqueda) ? trim($busqueda) : "";
-       
+        $termino = isset($busqueda) ? trim($busqueda) : "";       
 
 
         if (isset($filter2) && $filter2 != "") {
@@ -315,6 +407,8 @@ class Producto{
            
             $items = $statement->get_result()->fetch_all(MYSQLI_ASSOC);
             $statement->free_result();
+            
+
         }
         else {
            
@@ -345,6 +439,7 @@ class Producto{
                 $statement->execute();
                 $items = $statement->get_result()->fetch_all(MYSQLI_ASSOC);
                 $statement->free_result();
+                
             }
         }
         return $items;
