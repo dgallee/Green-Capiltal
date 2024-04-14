@@ -354,22 +354,20 @@ class Producto{
     public static function queryBusqueda() {
 
         $conn = Aplicacion::getInstance()->getConexionBD();
-        $busqueda = $conn->real_escape_string($busqueda);
-        $filter1 = $conn->real_escape_string($filter1);
-        $filter2 = $conn->real_escape_string($filter2);
         if ($conn->connect_error){
             die("La conexión ha fallado" . $conn->connect_error);
         }
     
-        $termino = isset($busqueda) ? trim($busqueda) : "";       
+        $termino = isset($_GET["busqueda"]) ? trim($_GET["busqueda"]) : "";
+       
 
 
-        if (isset($filter2) && $filter2 != "") {
-            $categoria = $filter2;
+        if (isset($_GET["filter2"]) && $_GET["filter2"] != "") {
+            $categoria = $_GET["filter2"];
         }
         
-        if (isset($filter1)) {
-            $precio = $filter1;
+        if (isset($_GET["filter1"])) {
+            $precio = $_GET["filter1"];
         }
 
         $query = "SELECT * FROM productos WHERE 1";
@@ -406,7 +404,6 @@ class Producto{
             $statement->execute();
            
             $items = $statement->get_result()->fetch_all(MYSQLI_ASSOC);
-            $statement->free_result();
             
 
         }
@@ -438,7 +435,6 @@ class Producto{
                 
                 $statement->execute();
                 $items = $statement->get_result()->fetch_all(MYSQLI_ASSOC);
-                $statement->free_result();
                 
             }
         }
