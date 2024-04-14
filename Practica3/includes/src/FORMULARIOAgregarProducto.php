@@ -82,7 +82,20 @@ class FormularioAgregarProducto extends Formulario {
         $esp = $datos['especie'] ?? '';
         $img = $datos['imagen'] ?? '';
         $dniVendedor = $_SESSION['DNI'] ?? '';
-    
+        
+        // Validar existencias
+        if ($existencias < 1) {
+            $this->errores['existencias'] = "Las existencias deben ser al menos 1.";
+        }
+         // Validar si el nombre del producto ya existe en la base de datos
+        if (Producto::existeNombre($name)) {
+            $this->errores['nombre'] = "El nombre de producto ya está en uso.";
+        }
+        // Si hay errores, retornar false para indicar que el formulario no se procesó correctamente
+        if (count($this->errores) > 0) {
+            return false;
+        }
+
         $idProducto = Producto::add($name, $res, $desc, $precio, $cat, $existencias, $esp, '', $dniVendedor);
 
         if(isset($_FILES['imagen'])) {

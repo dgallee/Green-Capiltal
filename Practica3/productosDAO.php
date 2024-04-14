@@ -350,24 +350,6 @@ class Producto{
         return $items;
 
     }
-    /*
-    public static function sumarExistencias(){
-        $conn = Aplicacion::getInstance()->getConexionBD();
-        
-        $id_item = isset($_POST["id"]) ? $_POST["id"] : null;
-        $cantidad = isset($_POST["cantidad"]) ? $_POST["cantidad"] : null;
-
-        if (!empty($cantidad)) {
-            
-            $query = "UPDATE productos SET existencias = existencias + ? WHERE id = ?";
-        
-            $statement = $conn->prepare($query);
-            $statement->bind_param("ii", $cantidad, $id_item);
-            $statement->execute();
-        }
-
-    }
-    */
 
     public static function precio($pId){
         $conn = Aplicacion::getInstance()->getConexionBD();
@@ -399,6 +381,19 @@ class Producto{
         }
     }
     
+    public static function existeNombre($nombre) {
+        $conn = Aplicacion::getInstance()->getConexionBD();
+        $nombre = $conn->real_escape_string($nombre);
+        $sql = "SELECT COUNT(*) AS total FROM productos WHERE LOWER(Nombre) = LOWER(?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $nombre);
+        $stmt->execute();
+        $stmt->bind_result($total);
+        $stmt->fetch();
+        $stmt->close(); //no habra que hacer free() ya que close libera los recursos asociados
+        return $total > 0;
+    }
+
     public function getNombre(){
         return $this->pNombre;
     }
