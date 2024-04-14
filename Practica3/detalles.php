@@ -23,9 +23,6 @@ EOS;
 
 require('includes/vistas/comun/layout.php');
 ?>
-<script>
-    var existencias = <?php echo $existencias; ?>;
-</script>
 <script src="js/compra.js"></script>
 
 

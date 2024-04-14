@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", function() {
     var btnRestar = document.getElementById("btn-restar");
     var cantidadInput = document.getElementById("cantidad");
     var unidadesComprar = document.getElementById("unidades-comprar");
-
+    var existencias = parseInt(document.getElementById("existencias").value);
+    
     // Función para actualizar la cantidad
     function actualizarCantidad(nuevaCantidad) {
         cantidadInput.value = nuevaCantidad;
