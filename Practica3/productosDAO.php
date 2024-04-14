@@ -399,19 +399,6 @@ class Producto{
         }
     }
     
-    // public static function existeNombre($nombre) {
-    //     $conn = Aplicacion::getInstance()->getConexionBD();
-    //     $nombre = $conn->real_escape_string($nombre);
-    //     $sql = "SELECT COUNT(*) AS total FROM productos WHERE LOWER(Nombre) = LOWER(?)";
-    //     $stmt = $conn->prepare($sql);
-    //     $stmt->bind_param("s", $nombre);
-    //     $stmt->execute();
-    //     $stmt->bind_result($total);
-    //     $stmt->fetch();
-    //     $stmt->close(); //no habra que hacer free() ya que close libera los recursos asociados
-    //     return $total > 0;
-    // }
-
     public function getNombre(){
         return $this->pNombre;
     }

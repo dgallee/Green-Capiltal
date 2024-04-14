@@ -3,11 +3,9 @@
 --
 
 INSERT INTO `usuarios` (`Nombre`, `Apellidos`, `Correo`, `Direccion`, `Telefono`, `DNI`, `Usuario`, `Contrasena`, `Tipo`) VALUES
+('Vendedor', 'Común', 'vendedor@ucm.es', 'Calle del Gobernador', 678564392, '06374892W', 'vendedor', '$2y$10$.qRbcDsSOVHnw7LHaAbGDeKDfgvYFvT.caLxxJBtFWAPwheB6wj6y', 2),
 ('admin', 'admin', 'admin@ucm.es', '654891276', 666555111, '12345678O', 'admin', '$2y$10$GpoDTA8.i9gygcwuuDPG5usUCdw5cpMngs.Wa8uDsYpQK0ugw.y0u', 1),
-('editar', 'editar', 'edit@gmail.com', 'calle ejemplo nº3 2ºQ', 666555444, '12365478Z', 'edit', '$2y$10$qaOTWPYUlEMAePYbhM9Ii.xSE5P56vs9DEnUzjE7Bd9PA8X/6aAD6', 0),
-('eliminar', 'eliminar', 'elim@gmail.com', 'calle ejemplo nº4 2ºS', 666234677, '76249815A', 'delete', '$2y$10$mOzVxEC9xjzjdD2trMGYeusoejb86qB7gDL3brLsrwLWSfqgnpZJe', 0),
 ('user', 'user', 'user@ucm.es', 'calle ejemplo nº3 2ºB', 666111888, '87654321Q', 'user', '$2y$10$1kGi7DsGgFhEB73Ppmu.DuKbxgJd.b5La42LCc67otKSk7KQriBpS', 0);
-
 
 INSERT INTO `productos` (`Nombre`, `Id`, `Resumen`, `Descripcion`, `Precio`, `Categoria`, `Existencias`, `Especie`, `Imagen`, `DniVendedor`) VALUES
 ('Palmera cocotera', '001', 'Ideal para cualquier hogar', 'La palmera cocotera, símbolo tropical por excelencia, es una adición esencial para 

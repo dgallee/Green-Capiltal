@@ -1,7 +1,6 @@
 <?php
 require_once 'includes/config.php';
 require_once 'includes/vistas/helpers/autorizacion.php';
-require_once 'includes/vistas/helpers/login.php';
 require_once 'productosDAO.php';
 require_once 'usuarioDAO.php';
 require_once 'carritoDAO.php';
