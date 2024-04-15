@@ -1,9 +1,0 @@
-Funcionalidades de esta entrega:
-Gestión de contenido:
-Permite subir y postear un item, cambiarlo por otro y realizar ofertas.
-Gestión De busqueda:
-Permite buscar los items para realizar la gestion de contenido.
-Gestión de admin:
-Permite actualizar la base de datos, mas en concreto las tablas de objetos y usuarios. 
-En la tabla objetos permite actualizar los datos del mismo, cambiar el nombre, imagen y descripcion. También permite borrar un objeto.
-En la tabla usuarios solo permite borrar usuarios.
