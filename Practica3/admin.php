@@ -13,6 +13,7 @@ $contenidoPrincipal = <<<EOS
         <h1 class='titulo'>Consola de administración</h1>
         <li><a href="adminUsuarios.php" class="adminopciones">Administración de usuarios</a></li>
         <li><a href="adminProductos.php" class="adminopciones">Gestión de productos</a></li>
+        <li><a href="adminValoraciones.php" class="adminopciones">Gestión de valoraciones</a></li>
 EOS;
 
 

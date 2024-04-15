@@ -92,6 +92,7 @@ class FormularioEditar extends Formulario {
             <option value="0" . ($tipo == 0 ? 'selected' : '') . >Usuario</option>
             <option value="1" . ($tipo == 1 ? 'selected' : '') . >Admin</option>
             <option value="2" . ($tipo == 2 ? 'selected' : '') . >Comerciante</option>
+            <option value="3" . ($tipo == 3 ? 'selected' : '') . >Moderador</option>
         </select>
         </div>
     

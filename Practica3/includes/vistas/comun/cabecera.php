@@ -24,6 +24,10 @@ $dni = dniUsuarioLogado();
         <h2><a href="comerciante.php">Centro de comerciantes</a></h2>
     <?php endif; ?>
 
+    <?php if ($usuario_actual && esModerador()): ?>
+        <h2><a href="moderador.php">Centro de valoraciones</a></h2>
+    <?php endif; ?>
+
     <?php if ($usuario_actual): ?>
     <h2><a href="pedidos.php">Mis pedidos</a></h2>
     <h2>

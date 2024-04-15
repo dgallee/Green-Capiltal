@@ -26,6 +26,8 @@ function buildTablaUsuarios($usuarios){
             $tipoUsuario = 'admin';
         } elseif ($usuario['Tipo'] == 2) {
             $tipoUsuario = 'comerciante';
+        } elseif ($usuario['Tipo'] == 3) {
+            $tipoUsuario = 'moderador';
         }
         if ($usuario['Tipo'] == 1){
 

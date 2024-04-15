@@ -183,8 +183,8 @@
             else if(!password_verify($contrasena, password_hash($userActual->getUPass(),PASSWORD_DEFAULT))) {
                 $contrasena=password_hash($contrasena,PASSWORD_DEFAULT);
             }
-
-            if ($tipo != 0 && $tipo != 1 && $tipo != 2) {
+            
+            if ($tipo != 0 && $tipo != 1 && $tipo != 2 && $tipo != 3) {
                 $tipo = $userActual->uTipo;
             }
             

@@ -35,6 +35,12 @@ function esComerciante(){
     return estaLogado() && ($_SESSION['tipo'] == 2);
 }
 
+function esModerador(){
+    echo($_SESSION['tipo']);
+    die();
+    return estaLogado() && ($_SESSION['tipo'] == 3);
+}
+
 function verificaLogado($urlNoLogado)
 {
     if (! estaLogado()) {
