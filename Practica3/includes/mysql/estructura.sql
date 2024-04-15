@@ -86,6 +86,17 @@ CREATE TABLE `pedidos` (
     FOREIGN KEY (`IdProducto`) REFERENCES productos(`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
+CREATE TABLE `valoraciones` (
+   `DniUsuario` varchar(9) NOT NULL,
+   `IdProducto` varchar(3) NOT NULL,
+   `Puntuacion` INT,
+   `Texto` TEXT,
+    PRIMARY KEY (`DniUsuario`, `IdProducto`),
+    CONSTRAINT `restriccionPuntuacion` CHECK (`Puntuacion` IN (1, 2, 3, 4, 5)),
+    FOREIGN KEY (`DniUsuario`) REFERENCES `usuarios`(`DNI`),
+    FOREIGN KEY (`IdProducto`) REFERENCES `productos`(`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
 --
 -- Índices para tablas volcadas
 --
