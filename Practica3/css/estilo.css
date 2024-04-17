@@ -779,7 +779,34 @@ body > button {
 	}
 
 	  
-.user-login {
-	font-size: 10px;
-}
+	.user-login {
+		font-size: 10px;
+	}
+
+	.tablaCarrito {
+		width: 100%;
+		border-collapse: collapse;
+	}
+	
+	/* Estilo para las celdas de la tabla */
+	.tablaCarrito td {
+		/* border: 1px solid #ddd; */
+		padding: 8px;
+		text-align: left;
+		font-size: 10px;
+	}
+	
+	/* Estilo para las imágenes de los productos */
+	.tablaCarrito img {
+		width: 50px;
+		height: auto;
+	}
+
+	
+    .botonElimina, .botonCarrito {
+		width: 50px;
+        height: 25px;
+		text-align: center;
+        font-size: 10px;
+    }
 }

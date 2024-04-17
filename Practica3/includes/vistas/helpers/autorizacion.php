@@ -36,8 +36,7 @@ function esComerciante(){
 }
 
 function esModerador(){
-    echo($_SESSION['tipo']);
-    die();
+    
     return estaLogado() && ($_SESSION['tipo'] == 3);
 }
 
