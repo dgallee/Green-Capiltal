@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-<html>
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,5 +30,7 @@ require('pie.php');
 ?>
 </div>
 <script src="<?= RUTA_JS ?>/busqueda.js"></script>
+<script src="<?= RUTA_JS ?>/valoraciones.js"></script>
+<script src="js/compra.js"></script>
 </body>
 </html>
