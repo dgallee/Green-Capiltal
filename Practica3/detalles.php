@@ -1,3 +1,4 @@
+
 <?php
 require_once "includes/src/Aplicacion.php";
 require_once "includes/config.php";
@@ -17,12 +18,14 @@ $detallesProd = builtDetails($caracteristicas->getNombre(), $caracteristicas->ge
 
 
 $contenidoPrincipal = <<<EOS
-<p>$detallesProd</p>
+<p>$detallesProd
 EOS;
 
 
 require('includes/vistas/comun/layout.php');
 ?>
-<script src="js/compra.js"></script>
+
+
+
 
 
