@@ -29,7 +29,7 @@ $tablaProductos = buildTablaProductos($productos);
 
 $contenidoPrincipal = <<<EOS
 <h1 class='titulo'>Listado de productos en tienda</h1>
-<p>$tablaProductos</p>
+<p>$tablaProductos
 EOS;
 
 require 'includes/vistas/comun/layout.php';

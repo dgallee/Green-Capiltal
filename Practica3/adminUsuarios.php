@@ -20,7 +20,7 @@ $tablaUsuarios = buildTablaUsuarios($usuarios);
 
 $contenidoPrincipal = <<<EOS
 <h1 class='titulo'>Listado de Usuarios</h1>
-<p>$tablaUsuarios</p>
+<p>$tablaUsuarios
 EOS;
 
 require 'includes/vistas/comun/layout.php';
