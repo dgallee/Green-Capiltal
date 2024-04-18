@@ -32,7 +32,7 @@ $dni = dniUsuarioLogado();
     <h2><a href="pedidos.php">Mis pedidos</a></h2>
     <h2>
         <a href="carrito.php">
-            <img src="img/compras.png" alt="Carrito" class="botonImagen"/>
+            <img src="img/compras.png" alt="Carrito" class="botonImagen">
         </a>
     </h2>
     <?php endif; ?>
