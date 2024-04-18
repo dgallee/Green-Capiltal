@@ -26,7 +26,6 @@ function buildTablaUsuarios($usuarios){
             $tipoUsuario = 'admin';
         } elseif ($usuario['Tipo'] == 2) {
             $tipoUsuario = 'comerciante';
-        }
         } elseif ($usuario['Tipo'] == 3) {
         $tipoUsuario = 'moderador';
         }
@@ -45,7 +44,7 @@ function buildTablaUsuarios($usuarios){
         <td>{$tipoUsuario}</td>
         <td>
             <a href="editar.php?user={$usuario['DNI']}">
-            <img src="img/editar.png" alt="Editar" class="botonImagen" />
+            <img src="img/editar.png" alt="Editar" class="botonImagen" >
             </a>
         </td>
         </tr>
@@ -68,10 +67,10 @@ function buildTablaUsuarios($usuarios){
         <td>{$tipoUsuario}</td>
         <td>
             <a href="editar.php?user={$usuario['DNI']}">
-            <img src="img/editar.png" alt="Editar" class="botonImagen" />
+            <img src="img/editar.png" alt="Editar" class="botonImagen" >
             </a>
             <a href="eliminar.php?user={$usuario['DNI']}">
-            <img src="img/eliminar.png" alt="Eliminar" class="botonImagen" />
+            <img src="img/eliminar.png" alt="Eliminar" class="botonImagen" >
             </a>
         </td>
         </tr>

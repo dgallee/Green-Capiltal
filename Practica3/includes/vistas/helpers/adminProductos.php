@@ -37,10 +37,10 @@ function buildTablaProductos($productos){
         <td>{$producto['Id']}</td>
         <td>
             <a href="editarProducto.php?prod={$producto['Id']}">
-                <img src="img/editar.png" alt="Editar información" class="botonImagen" />
+                <img src="img/editar.png" alt="Editar información" class="botonImagen" >
             </a>
             <a href="eliminarProducto.php?prod={$producto['Id']}">
-                <img src="img/eliminar.png" alt="Eliminar información" class="botonImagen" />
+                <img src="img/eliminar.png" alt="Eliminar información" class="botonImagen" >
             </a>
         </td>
         </tr>
@@ -51,7 +51,7 @@ function buildTablaProductos($productos){
     $tablaProductos .= "</table>";
 
     // Añadir producto button
-    $tablaProductos .= '<button onclick="location.href=\'agregarProducto.php\'"><img src="img/agregar.png" alt="Añadir producto" class="botonImagen"/></button>';    
+    $tablaProductos .= '<button onclick="location.href=\'agregarProducto.php\'"><img src="img/agregar.png" alt="Añadir producto" class="botonImagen"></button>';    
     $tablaProductos .= '</div>'; 
 
     return $tablaProductos;
