@@ -15,7 +15,11 @@ use Producto;
 
 class FormularioBusqueda extends Formulario {
 
+
+    private $items;
+
     public function __construct() {
+        $this->items = [];
         parent::__construct('formSearch');
     }
 
@@ -60,8 +64,8 @@ EOS;
             </div>
             
             <div class="filter-butons">
-                <button type="submit" class="search-button">Search</button>
-                <div class="filter-item clear-all-button" id="clear-all-filters">Clear All</div>
+                <button type="submit" class="search-button">Buscar</button>
+                <div class="filter-item clear-all-button" id="clear-all-filters">Limpiar Filtros</div>
             </div>
         </form>
     </div>
@@ -71,38 +75,71 @@ EOS;
 
     protected function procesaFormulario(&$datos)
     {
+
+        
         $tituloPagina = 'procesarBusqueda';
         $busqueda = $datos['busqueda'] ?? '';
         $filter1 = $datos['filter1'] ?? '';
         $filter2 = $datos['filter2'] ?? '';
 
+
+        
         $items = Producto::queryBusqueda($busqueda, $filter1, $filter2);
+
         if (!empty($items)) {
-            $contenidoTienda = builtContent($items);
-            foreach ($items as $item) {
-                
-                if(isset($item)){
-                    $contenidoPrincipal = <<<EOS
-                    <h1 class="titulo-tienda">Tienda</h1>
-                    <p>$contenidoTienda</p>
-                    EOS;
-                }
-                else{
-                   
-                    $contenidoPrincipal = "<p id='busqueda-vacia'>No se encontraron items.</p>";
-                }
-            }
+            
+           return $items;
             
         } else {
 
-            
-            
-            $contenidoPrincipal = "<p id='busqueda-vacia'>No se encontraron items.</p>";
+            return null;
 
         }
-
-        $this->setRedirectUrl("procesarformulario.php?cont={$contenidoPrincipal}");
     }
+
+    public function gestiona(){
+        // Obtener los datos del formulario (POST o GET)
+        $datos = &$_POST;
+        if (strcasecmp('GET', $this->method) == 0 ) {
+            $datos = &$_GET;
+        }
+
+        $this->errores = [];
+
+        
+
+        // Verificar si el formulario no ha sido enviado
+        if (!$this->formularioEnviado($datos)) {
+            return $this->generaFormulario();
+        }
+
+        // Procesar el formulario y obtener los items
+        $items = $this->procesaFormulario($datos);
+        $this->items = $items;
+
+        // Verificar si se han devuelto items
+        if (!empty($items)) {
+            // Si se encontraron resultados, no modificamos la variable $items y devolvemos el formulario
+            
+            return $this->generaFormulario($datos);
+            
+        } else {
+            // Si no hay items, generar nuevamente el formulario con algún mensaje indicando que no se encontraron resultados
+           
+            $this->errores['global'] = 'No se encontraron resultados para la búsqueda.';
+            return $this->generaFormulario($datos);
+            
+        }
+    }
+
+    public function getItems() {
+        return $this->items;
+    }
+
+
+
 }
 
 ?>
+
+

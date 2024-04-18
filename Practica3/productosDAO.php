@@ -351,24 +351,14 @@ class Producto{
 
     // }
 
-    public static function queryBusqueda() {
+    public static function queryBusqueda($termino,$precio,$categoria) {
 
         $conn = Aplicacion::getInstance()->getConexionBD();
         if ($conn->connect_error){
             die("La conexión ha fallado" . $conn->connect_error);
         }
     
-        $termino = isset($_GET["busqueda"]) ? trim($_GET["busqueda"]) : "";
-       
-
-
-        if (isset($_GET["filter2"]) && $_GET["filter2"] != "") {
-            $categoria = $_GET["filter2"];
-        }
         
-        if (isset($_GET["filter1"])) {
-            $precio = $_GET["filter1"];
-        }
 
         $query = "SELECT * FROM productos WHERE 1";
 
@@ -403,7 +393,7 @@ class Producto{
         
             $statement->execute();
            
-            $items = $statement->get_result()->fetch_all(MYSQLI_ASSOC);
+            
             
 
         }
@@ -434,10 +424,23 @@ class Producto{
                 }
                 
                 $statement->execute();
-                $items = $statement->get_result()->fetch_all(MYSQLI_ASSOC);
-                
+  
             }
         }
+        
+
+        $result = $statement->get_result();
+
+        // Verificar si se encontraron resultados
+        if ($result->num_rows > 0) {
+            $items = $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            // No se encontraron resultados, devolver null
+            $items = null;
+        }
+
+        
+
         return $items;
 
     }

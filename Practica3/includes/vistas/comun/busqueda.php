@@ -1,7 +1,8 @@
 <?php
-require_once __DIR__.'/../helpers/barrabusqueda.php';
+require_once __DIR__.'/../../../busqueda.php';
+
 ?>
 
-<div class="busqueda">
-        <p><?= buildFormularioBusqueda()?>
-</div>
+
+
+
