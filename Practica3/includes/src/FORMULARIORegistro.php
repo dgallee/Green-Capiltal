@@ -31,7 +31,7 @@ class FormularioRegistro extends Formulario {
             
             <label for="nombre">Nombre:</label>
             <div>
-                <input id="nombre" type="text" name="nombre" value="$nombre" />
+                <input id="nombre" type="text" name="nombre" value="$nombre" >
             </div>
             {$erroresCampos['nombre']}
             
@@ -79,7 +79,7 @@ class FormularioRegistro extends Formulario {
 
             <label for="password2">Repetir contraseña:</label>
             <div>
-                <input id="password2" type="password" name="password2" />
+                <input id="password2" type="password" name="password2" >
             </div>
             {$erroresCampos['password2']}
 

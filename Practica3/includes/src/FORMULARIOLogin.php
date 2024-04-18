@@ -32,21 +32,22 @@ class FormularioLogin extends Formulario
             <legend>Usuario y contraseña</legend>
             <label for="nombreUsuario">Usuario:</label>
             <div>
-                <input id="nombreUsuario" type="text" name="nombreUsuario" value="$nombreUsuario" />
+                <input id="nombreUsuario" type="text" name="nombreUsuario" value="$nombreUsuario" >
             </div>
             {$erroresCampos['nombreUsuario']}
 
             <label for="password">Contraseña:</label>
             <div>
-                <input id="password" type="password" name="password" />
+                <input id="password" type="password" name="password" >
             </div>
             {$erroresCampos['password']}
             <div>
             <button type="submit">Entrar</button>
-            <a href="registro.php"><button type="button">Registrarse</button></a>
+            <button type="button" onclick="location.href='registro.php'">Registrarse</button>
             </div>
         </fieldset>
         EOF;
+       // <a href="registro.php"><button type="button">Registrarse</button></a>
         return $html;
     }
 
