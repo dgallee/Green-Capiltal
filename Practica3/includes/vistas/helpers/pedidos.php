@@ -13,7 +13,7 @@ function builtTablaPedidos($pedidos) {
         }
         $pedidosAgrupados[$idPedido][] = $pedido;
     }
-
+    $dni=$pedido['DniUsuario'];
     //Scrollbar linea 19 a implementar en tienda?
     $tablaPedidos = <<<EOS
     <div style="width: 100%; height: 400px; overflow-y: scroll;">
@@ -37,6 +37,8 @@ function builtTablaPedidos($pedidos) {
             <td> Cantidad: {$articulo['Unidades']}</td>
             <td> Precio total del artículo: {$articuloPrecioTotal} €</td>
             <td><img src='{$infoProd->getImagen()}' alt='' width='200'></td>
+            <td><button id="miBoton" dni='{$dni}' idProducto='{$infoProd->getId()}' >valorar o modficar</button></td>
+
             </tr>
             EOS;
         }
