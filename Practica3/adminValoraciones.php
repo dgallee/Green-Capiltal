@@ -7,7 +7,7 @@ require_once 'valoracionesDAO.php';
 
 $tituloPagina = 'Gestion de Valoraciones';
 
-if (!esAdmin() && !esComerciante()) {
+if (!esAdmin() && !esModerador()) {
 	Utils::paginaError(403, $tituloPagina, '¡Acceso Denegado!', 'No tienes permisos suficientes para administrar y gestionar las valoraciones');
 }
 
