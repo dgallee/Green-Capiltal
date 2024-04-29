@@ -64,7 +64,9 @@ function builtDetails($nombre, $id, $descripcion, $precio, $categoria, $existenc
     $detalles = <<<EOS
     <div class='detalles'>
     <h1 class='titulo-tienda'>$nombre</h1>
-    <img src='$imagen' alt='$nombre'>
+    <div class="imagen-detalles">
+        <img src='$imagen' alt='$nombre' class="imagen-detalles">
+    </div>
     <p><strong></strong> $descripcion</p>
     <div class='linea-botón'>
         <p class='precio-existencias'><strong></strong> Precio: $precio €</p>
