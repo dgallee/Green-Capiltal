@@ -31,9 +31,15 @@ function builtTablaPedidos($pedidos) {
         <tr><td>Pedido con ID #$idPedido:</td></tr>
         EOS;
         foreach ($articulos as $articulo) {
-            $infoProd = Producto::search($articulo['IdProducto']);
+            $idProducto = $articulo['IdProducto'];
+            $infoProd = Producto::search($idProducto);
+            $valoracion = Valoracion::getValoracion($dni,$idProducto);
             $articuloPrecioTotal = $articulo['PrecioTotal'];
             $precioTotal += $articuloPrecioTotal;
+            $accion = 'Editar';
+            if($valoracion==''){
+                $accion='Agregar';
+            }
             $tablaPedidos .= <<<EOS
             <tr>
             <td> Artículo: {$infoProd->getNombre()}</td>
@@ -41,8 +47,7 @@ function builtTablaPedidos($pedidos) {
             <td> Cantidad: {$articulo['Unidades']}</td>
             <td> Precio total del artículo: {$articuloPrecioTotal} €</td>
             <td><img src='{$infoProd->getImagen()}' alt='' width='200'></td>
-            <td><button type="button" class="botonvalorar" dni='{$dni}' idProducto='{$infoProd->getId()}' >valorar o modficar</button></td>
-
+                <td><button type="button" class="botonvalorar" dni='{$dni}' idProducto='{$infoProd->getId()}' >$accion valoracion</button></td>
             </tr>
             EOS;
         }

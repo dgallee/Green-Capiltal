@@ -11,19 +11,24 @@ function builtDetails($nombre, $id, $descripcion, $precio, $categoria, $existenc
 
     $boton='';
     $comentario='<p>No hay comentarios</p>';
+
+    $valoracion='';
     if(isset($_SESSION['DNI'])  && Pedido::hay_pedido($_SESSION['DNI'],$id)){
-    $boton= <<<EOS
-    <button type="button" id="miBoton" dni='{$_SESSION['DNI']}' idProducto='{$id}' >valorar o modficar</button>
-    EOS;
+        $dni = $_SESSION['DNI'];
+        $valoracion = Valoracion::getValoracion($dni,$id);
+        $accion = 'Editar';
+        if($valoracion==''){
+            $accion='Agregar';
+        }
+        $boton= <<<EOS
+        <button type="button" id="miBoton" dni='{$_SESSION['DNI']}' idProducto='{$id}' >$accion valoracion</button>
+        EOS;
     }
    
     $results=Valoracion::getValoraciones($id);
 
     if($results!=0){
-
         $comentario='';
-
-
         foreach($results as $result){
 
             $usuarionombre=$result['usuario'];
@@ -42,11 +47,7 @@ function builtDetails($nombre, $id, $descripcion, $precio, $categoria, $existenc
 
                 }
 
-
             }
-
-
-
 
             $comentario.=<<<EOS
             <div class="comentario">
@@ -56,17 +57,9 @@ function builtDetails($nombre, $id, $descripcion, $precio, $categoria, $existenc
             $estrellas
             </div>
             </div>
-
             EOS;
-
-
         }
-
-
-
     }
-    
-
 
     $detalles = <<<EOS
     <div class='detalles'>
@@ -92,8 +85,6 @@ function builtDetails($nombre, $id, $descripcion, $precio, $categoria, $existenc
     <p class='categoria-especie'><strong></strong> Especie: $especie</p>
     <h1 class='titulo-tienda'>Valoraciones</h1>
     $comentario
-
-
 
     </div>
     EOS;
