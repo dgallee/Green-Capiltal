@@ -478,6 +478,21 @@ class Producto{
         }
     }
 
+    public static function obtenerNombre($pId){
+        $conn = Aplicacion::getInstance()->getConexionBD();
+        $pId = $conn->real_escape_string($pId);
+        $query = "SELECT Nombre FROM productos WHERE Id = '$pId'";
+        $result = $conn->query($query);
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $result->free();
+            return $row['Nombre'];
+        } else {
+            // Manejo de error si la consulta falla o no devuelve resultados
+            return false;
+        }
+    }
+
     public static function existencias($pId){
         $conn = Aplicacion::getInstance()->getConexionBD();
         $pId = $conn->real_escape_string($pId);
