@@ -85,6 +85,23 @@ class Pedido{
         return true;
     }
 
+    public static function hay_pedido($dni,$idProducto){
+     $conn = Aplicacion::getInstance()->getConexionBD();
+     
+     $dni=$conn->real_escape_string($dni);
+     $idProducto=$conn->real_escape_string($idProducto);
+
+     $query="SELECT*FROM pedidos where DniUsuario='$dni' and idProducto='$idProducto' ";
+
+      $result=$conn->query($query);
+
+      if($result->num_rows>0){
+        return true;
+      }
+     return false;
+
+    }
+
     
     public function getId(){
         return $this->pId;
