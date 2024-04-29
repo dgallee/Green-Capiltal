@@ -15,6 +15,7 @@ function buildTablaValoraciones($valoraciones){
                     <th>Usuario</th>
                     <th>Valoracion</th>
                     <th>Puntuacion</th>
+                    <th>Acciones</th>
                 </tr>
         EOS;
     }
@@ -30,13 +31,19 @@ function buildTablaValoraciones($valoraciones){
         <td>{$valoracion['Texto']}</td>
         <td>{$valoracion['Puntuacion']}</td>
         <td>
+        <a href="valoraciones.php">
+            <img src="img/editar.png" alt="Editar" dni='{$dniUsuario}' idProducto='{$idProducto}' class="botonImagen" >
+        </a>
+        <a href="valoraciones.php">
+                <img src="img/eliminar.png" alt="Eliminar" class="botonImagen" >
+        </a>
         </td>
         </tr>
         EOS;
     }
 
     // Cierra la tabla
-    $tablaValoraciones .= "</table>";   
+    $tablaValoraciones .= "</table>";    
     $tablaValoraciones .= '</div>'; 
 
     return $tablaValoraciones;

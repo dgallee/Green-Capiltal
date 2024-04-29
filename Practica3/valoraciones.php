@@ -10,19 +10,13 @@ $Prod=$_GET['idProd'];
 
 
 //Agregar Valoracion
-
-
-
 $tituloPagina = 'Formulario Valoracion';
-
-
-
 $valoracion=Valoracion::getValoracion($DNI,$Prod);
 
-$Tipo='Editar';
+$tipo='Editar';
 if($valoracion==''){
 
-$Tipo='Agregar';
+$tipo='Agregar';
 
 }
 
@@ -30,7 +24,7 @@ $Tipo='Agregar';
 $form= new MiProyecto\Formularios\FormularioAgregarValoracion($valoracion,$DNI,$Prod);
 $formAddVal = $form->gestiona();    
 $contenidoPrincipal=<<<EOS
-<h1>$Tipo Valoracion</h1>
+<h1>$tipo Valoracion</h1>
 $formAddVal;
 EOS;
 
