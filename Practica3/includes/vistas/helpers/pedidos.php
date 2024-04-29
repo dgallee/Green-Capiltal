@@ -41,7 +41,7 @@ function builtTablaPedidos($pedidos) {
             <td> Cantidad: {$articulo['Unidades']}</td>
             <td> Precio total del artículo: {$articuloPrecioTotal} €</td>
             <td><img src='{$infoProd->getImagen()}' alt='' width='200'></td>
-            <td><button id="miBoton" dni='{$dni}' idProducto='{$infoProd->getId()}' >valorar o modficar</button></td>
+            <td><button type="button" class="botonvalorar" dni='{$dni}' idProducto='{$infoProd->getId()}' >valorar o modficar</button></td>
 
             </tr>
             EOS;
