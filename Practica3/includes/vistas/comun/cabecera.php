@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__.'/../helpers/usuarios.php';
-require_once __DIR__.'/../helpers/barrabusqueda.php';
 require_once 'includes/vistas/helpers/autorizacion.php';
 require_once 'includes/config.php';
 
