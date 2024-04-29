@@ -1,19 +1,25 @@
-// Primero, obtén el botón por su ID
-var boton = document.getElementById('miBoton');
 
-// Luego, añade el event listener
-boton.addEventListener('click', function() {
-  // Aquí va el código que se ejecutará cuando el botón sea clickeado
 
-  /*
-  alert('¡Botón clickeado!');
 
+
+document.addEventListener("DOMContentLoaded", function() {
+  let boton = document.getElementById("miBoton");
+  let eliminar = document.getElementById("eliminarvaloracion");
   
-  alert(event.currentTarget.getAttribute("idProducto"));
-  alert(event.currentTarget.getAttribute("dni"));
-  */
+ 
+  
 
-  location.href="valoraciones.php?"+"Dni="+event.currentTarget.getAttribute("dni")+"&idProd="+event.currentTarget.getAttribute("idProducto");
+  if(boton!=null)
+  boton.addEventListener("click", function() {
+    
+    location.href = "valoraciones.php?" + "Dni=" + this.getAttribute("dni") + "&idProd=" + this.getAttribute("idProducto");
+  });
+
+  if(eliminar!=null)
+  eliminar.addEventListener("click", function() {
+    location.href = "eliminarvaloracion.php?" + "Dni=" + this.getAttribute("dni") + "&idProd=" + this.getAttribute("idProducto");
+  });
 
 
+ 
 });
