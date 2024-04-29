@@ -10,6 +10,29 @@ div#contenedor {
 	margin-top: 0%;
 }
 
+.comentario {
+	width: 50%;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid black;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.nombre-usuario {
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.texto-valoracion {
+	margin-top: 10px;
+}
+.star {
+	font-size: 24px;
+	color: gold;
+}
+.estrellas {
+	display: flex;
+	align-items: center;
+}
+
 .oferta{
 	background-color: red;
     border-radius: 10px;
@@ -507,7 +530,8 @@ a.deshabilitado {
 	color: #333;
 	margin-bottom: 10px;
 }
-  
+
+
 .detalles img {
 	max-width: 100%;
 	height: auto;
@@ -520,6 +544,13 @@ a.deshabilitado {
     align-items: center;
     justify-content: space-between;
 }
+.detalles .comentarios {
+	font-size: 24px;
+	color: #333;
+	margin-bottom: 10px;
+
+}
+
 
 .detalles .precio-existencias {
     font-size: 1em;
@@ -557,7 +588,7 @@ a.deshabilitado {
 	background-color: #0056b3;
   
 }
-  
+
 
 /* Estilo para la tabla */
 .tablaCarrito {
@@ -608,6 +639,7 @@ body > button {
     border-collapse: collapse;
 }
 
+
 /* Estilo para las celdas de la tabla */
 .tablaPedidos td {
     padding: 8px;
@@ -629,6 +661,20 @@ body > button {
     height: auto;
 }
 
+
+.tablaPedidos button{
+
+	background-color: #4CAF50;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: none;
+}
 
 /* Estilo para el texto del precio total */
 
