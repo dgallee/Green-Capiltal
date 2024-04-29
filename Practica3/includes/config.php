@@ -73,5 +73,6 @@ Mensaje::init();
 require_once 'src/Aplicacion.php';
 require_once 'usuarioDAO.php';
 require_once 'productosDAO.php';
+require_once 'valoracionesDAO.php';
 
 Aplicacion::getInstance()->init(array('host'=>BD_HOST,'user'=>BD_USER,'pass'=>BD_PASS,'name'=>BD_NAME));
