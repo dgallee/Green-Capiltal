@@ -72,10 +72,14 @@ class FormularioEditarProducto extends Formulario {
         {$erroresCampos['precio']}
         <div>
             <label for="categoria">Categoría:</label>
-            <input type="text" name="categoria" id="categoria" value= "$cat"/>
-        </div>
-        {$erroresCampos['categoria']}    
-     
+            <select name="categoria" id="categoria">
+            <option value='Plantas de interior' . ($cat == 'Plantas de interior' ? 'selected' : '') . >Plantas de interior</option>
+            <option value='Plantas de exterior' . ($cat == 'Plantas de exterior' ? 'selected' : '') . >Plantas de exterior</option>
+            <option value='Plantas exóticas' . ($cat == 'Plantas exóticas' ? 'selected' : '') . >Plantas exóticas</option>
+            <option value='Flores de temporada' . ($cat == 'Flores de temporada' ? 'selected' : '') . >Flores de temporada</option>
+            </select> 
+        </div> 
+        {$erroresCampos['categoria']}
         <input type="hidden" name="id" value="$id">
      
         <div>
