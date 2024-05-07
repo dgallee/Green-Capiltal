@@ -39,7 +39,12 @@ class FormularioAgregarProducto extends Formulario {
         {$erroresCampos['precio']}
         <div>
             <label for="categoria">Categoría:</label>
-            <input type="text" name="categoria" id="categoria" required>
+            <select name="categoria" id="categoria">
+            <option value='Plantas de interior'>Plantas de interior</option>
+            <option value='Plantas de exterior'>Plantas de exterior</option>
+            <option value='Plantas exóticas'>Plantas exóticas</option>
+            <option value='Flores de temporada'>Flores de temporada</option>
+            </select> 
         </div>
         {$erroresCampos['categoria']}    
         <div>
