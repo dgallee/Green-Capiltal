@@ -42,9 +42,10 @@ $tablaValoraciones = '';
         <td>{$valoracion['Texto']}</td>
         <td>{$valoracion['Puntuacion']}</td>
         <td>
-        <a href="valoraciones.php">
-            <img src="img/editar.png" alt="Editar" dni='{$dniUsuario}' idProducto='{$idProducto}' class="botonImagen" >
-        </a>
+        <a href="valoraciones.php?Dni={$dniUsuario}&idProd={$idProducto}">
+            <img src="img/editar.png" alt="Editar" class="botonImagen" >
+         </a>
+    
         <a href="valoraciones.php">
                 <img src="img/eliminar.png" alt="Eliminar" class="botonImagen" >
         </a>

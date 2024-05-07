@@ -5,7 +5,6 @@ use es\ucm\fdi\aw\valoraciones\valoracionesDAO;
 $DNI=$_GET['Dni'];
 $Prod=$_GET['idProd'];
 
-
 //Agregar Valoracion
 $tituloPagina = 'Formulario Valoracion';
 $valoracion=ValoracionesDAO::getValoracion($DNI,$Prod);
