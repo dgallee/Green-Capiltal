@@ -137,10 +137,8 @@ class FormularioRegistro extends Formulario {
             } else {
                // $usuario = Usuario::crea($nombreUsuario, $password, $nombre, Usuario::USER_ROLE);
                $usuario= usuarioDAO::register($nombre,$apellidos,$correo,$direccion,$telefono,$dni,$nombreUsuario,$password);
-               $_SESSION["username"] = $nombreUsuario;
-               $_SESSION["password"] = $password;
-               $_SESSION["DNI"] = $dni;
-               $_SESSION["tipo"]=0;
+               header('Location: login.php');
+               exit();
             }
         }
     }

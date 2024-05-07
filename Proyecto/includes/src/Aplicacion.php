@@ -263,7 +263,7 @@ class Aplicacion
         unset($_SESSION['tipo']);
         unset($_SESSION['DNI']);
         unset($_SESSION['password']);
-
+        unset($_SESSION['login']);
 
         session_destroy();
         session_start();
