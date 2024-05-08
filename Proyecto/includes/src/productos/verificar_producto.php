@@ -7,6 +7,6 @@ $nombre = $_GET['user'];
 if (productosDAO::exist($nombre)) {
     echo "producto ya registrado";
 } else {
-    echo "producto no registrado.";
+    echo "producto no registrado";
 }
 ?>

@@ -8,6 +8,6 @@ if (usuarioDAO::exist($nombre)) {
     echo "nombre ya registrado";
     
 } else {
-    echo "nombre no registrado.";
+    echo "nombre no registrado";
 }
 ?>
