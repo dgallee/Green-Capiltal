@@ -43,19 +43,19 @@ if(!empty($productos)){
 }
 
 // Añade una fila a la tabla para cada usuario
-$ruta = RUTA_APP . "/procesarSumarExistencias.php";
+
+
 foreach ($productos as $producto) {
+
+	$form= new es\ucm\fdi\aw\productos\FormularioSumarExistencias($producto['Id']);
+	$htmlFormAdd = $form->gestiona();
 	$tablaProductos .= <<<EOS
 	<tr>
 	<td>{$producto['Nombre']}</td>
 	<td>{$producto['Precio']}</td>
 	<td>
 		{$producto['Existencias']}
-		<form action="$ruta" method="post">
-			<input type="hidden" name="id" value="{$producto['Id']}">
-			<input type="number" name="cantidad" min="1" value="1">
-			<button type="submit">Añadir existencias</button>
-		</form>
+		$htmlFormAdd
 	</td>
 	<td>{$producto['Id']}</td>
 	<td>
