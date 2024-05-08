@@ -6,7 +6,7 @@
 
 
     $tituloPagina = 'Mis pedidos';
-    $DNI = $_SESSION["DNI"];
+    $DNI = $app->DNIUsuario();
     $pedidos = pedidosDAO::mostrarPedidos($DNI);
 
 

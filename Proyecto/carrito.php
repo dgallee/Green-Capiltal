@@ -4,7 +4,7 @@
     use es\ucm\fdi\aw\productos\productosDAO;
 
     $tituloPagina = 'Carrito';
-    $DNI = $_SESSION["DNI"];
+    $DNI = $app->DNIUsuario();
     $carrito = carritoDAO::mostrarCarrito($DNI);
 
     if($carrito){

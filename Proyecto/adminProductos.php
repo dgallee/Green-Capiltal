@@ -16,8 +16,7 @@ if($app->esAdmin()){
 	$parametro = "admin";
 }
 else if($app->esComerciante()){
-	$dni = $_SESSION["DNI"];
-	$parametro = $dni;
+	$parametro = $app->DNIUsuario();
 }
 // Obtén el array de usuarios
 $productos = productosDAO::showTable($parametro);

@@ -5,7 +5,7 @@
     use es\ucm\fdi\aw\carrito\carritoDAO;
 
     $tituloPagina = 'Suma Unidad Carrito';
-    $DNI = $_SESSION["DNI"];
+    $DNI = $app->DNIUsuario();
     $cantidad = $_POST["Cantidad"];
     $idProducto = $_POST["idProducto"];
     $precio = productosDAO::precio($idProducto);

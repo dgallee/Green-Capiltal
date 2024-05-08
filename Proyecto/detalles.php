@@ -24,15 +24,15 @@ $boton='';
     $comentario='<p>No hay comentarios</p>';
 
     $valoracion='';
-    if(isset($_SESSION['DNI'])  && pedidosDAO::hay_pedido($_SESSION['DNI'],$idProd)){
-        $dni = $_SESSION['DNI'];
+    if(isset($_SESSION['DNI'])  && pedidosDAO::hay_pedido($app->DNIUsuario(),$idProd)){
+        $dni = $app->DNIUsuario();
         $valoracion = valoracionesDAO::getValoracion($dni,$idProd);
         $accion = 'Editar';
         if($valoracion==''){
             $accion='Agregar';
         }
         $boton= <<<EOS
-        <button type="button" id="miBoton" dni='{$_SESSION['DNI']}' idProducto='{$idProd}' >$accion valoracion</button>
+        <button type="button" id="miBoton" dni='{$dni}' idProducto='{$idProd}' >$accion valoracion</button>
         EOS;
     }
    

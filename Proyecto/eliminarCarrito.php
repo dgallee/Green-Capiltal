@@ -4,7 +4,7 @@
     use es\ucm\fdi\aw\carrito\carritoDAO;
 
     $id = $_POST['idProducto'];
-    $dni = $_SESSION['DNI'];
+    $dni = $app->DNIUsuario();
     $delete = carritoDAO::elimina($id, $dni);
     
     if ($delete){

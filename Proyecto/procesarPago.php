@@ -4,7 +4,7 @@
     use es\ucm\fdi\aw\carrito\carritoDAO;
 
     $tituloPagina = 'Finalizar Pago';
-    $DNI = $_SESSION["DNI"];
+    $DNI = $app->DNIUsuario();
 
     $ok = carritoDAO::finalizaPago($DNI);
 

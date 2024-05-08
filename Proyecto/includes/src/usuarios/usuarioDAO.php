@@ -105,6 +105,36 @@ use es\ucm\fdi\aw\carrito\carritoDAO;
             return $result;
         }
 
+        public static function addUser($name, $surname, $mail, $dir, $tfno, $dni, $username, $password, $type) {
+            
+            // Crear conexión
+            $conn = Aplicacion::getInstance()->getConexionBD();
+
+            //Hasheo
+            $password = $conn->real_escape_string($password);
+            $password=password_hash($password,PASSWORD_DEFAULT);
+            
+            // Preparar la consulta SQL
+            $name = $conn->real_escape_string($name);
+            $surname = $conn->real_escape_string($surname);
+            $mail = $conn->real_escape_string($mail);
+            $dir = $conn->real_escape_string($dir);
+            $tfno = $conn->real_escape_string($tfno);
+            $dni = $conn->real_escape_string($dni);
+            $username = $conn->real_escape_string($username);
+            $query = "INSERT INTO usuarios (Nombre, Apellidos, Correo, Direccion, Telefono, Dni, Usuario, Contrasena, Tipo) VALUES ('$name', '$surname', '$mail', '$dir', '$tfno', '$dni', '$username', '$password', $type)";
+        
+            // Ejecutar la consulta SQL
+            if ($conn->query($query) === TRUE) {
+                $result = true;
+            } else {
+                $result = false;
+            }
+        
+            // Devolver el resultado
+            return $result;
+        }
+
         public static function delete($dni) {
             
             $conn = Aplicacion::getInstance()->getConexionBD();

@@ -93,7 +93,9 @@ $tablaUsuarios = <<<EOS
     }
 
     // Cierra la tabla
-    $tablaUsuarios .= "</table></div>";
+    $tablaUsuarios .= "</table>";
+    $tablaUsuarios .= '<button onclick="location.href=\'agregarUsuario.php\'"><img src="img/agregar.png" alt="Añadir usuario" class="botonImagen"></button>';    
+    $tablaUsuarios .= '</div>';
 
 $contenidoPrincipal = <<<EOS
 <h1 class='titulo'>Listado de Usuarios</h1>
