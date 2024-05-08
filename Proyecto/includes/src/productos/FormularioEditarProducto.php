@@ -44,7 +44,7 @@ class FormularioEditarProducto extends Formulario {
         $img = $this->img;
 
         $htmlErroresGlobales = self::generaListaErroresGlobales($this->errores);
-        $erroresCampos = self::generaErroresCampos(['nombre', 'resumen', 'descripcion', 'precio','categoria','existencias','especie'], $this->errores, 'span', array('class' => 'error'));
+        $erroresCampos = self::generaErroresCampos(['nombre_producto', 'resumen', 'descripcion', 'precio','categoria','existencias','especie'], $this->errores, 'span', array('class' => 'error'));
 
      
         $html = <<<EOS
@@ -52,9 +52,10 @@ class FormularioEditarProducto extends Formulario {
         <fieldset class="formulario">
         <div>
             <label for="nombre">Nombre:</label>
-            <input type="text" name="nombre" id="nombre"  value="$name"/> 
+            <input type="text" name="nombre" id="nombre_producto"  value="$name"/> 
+            <span id="productomal" class="error">  Ya existe este producto</span>
         </div>
-        {$erroresCampos['nombre']}
+        {$erroresCampos['nombre_producto']}
         <div>
             <label for="resumen">Resumen:</label>
             <input type="text" name="resumen" id="resumen"  value="$res"/>  
@@ -72,14 +73,10 @@ class FormularioEditarProducto extends Formulario {
         {$erroresCampos['precio']}
         <div>
             <label for="categoria">Categoría:</label>
-            <select name="categoria" id="categoria">
-            <option value='Plantas de interior' . ($cat == 'Plantas de interior' ? 'selected' : '') . >Plantas de interior</option>
-            <option value='Plantas de exterior' . ($cat == 'Plantas de exterior' ? 'selected' : '') . >Plantas de exterior</option>
-            <option value='Plantas exóticas' . ($cat == 'Plantas exóticas' ? 'selected' : '') . >Plantas exóticas</option>
-            <option value='Flores de temporada' . ($cat == 'Flores de temporada' ? 'selected' : '') . >Flores de temporada</option>
-            </select> 
-        </div> 
-        {$erroresCampos['categoria']}
+            <input type="text" name="categoria" id="categoria" value= "$cat"/>
+        </div>
+        {$erroresCampos['categoria']}    
+     
         <input type="hidden" name="id" value="$id">
      
         <div>
@@ -102,7 +99,7 @@ class FormularioEditarProducto extends Formulario {
 
     protected function procesaFormulario(&$datos)
     {
-        $name = $datos["nombre"];
+        $name = $datos["nombre_producto"];
         $res = $datos["resumen"];
         $desc = $datos["descripcion"];
         $precio = $datos["precio"];
@@ -112,7 +109,7 @@ class FormularioEditarProducto extends Formulario {
 
         // Validar si el nombre del producto ya existe en la base de datos
         if ($name != $this->name && !productosDAO::nombreRepetido($name)) {
-            $this->errores['nombre'] = "El nombre de producto ya está en uso.";
+            $this->errores['nombre_producto'] = "El nombre de producto ya está en uso.";
         }
         // Si hay errores, retornar false para indicar que el formulario no se procesó correctamente
         if (count($this->errores) > 0) {

@@ -63,6 +63,7 @@ class FormularioRegistro extends Formulario {
             <label for="username">Usuario:</label>
             <div>     
                 <input type="text" name="username" id="username">
+                <span id="usuariomal" class="error">  Ya existe este Usuario</span>
             </div>
             {$erroresCampos['username']}
             
@@ -137,8 +138,10 @@ class FormularioRegistro extends Formulario {
             } else {
                // $usuario = Usuario::crea($nombreUsuario, $password, $nombre, Usuario::USER_ROLE);
                $usuario= usuarioDAO::register($nombre,$apellidos,$correo,$direccion,$telefono,$dni,$nombreUsuario,$password);
-               header('Location: login.php');
-               exit();
+               $_SESSION["username"] = $nombreUsuario;
+               $_SESSION["password"] = $password;
+               $_SESSION["DNI"] = $dni;
+               $_SESSION["tipo"]=0;
             }
         }
     }

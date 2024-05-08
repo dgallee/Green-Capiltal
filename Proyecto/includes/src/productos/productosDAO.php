@@ -49,6 +49,28 @@ class productosDAO{
 
 
     }
+    public static function exist($nombre){
+        $conn = Aplicacion::getInstance()->getConexionBD();
+        
+        // Preparar la consulta SQL para evitar la inyección de SQL
+        $query = "SELECT * FROM productos WHERE Nombre = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("s", $nombre); // "s" indica que es un string
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        
+    
+        // Comprobar si la consulta devuelve alguna fila
+        if ($result->num_rows > 0) {
+            // Si encuentra un nombre igual, devolver true
+           
+            return true;
+        } else {
+            // Si no encuentra un nombre igual, devolver false
+            return false;
+        }
+    }
 
     public static function showTable($dniVendedor){        
         $conn = Aplicacion::getInstance()->getConexionBD();

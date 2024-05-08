@@ -3,6 +3,11 @@ body {
 	width:100%;
 	background-color: #a9e18d;
 }
+.error{
+	font-family: 'Pacifico', cursive;
+    font-size: 2em;
+    color: red;
+}
 
 div#contenedor {
 	margin: 0;

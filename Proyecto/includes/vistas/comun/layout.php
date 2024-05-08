@@ -30,9 +30,12 @@ require('pie.php');
 
 ?>
 </div>
+<script src="<?= RUTA_JS ?>/jquery-3.7.1.min.js"></script>
 <script src="<?= RUTA_JS ?>/busqueda.js"></script>
 <script src="<?= RUTA_JS ?>/valoraciones.js"></script>
-<script src="js/compra.js"></script>
-<script src="js/paginacion.js"></script>
+<script src="<?= RUTA_JS ?>/comprobaciones.js"></script>
+<script src="<?= RUTA_JS ?>/compra.js"></script>
+<script src="<?= RUTA_JS ?>/paginacion.js"></script>
+
 </body>
 </html>

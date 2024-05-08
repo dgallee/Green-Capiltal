@@ -11,7 +11,7 @@ class FormularioAgregarProducto extends Formulario {
     protected function generaCamposFormulario(&$datos)
     {
         $htmlErroresGlobales = self::generaListaErroresGlobales($this->errores);
-        $erroresCampos = self::generaErroresCampos(['nombre', 'resumen', 'descripcion', 'precio','categoria','existencias','especie'], $this->errores, 'span', array('class' => 'error'));
+        $erroresCampos = self::generaErroresCampos(['nombre_producto', 'resumen', 'descripcion', 'precio','categoria','existencias','especie'], $this->errores, 'span', array('class' => 'error'));
 
         $html = <<<EOS
         $htmlErroresGlobales
@@ -19,12 +19,14 @@ class FormularioAgregarProducto extends Formulario {
         <fieldset class="formulario">
         <div>
             <label for="nombre">Nombre:</label>
-            <input type="text" name="nombre" id="nombre" required>
+            <input type="text" name="nombre" id="nombre_producto" required>
+            <span id="productomal" class="error">  Ya existe este producto</span>
         </div>
-        {$erroresCampos['nombre']}
+        {$erroresCampos['nombre_producto']}  
         <div>
             <label for="resumen">Resumen:</label>
             <input type="text" name="resumen" id="resumen" required>
+
         </div>
         {$erroresCampos['resumen']}
         <div>
@@ -39,12 +41,7 @@ class FormularioAgregarProducto extends Formulario {
         {$erroresCampos['precio']}
         <div>
             <label for="categoria">Categoría:</label>
-            <select name="categoria" id="categoria">
-            <option value='Plantas de interior'>Plantas de interior</option>
-            <option value='Plantas de exterior'>Plantas de exterior</option>
-            <option value='Plantas exóticas'>Plantas exóticas</option>
-            <option value='Flores de temporada'>Flores de temporada</option>
-            </select> 
+            <input type="text" name="categoria" id="categoria" required>
         </div>
         {$erroresCampos['categoria']}    
         <div>
@@ -60,6 +57,8 @@ class FormularioAgregarProducto extends Formulario {
         <div>
             <label for="imagen">Imagen:</label>
             <input type="file" name="imagen" id="imagen" required>
+            <span id="extension_img" class="error"> Debe ser png o jpg</span>
+
         </div>
         <button type="submit">Ingresar</button>
         </fieldset>
@@ -72,7 +71,7 @@ class FormularioAgregarProducto extends Formulario {
 
     protected function procesaFormulario(&$datos)
     {
-        $name = $datos['nombre'] ?? '';
+        $name = $datos['nombre_producto'] ?? '';
         $res = $datos['resumen'] ?? '';
         $desc = $datos['descripcion'] ?? '';
         $precio = $datos['precio'] ?? '';
@@ -88,7 +87,7 @@ class FormularioAgregarProducto extends Formulario {
         }
          // Validar si el nombre del producto ya existe en la base de datos
         if (!productosDAO::nombreRepetido($name)) {
-            $this->errores['nombre'] = "El nombre de producto ya está en uso.";
+            $this->errores['nombre_producto'] = "El nombre de producto ya está en uso.";
         }
         // Si hay errores, retornar false para indicar que el formulario no se procesó correctamente
         if (count($this->errores) > 0) {
@@ -135,6 +134,10 @@ class FormularioAgregarProducto extends Formulario {
             echo "No se cargó ninguna imagen.";
         }
     }
+
+
+
+
     
 }
 ?>
