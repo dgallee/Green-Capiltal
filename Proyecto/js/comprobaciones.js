@@ -32,13 +32,13 @@ $(document).ready(function () {
                 if (status === "success") {
                     if (data.toLowerCase() === "producto ya registrado") {
                         
-                        
                         $("#productomal").show();
                         $("#nombre_producto").focus();
                         alert("El producto ya existe. Por favor, escoge otro nombre de producto.");
                         $("#nombre_producto").val("");
                         
                     } else if (data.toLowerCase() === "producto no registrado") {
+                        
                         
                         $("#productomal").hide();
                         
