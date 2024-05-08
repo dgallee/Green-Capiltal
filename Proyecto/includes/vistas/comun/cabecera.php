@@ -14,7 +14,7 @@ $dni = $app->DNIUsuario();
         </a>
     </div>
     <h2><a href="index.php">Inicio</a></h2>
-    <h2><a href="tienda.php">Tienda</a></h2>
+    <h2><a href="tienda.php?pagina=1">Tienda</a></h2>
     <?php if ($usuario_actual && $app->esAdmin()): ?>
         <h2><a href="admin.php">Administración</a></h2>
     <?php endif; ?>

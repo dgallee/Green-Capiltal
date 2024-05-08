@@ -524,6 +524,12 @@ a.deshabilitado {
 	border-radius: 5px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.detalles img {
+	width: 452px;
+	height: 452px;
+	object-fit: cover;
+}
   
 .titulo-tienda {
 	font-size: 24px;
@@ -785,6 +791,42 @@ body > button {
     color: #FF0000; 
     margin-top: 5px;
 }
+
+#paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+#paginacion a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+#paginacion a:hover {
+    color: #0056b3;
+}
+
+#botonAnterior, #botonSiguiente {
+    font-weight: bold;
+}
+
+.botonPagina {
+    padding: 5px 10px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+}
+
+.botonPagina:hover {
+    background-color: #007bff;
+    color: white;
+}
+
 
 /* CSS anterior */
 

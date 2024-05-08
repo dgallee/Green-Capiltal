@@ -1,7 +1,3 @@
-
-
-
-
 document.addEventListener("DOMContentLoaded", function() {
   let boton = document.getElementById("miBoton");
   let eliminar = document.getElementById("eliminarvaloracion");
