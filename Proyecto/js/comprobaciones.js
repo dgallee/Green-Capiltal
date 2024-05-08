@@ -119,6 +119,7 @@ $(document).ready(function () {
         } else {			
             // Extensión de archivo no válida: marca y nos quejamos
             $("#extension_img").show();
+            campo.val("");
             
             campo[0].setCustomValidity("El archivo debe tener una extensión válida");
         }
