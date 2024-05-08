@@ -27,17 +27,24 @@ if (isset($items)) {
     EOS;
 
     foreach($items as $producto) {
-
-        if ($producto["Existencias"] > 0){
-            
-            $contenidoTienda .= <<<EOS
+        if ($producto["Existencias"] > 0) {
+            // Escapar los valores dinámicos antes de imprimirlos en la cadena HTML
+            $nombreProducto = htmlspecialchars($producto["Nombre"]);
+            $resumenProducto = htmlspecialchars($producto["Resumen"]);
+            $precioProducto = htmlspecialchars($producto["Precio"]);
+            $existenciasProducto = htmlspecialchars($producto["Existencias"]);
+            $imagenProducto = htmlspecialchars($producto["Imagen"]);
+            $idProducto = htmlspecialchars($producto["Id"]);
+    
+            // Concatenar los valores escapados en la cadena HTML
+            $contenido .= <<<EOS
             <div class='producto'>
-            <h2>{$producto["Nombre"]}</h2>
-            <p>{$producto["Resumen"]}</p>
-            <p>Precio: {$producto["Precio"]}€</p>
-            <p>Existencias: {$producto["Existencias"]} unidades</p>
-            <img src='{$producto["Imagen"]}' alt='{$producto["Nombre"]}' width='200'>
-            <a href='detalles.php?prod={$producto['Id']}' class='btn-comprar'>Comprar</a>
+                <h2>{$nombreProducto}</h2>
+                <p>{$resumenProducto}</p>
+                <p>Precio: {$precioProducto}€</p>
+                <p>Existencias: {$existenciasProducto} unidades</p>
+                <img src='{$imagenProducto}' alt='{$nombreProducto}' width='200'>
+                <a href='detalles.php?prod={$idProducto}' class='btn-comprar'>Comprar</a>
             </div>
             EOS;
         }
