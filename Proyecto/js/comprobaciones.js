@@ -86,7 +86,7 @@ $(document).ready(function () {
                         $("#usuariomal").show();
                         $("#username").focus();
                         alert("El usuario ya existe. Por favor, escoge otro nombre de usuario.");
-                        $("#nombre_producto").val("");
+                        $("#username").val("");
                         
                     } else if (data.toLowerCase() === "nombre no registrado") {
                         
@@ -114,6 +114,7 @@ $(document).ready(function () {
         const esExtensionValida = validarExtensionArchivo(nombreArchivo);
         if (esExtensionValida) {
             // La extensión del archivo es válida: marca y limpia las quejas
+            $("#extension_img").hide();
             
             campo[0].setCustomValidity("");
         } else {			

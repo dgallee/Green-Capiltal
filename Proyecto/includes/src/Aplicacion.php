@@ -398,8 +398,9 @@ class Aplicacion
 
     if ($this->usuarioLogueado()) {
         $urlLogout = self::buildUrl('/logout.php');
+        $nombreUsuario = htmlspecialchars($_SESSION['username']); 
         $html = <<<EOS
-        Bienvenido, {$_SESSION['username']} <a href="{$urlLogout}">(salir)</a>
+        Bienvenido, {$nombreUsuario} <a href="{$urlLogout}">(salir)</a>
         EOS;
     } else {
         $urlLogin = self::buildUrl('/login.php');
@@ -410,4 +411,5 @@ class Aplicacion
 
     return $html;
 }
+
 }
