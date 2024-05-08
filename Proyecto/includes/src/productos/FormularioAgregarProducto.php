@@ -19,7 +19,7 @@ class FormularioAgregarProducto extends Formulario {
         <fieldset class="formulario">
         <div>
             <label for="nombre">Nombre:</label>
-            <input type="text" name="nombre" id="nombre_producto" required>
+            <input type="text" name="nombre_producto" id="nombre_producto" required>
             <span id="productomal" class="error">  Ya existe este producto</span>
         </div>
         {$erroresCampos['nombre_producto']}  
@@ -76,6 +76,7 @@ class FormularioAgregarProducto extends Formulario {
 
     protected function procesaFormulario(&$datos)
     {
+        
         $name = $datos['nombre_producto'] ?? '';
         $res = $datos['resumen'] ?? '';
         $desc = $datos['descripcion'] ?? '';

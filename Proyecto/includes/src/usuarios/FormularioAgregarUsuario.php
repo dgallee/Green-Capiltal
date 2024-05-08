@@ -73,6 +73,7 @@ class FormularioAgregarUsuario extends Formulario {
             <label for="username">Usuario:</label>
             <div>     
                 <input type="text" name="username" id="username">
+                <span id="usuariomal" class="error">  Ya existe este Usuario</span>
             </div>
             {$erroresCampos['username']}
             
