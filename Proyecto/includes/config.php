@@ -7,7 +7,7 @@
 // Parámetros de configuración generales
 //define('RAIZ_APP', str_replace('\\','/',__DIR__));
 define('RAIZ_APP', __DIR__);
-define('RUTA_APP', '/greencap/Proyecto');
+define('RUTA_APP', '/Proyecto-AW/Green-Capiltal/Proyecto');
 define('RUTA_IMGS', RUTA_APP . '/img');
 define('RUTA_CSS', RUTA_APP . '/css');
 define('RUTA_JS', RUTA_APP . '/js');
