@@ -22,8 +22,7 @@ $app = Aplicacion::getInstance();
         <h4 class='ventajas'> No lo dudes más y regístrate ya haciendo click <a href="registro.php">aquí</a> </h4>
     <?php else: ?>
         <h2 class='privilegio'> ¡Privilegio exclusivo para usuarios registrados! </h2>
-        <h3 class='aviso'> Masterclass gratuita del reconocido jardinero Monty Don en Julio</h3>
+        <h3 class='aviso'> Masterclass gratuita del reconocido jardinero Monty Don</h3>
 		<img src="img/montydon.png" alt="Monty Don" class="imagen-monty-don">
-        <p class='sugerencia'> Revisa diariamente tu correo para poder asistir, habrá plazas limitadas</p>
     <?php endif; ?>
 </aside>

@@ -218,7 +218,7 @@ use es\ucm\fdi\aw\carrito\carritoDAO;
             if ($result && $result->num_rows > 0) {
                 $row = $result->fetch_assoc();
                 $result->free();
-                return $row['Nombre'];
+                return $row['Usuario'];
             } else {
                 // Manejo de error si la consulta falla o no devuelve resultados
                 return false;
