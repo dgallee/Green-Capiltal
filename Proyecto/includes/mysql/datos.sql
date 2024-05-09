@@ -112,4 +112,95 @@ Sus flores consisten en tres sépalos naranjas y tres pétalos azules que emerge
 semanas o incluso meses en la planta, y son atractivas para los polinizadores. Además de sus flores, la Ave del Paraíso también se distingue por su follaje de hojas grandes y coriáceas, 
 que crecen en forma de abanico desde la base de la planta. Estas hojas son de color verde intenso y añaden un toque tropical al paisaje. Aunque la Ave del Paraíso es originaria de climas 
 cálidos, puede cultivarse con éxito en climas más templados en macetas o en el suelo, siempre que se proteja de las heladas. Es una planta resistente y de bajo mantenimiento que prospera 
-en suelos bien drenados y con riego moderado.', 13.49, 'Plantas exóticas', 25, 'Strelitzia reginae', 'img/avedelparaiso.png', '12345678O');
+en suelos bien drenados y con riego moderado.', 13.49, 'Plantas exóticas', 25, 'Strelitzia reginae', 'img/avedelparaiso.png', '12345678O'),
+('Planta Araña', '018', 'Arácnida pero sutil ', 'La planta araña, también conocida como Clorophytum comosum, es una belleza natural que irradia frescura y vitalidad en cualquier espacio. 
+Originaria de Sudáfrica, esta planta perenne pertenece a la familia Asparagaceae y es apreciada en todo el mundo por su encantador follaje en forma de araña y sus propiedades purificadoras 
+de aire. Sus hojas largas y delgadas, que crecen en forma de cascada desde el centro de la planta, aportan un toque de frescura y elegancia a cualquier ambiente. La planta araña es fácil 
+de cuidar y se adapta a una amplia gama de condiciones de luz y temperatura. Con su capacidad para eliminar toxinas del aire y su aspecto exuberante, es la elección perfecta para añadir 
+un toque de verdor a tu hogar u oficina.', 6.29, 'Plantas de interior', 16, 'Chlorophytum comosum', 'img/plantaarana.png', '12345678O'),
+('Ramo de Narcisos', '019', 'Enamoran a cualquiera', 'Los narcisos, conocidos científicamente como Narcissus, son una verdadera señal de la llegada de la primavera. Estas encantadoras 
+flores, nativas de Europa y Asia, pertenecen a la familia Amaryllidaceae y son apreciadas en todo el mundo por su belleza y fragancia. Las flores de los narcisos vienen en una variedad 
+de colores y formas, desde tonos brillantes de amarillo hasta blancos puros y naranjas vibrantes. Con sus tallos altos y delgados y sus flores en forma de trompeta, los narcisos añaden un 
+toque de alegría y color a cualquier jardín o espacio interior. Estas plantas perennes son fáciles de cultivar y prosperan en una amplia gama de condiciones climáticas. Además de su belleza 
+estética, los narcisos también son apreciados por su resistencia y longevidad, con flores que pueden durar varias semanas en la planta. Añade un toque de primavera a tu vida con los encantadores 
+narcisos, una elección perfecta para iluminar cualquier paisaje o florero.', 22.99, 'Flores de temporada', 12, 'Narcissus', 'img/narcisos.png', '12345678O'),
+('Maceta de Jacintos', '020', 'Fragancia que enamora y belleza que perdura', 'Los jacintos, científicamente conocidos como Hyacinthus, son una exquisita obra maestra de la naturaleza. 
+Originarios de la región mediterránea y del Medio Oriente, estos bulbos pertenecen a la familia Asparagaceae y son apreciados en todo el mundo por su fragancia embriagadora y su belleza única. 
+Las flores de los jacintos vienen en una amplia gama de colores, desde el azul intenso hasta el blanco puro, pasando por tonos rosados y morados, llenando el aire con su aroma dulce y delicado. 
+Los tallos altos y erectos de los jacintos sostienen racimos compactos de flores en forma de campana, creando un espectáculo encantador en jardines y arriates. Estas plantas perennes son fáciles 
+de cultivar y florecen en primavera, trayendo consigo la promesa de la nueva vida y la renovación. Con su fragancia embriagadora y su elegante apariencia, los jacintos son la elección perfecta 
+para dar un toque de encanto y sofisticación a cualquier espacio.', 18.99, 'Flores de temporada', 19, 'Hyacinthus', 'img/jacintos.png', '12345678O'),
+('Dracaena', '021', 'Elegancia verde para tu hogar', 'La Dracaena, una joya entre las plantas de interior, es un símbolo de elegancia y estilo en cualquier espacio. Conocida científicamente 
+como Dracaena, esta planta tropical es originaria de África y pertenece a la familia Asparagaceae. Sus largas hojas lanceoladas, que crecen en espiral desde tallos delgados y erguidos, añaden 
+un toque de frescura y sofisticación a cualquier ambiente. La Dracaena viene en una variedad de formas y colores, desde tonos vibrantes de verde hasta combinaciones de verde y amarillo, lo que 
+la convierte en una opción versátil para cualquier decoración. Además de su belleza estética, la Dracaena es una planta de interior fácil de cuidar que prospera en condiciones de luz media a 
+brillante y requiere un riego moderado. Con su capacidad para purificar el aire y su aspecto elegante, la Dracaena es la elección perfecta para añadir un toque de naturaleza y frescura a tu hogar 
+u oficina.', 11.99, 'Plantas de interior', 39, 'Dracaena', 'img/dracaena.png', '12345678O'),
+('Aloe Vera', '022', 'Naturalidad y cuidado en cada hoja', 'El Aloe vera, también conocido como sábila, es una planta suculenta que ha cautivado a la humanidad durante siglos por sus innumerables 
+beneficios para la salud y la belleza. Originaria de África, esta planta perenne pertenece a la familia Asphodelaceae y es apreciada en todo el mundo por su capacidad para sanar, hidratar y 
+revitalizar la piel y el cuerpo. Las hojas carnosas y puntiagudas del Aloe vera contienen un gel transparente lleno de vitaminas, minerales y antioxidantes, que se utiliza en una variedad de 
+productos cosméticos y medicinales. Desde la cicatrización de heridas hasta el tratamiento de quemaduras solares y la hidratación de la piel, el Aloe vera es una solución natural para muchos 
+problemas comunes de la piel. Además de sus beneficios para la salud, esta planta resistente es fácil de cuidar y prospera en una amplia gama de condiciones climáticas. Con su aspecto distintivo 
+y sus propiedades curativas, el Aloe vera es una adición imprescindible para cualquier jardín o hogar consciente de la salud y la belleza natural.', 7.99, 'Plantas exóticas', 24, 'Aloe Vera', 'img/aloevera.png', '12345678O'),
+('Ramo de Rosas Blancas', '023', 'Puras y blancas como la nieve', 'Un ramo de rosas blancas es la personificación misma de la elegancia y la pureza. Cada rosa, con su tallo largo y delicado, sostiene un 
+capullo blanco como la nieve que se despliega en una flor exquisitamente perfumada. Estas hermosas flores, símbolo de amor y respeto, son una declaración de gracia y refinamiento. El blanco puro de las 
+rosas transmite una sensación de serenidad y paz, mientras que su aroma embriagador llena el aire con su dulzura. Regalar un ramo de rosas blancas es ofrecer un gesto de admiración y devoción, una expresión 
+de afecto sincero y profundo. Ya sea para una ocasión especial o simplemente para transmitir tus sentimientos más sinceros, un ramo de rosas blancas es siempre 
+una elección atemporal y elegante.', 12.99, 'Flores de temporada', 19, 'Rosa', 'img/rosasblancas.png', '12345678O'),
+('Ramo de Rosas Rojas', '024', 'La pasión siempre es roja', 'Un ramo de rosas rojas es la encarnación misma del romance y la pasión. Cada rosa, con su color intenso y sus pétalos sedosos, representa 
+el amor ardiente y la devoción eterna. Estas flores, símbolo clásico del amor apasionado, transmiten emociones profundas y sinceras con cada fragancia embriagadora. El rojo vibrante de las rosas evoca 
+la calidez del corazón y la llama del deseo, creando una atmósfera de romance y ternura. Regalar un ramo de rosas rojas es expresar un amor apasionado y una conexión profunda, un gesto que nunca pasa 
+de moda y que siempre es bien recibido. Ya sea para celebrar una ocasión especial o simplemente para decir "te quiero", un ramo de rosas rojas es la elección perfecta para derretir corazones y hacer 
+que el amor florezca.', 11.99, 'Flores de temporada', 22, 'Rosa', 'img/rosasrojas.png', '12345678O'),
+('Sansevieria', '025', 'Verde que inspira tranquilidad', 'La Sansevieria, también conocida como lengua de suegra, es una planta que irradia elegancia y serenidad en cualquier espacio. Con sus hojas 
+largas y erectas en forma de espada, la Sansevieria añade un toque de frescura y sofisticación a cualquier hogar u oficina. Originaria de África y Asia, esta planta pertenece a la familia Asparagaceae 
+y es apreciada en todo el mundo por su fácil cuidado y sus propiedades purificadoras de aire. La Sansevieria es una planta resistente que prospera en una amplia gama de condiciones de luz y temperatura, 
+lo que la convierte en la elección perfecta para aquellos que buscan una planta de interior de bajo mantenimiento. Además de su belleza estética, la Sansevieria también se sabe que mejora la calidad del 
+aire al absorber toxinas y liberar oxígeno durante la noche, lo que la convierte en una compañera ideal para promover un ambiente saludable y relajante.', 8.99, 'Plantas de interior', 17, 'Sansevieria', 'img/sansevieria.png', '12345678O'),
+('Hibisco', '026', 'Flores que despiertan tus sentidos', 'El Hibisco, una maravilla tropical, es una explosión de color y vitalidad en cualquier jardín. Conocido científicamente como Hibiscus rosa-sinensis, 
+esta planta perenne pertenece a la familia Malvaceae y es apreciada en todo el mundo por sus flores grandes y llamativas que vienen en una variedad de colores vibrantes como el rojo, rosa, amarillo y naranja. 
+Las flores del Hibisco, con sus pétalos suaves y ondulados y su centro prominente, son una invitación irresistible para los polinizadores y los amantes de la jardinería por igual. Además de su belleza estética, 
+el Hibisco es apreciado por sus propiedades medicinales y culinarias. Las flores se utilizan en infusiones y tés que se valoran por sus beneficios para la salud, como el alivio del estrés y la mejora de la salud 
+cardiovascular. Además, el Hibisco es una planta resistente que prospera en climas cálidos y soleados, añadiendo un toque exótico y tropical a cualquier paisaje. Déjate cautivar por la belleza y el encanto del 
+Hibisco y deja que sus flores despierten tus sentidos y alegría en tu jardín.', 7.49, 'Plantas de exterior', 37, 'Hibiscus', 'img/hibisco.png', '12345678O'),
+('Clavel', '027', 'La clave de tu jardín', 'Los claveles, con su belleza atemporal y fragancia embriagadora, son la personificación misma de la elegancia y el encanto. Estas flores, conocidas científicamente 
+como Dianthus caryophyllus, son apreciadas en todo el mundo por sus pétalos suaves y ondulados que vienen en una variedad de colores vibrantes, incluyendo el blanco, rojo, rosa, amarillo y púrpura. Ya sea en 
+un ramo, en un jardín o como adorno en un evento especial, los claveles añaden un toque de distinción y sofisticación a cualquier ocasión. Su fragancia dulce y delicada llena el aire con su aroma seductor, 
+creando una atmósfera encantadora y acogedora. Además de su belleza estética, los claveles son conocidos por su longevidad y durabilidad, haciendo que sean una opción popular para arreglos florales y decoraciones 
+que perduran. Cultivados en jardines o en macetas, los claveles son fáciles de cuidar y florecen durante todo el año, brindando alegría y color en cualquier temporada. Déjate seducir por la elegancia y el encanto 
+de los claveles y disfruta de su belleza duradera en tu vida cotidiana.', 4.99, 'Flores de temporada', 26, 'Dianthus caryophyllus', 'img/clavel.png', '12345678O'),
+('Lirio', '028', 'Te hará delirar su majestuosidad', 'Los lirios, con su elegancia atemporal y su aroma delicado, son una obra maestra de la naturaleza que cautiva los sentidos. Conocidos científicamente como Lilium, estos majestuosos y delicados 
+tallos son apreciados en todo el mundo por sus flores exquisitas que vienen en una variedad de colores deslumbrantes como el blanco, rosa, amarillo, naranja y morado. Cada pétalo suave y ondulado parece una obra 
+de arte, creando un espectáculo visual que inspira admiración y asombro. Además de su belleza estética, los lirios tienen un aroma dulce y embriagador que llena el aire con su fragancia celestial, creando un 
+ambiente sereno y relajante. Estas flores son un símbolo de pureza, renovación y amor, y se han utilizado durante siglos en celebraciones y rituales en todo el mundo. Tanto en jardines como en arreglos florales, 
+los lirios son una adición impresionante que añade un toque de gracia y sofisticación a cualquier espacio. Con su belleza que perdura y su significado simbólico, los lirios son una elección perfecta para aquellos 
+que buscan una flor que eleve el espíritu y deleite los sentidos.', 5.99, 'Plantas de exterior', 32, 'Lilium', 'img/lirio.png', '12345678O'),
+('Bromelia', '029', 'Colores que iluminan tu día', 'Las bromelias, con su exótica belleza y vibrantes colores, son una fuente de alegría y frescura en cualquier espacio. Estas plantas tropicales, conocidas 
+científicamente como Bromeliaceae, son apreciadas por sus hojas exuberantes y sus flores llamativas que vienen en una variedad de tonos brillantes como el rojo, naranja, amarillo y rosa. Cada roseta de hojas 
+forma una estructura única que sostiene las flores en su centro, creando un espectáculo visual fascinante que ilumina cualquier habitación. Además de su belleza estética, las bromelias son plantas de bajo mantenimiento 
+que prosperan en interiores y exteriores con poca luz y altos niveles de humedad. Su capacidad para florecer durante semanas o incluso meses las convierte en una opción popular para añadir un toque de color y frescura 
+a cualquier espacio. Además, algunas variedades de bromelias, como la popular piña ornamental, producen frutas comestibles que añaden un toque tropical a la dieta. Las bromelias son una adición vibrante y alegre a 
+cualquier jardín o hogar, trayendo consigo una sensación de bienestar y vitalidad que ilumina cada día.', 9.99, 'Plantas exóticas', 17, 'Bromelia', 'img/bromelia.png', '12345678O'),
+('Hortensia', '030', 'Una belleza abrumadora', 'Las hortensias, con su exuberante belleza y elegancia clásica, son una adición encantadora a cualquier jardín o arreglo floral. Conocidas científicamente como Hydrangea, 
+estas flores cautivan con sus grandes cabezas de flores compuestas por numerosas flores diminutas que forman una esfera de color y textura única. Disponibles en una variedad de tonos, desde el blanco puro hasta el azul 
+profundo, el rosa suave y el púrpura intenso, las hortensias añaden un toque de encanto y sofisticación a cualquier entorno. Además de su belleza estética, las hortensias son conocidas por su longevidad y durabilidad, 
+floreciendo durante meses con los cuidados adecuados. Son una opción popular para bodas, decoraciones de eventos y arreglos florales de interior debido a su capacidad para llenar el espacio con su encanto natural. 
+Cultivadas en jardines, macetas o como flores cortadas, las hortensias son una elección versátil que ilumina cualquier lugar con su belleza inigualable.', 7.49, 'Plantas de exterior', 33, 'Hydrangea', 'img/hortensia.png', '12345678O'),
+('Eucalipto', '031', 'Frescura en estado puro', 'El eucalipto, con su aroma refrescante y propiedades beneficiosas, es un tesoro natural que brinda una sensación de frescura y bienestar. Conocido por su follaje aromático y sus 
+ramas elegantes, el eucalipto es apreciado en todo el mundo por sus numerosos usos, desde aromaterapia hasta medicina herbal. Originario de Australia, esta planta pertenece a la familia Myrtaceae y se destaca por sus hojas alargadas 
+y plateadas que exudan un aroma característico a mentol. Además de su fragancia revitalizante, las hojas de eucalipto se utilizan en infusión para aliviar la congestión nasal y mejorar la salud respiratoria. Las ramas de eucalipto 
+también se utilizan en arreglos florales y decoraciones para añadir un toque de frescura y elegancia a cualquier espacio. Además, el eucalipto es una planta fácil de cultivar que prospera en climas cálidos y soleados, convirtiéndola 
+en una opción popular para jardines y paisajes ornamentales. Disfruta de la frescura y el bienestar que proporciona el eucalipto y deja que su aroma te envuelva en una sensación de calma 
+y rejuvenecimiento.', 4.99, 'Plantas de interior', 24, 'Eucalyptus', 'img/eucalipto.png', '12345678O'),
+('Rosa de Siria', '032', 'Encanto oriental en cada pétalo', 'La Rosa de Siria, también conocida como Rosa Damascena, es una flor emblemática que ha cautivado corazones durante siglos con su belleza exótica y su fragancia embriagadora. 
+Originaria de la región de Oriente Medio, esta rosa pertenece a la familia Rosaceae y es apreciada por sus pétalos suaves y delicados que vienen en tonos de rosa pálido y blanco crema. Cada flor exuda un aroma distintivo y dulce que 
+llena el aire con su perfume celestial, creando una atmósfera de romance y elegancia. Además de su belleza estética y su aroma embriagador, la Rosa de Siria tiene una larga historia de uso en la perfumería y la medicina tradicional. 
+Sus pétalos se utilizan para producir aceite de rosa, que se valora por sus propiedades calmantes y rejuvenecedoras para la piel, así como por su aroma exquisito. Las rosas de Siria también se han utilizado en la cocina y en ceremonias 
+religiosas, añadiendo un toque de encanto oriental a diversas tradiciones. Cultivada en jardines y plantaciones en la región mediterránea, la Rosa de Siria es una flor que evoca la belleza y el misterio de Oriente, ofreciendo un regalo 
+inigualable para los sentidos y el alma.', 9.29, 'Flores de temporada', 16, 'Rosa', 'img/rosadesiria.png', '12345678O'),
+('Gazania', '033', 'Un rayo de sol en tu jardín', 'La Gazania, conocida por su vibrante colorido y su resistencia, es una flor que ilumina cualquier espacio con su belleza radiante. Originaria del sur de África, esta planta perteneciente 
+a la familia Asteraceae es apreciada por sus llamativas flores en forma de margarita que vienen en una amplia gama de colores brillantes, como el naranja, amarillo, rojo, rosa y blanco. Cada flor de Gazania parece capturar la esencia 
+misma del sol, con pétalos que se abren ampliamente para recibir la luz del día y cerrarse por la noche. Además de su espectacular aspecto, la Gazania es una planta resistente que prospera en condiciones soleadas y secas, lo que la 
+convierte en una elección popular para jardines de rocalla, macizos de flores y bordes de caminos. Sus hojas plateadas y peludas también ofrecen un atractivo adicional y ayudan a conservar la humedad del suelo en climas áridos. Fácil 
+de cuidar y de bajo mantenimiento, la Gazania es una opción ideal para aquellos que desean agregar un toque de color y vitalidad a su jardín con una planta que florece durante toda la temporada. Déjate cautivar por el encanto soleado 
+de la Gazania y deja que ilumine tu jardín con su belleza radiante.', 5.99, 'Flores de temporada', 22, 'Gazania', 'img/gazania.png', '12345678O');
