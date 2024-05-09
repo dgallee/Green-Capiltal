@@ -45,6 +45,14 @@ div#contenedor {
     text-align: center;
 }
 
+
+.privilegio{
+	background-color: gold;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
 .finalizarPedido{
 	padding: 10px 20px;
     background-color: green;
@@ -121,9 +129,27 @@ div#contenedor {
     font-size: 1.7em; /* Tamaño del texto */
 }
 
+.titulo3{
+	text-align: center;
+	font-family: 'Pacifico', cursive;
+    font-size: 1.8em; /* Tamaño del texto */
+}
+
 .ventajas{
 	font-family: 'Pacifico', cursive;
     font-size: 1.1em; /* Tamaño del texto */
+}
+
+.aviso{
+	font-family: 'Pacifico',cursive;
+	font-size:1em;
+	text-align: center;
+}
+
+.sugerencia{
+	font-size:1em;
+	font-family: 'Pacifico', cursive;
+	text-align: center;
 }
 
 header {
@@ -338,6 +364,9 @@ select {
 
 .imagen-orquidea {
     width: 280px;
+}
+.imagen-monty-don {
+    width: 300px;
 }
 nav {
     flex: 1; /* La lista de navegación tomará todo el espacio restante */
