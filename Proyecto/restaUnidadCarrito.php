@@ -6,8 +6,8 @@
 
     $tituloPagina = 'Suma Unidad Carrito';
     $DNI = $app->DNIUsuario();
-    $cantidad = $_POST["Cantidad"];
-    $idProducto = $_POST["idProducto"];
+    $cantidad = htmlspecialchars($_POST["Cantidad"]);
+    $idProducto = htmlspecialchars($_POST["idProducto"]);
     $precio = productosDAO::precio($idProducto);
 
     if($cantidad == '1'){

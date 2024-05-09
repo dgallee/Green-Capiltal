@@ -3,7 +3,7 @@
     use es\ucm\fdi\aw\productos\productosDAO;
     $tituloPagina = 'Editar';
 
-    $id = $_GET['prod'];
+    $id = htmlspecialchars($_GET['prod']);
     $prodEdit = productosDAO::search($id);
 
     if($prodEdit){

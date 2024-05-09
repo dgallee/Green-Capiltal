@@ -4,7 +4,7 @@
 
     $tituloPagina = 'Editar';
 
-    $dni = $_GET['user'];
+    $dni = htmlspecialchars($_GET['user']);
     $userEdit = usuarioDAO::search($dni);
 
     if($userEdit){

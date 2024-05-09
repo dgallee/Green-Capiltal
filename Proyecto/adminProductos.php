@@ -48,20 +48,26 @@ foreach ($productos as $producto) {
 
 	$form= new es\ucm\fdi\aw\productos\FormularioSumarExistencias($producto['Id']);
 	$htmlFormAdd = $form->gestiona();
+	$nombreProducto = htmlspecialchars($producto['Nombre']);
+	$PrecioProducto = htmlspecialchars($producto['Precio']);
+	$ExistenciasProducto = htmlspecialchars($producto['Existencias']);
+	$IdProducto = htmlspecialchars($producto['Id']);
+
+
 	$tablaProductos .= <<<EOS
 	<tr>
-	<td>{$producto['Nombre']}</td>
-	<td>{$producto['Precio']}</td>
+	<td>{$nombreProducto }</td>
+	<td>{$PrecioProducto}</td>
 	<td>
-		{$producto['Existencias']}
+		{$ExistenciasProducto}
 		$htmlFormAdd
 	</td>
-	<td>{$producto['Id']}</td>
+	<td>{$IdProducto}</td>
 	<td>
-		<a href="editarProducto.php?prod={$producto['Id']}">
+		<a href="editarProducto.php?prod={$IdProducto}">
 			<img src="img/editar.png" alt="Editar información" class="botonImagen" >
 		</a>
-		<a href="eliminarProducto.php?prod={$producto['Id']}">
+		<a href="eliminarProducto.php?prod={$IdProducto}">
 			<img src="img/eliminar.png" alt="Eliminar información" class="botonImagen" >
 		</a>
 	</td>

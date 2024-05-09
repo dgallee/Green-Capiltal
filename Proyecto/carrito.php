@@ -20,8 +20,8 @@
             $infoProd = productosDAO::search($articulos['IdProducto']);
             
             $precioProducto = $infoProd->getPrecio();
-            $articuloPrecioTotal = $articulos['PrecioTotal'];
-            $cantidad = $articulos['Cantidad'];
+            $articuloPrecioTotal = htmlspecialchars($articulos['PrecioTotal']);
+            $cantidad = htmlspecialchars($articulos['Cantidad']);
             $precioTotal = $precioTotal + $articuloPrecioTotal;
             $tablaCarrito .= <<<EOS
             <tr>

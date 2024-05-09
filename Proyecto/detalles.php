@@ -7,7 +7,7 @@ use es\ucm\fdi\aw\valoraciones\valoracionesDAO;
 
 $tituloPagina = "Detalles del producto";
 
-$id = $_GET['prod'];
+$id = htmlspecialchars($_GET['prod']);
 $caracteristicas = productosDAO::search($id);
 $cantidad = isset($_POST['cantidad']) ? max(1, intval($_POST['cantidad'])) : 1;
 
@@ -42,9 +42,9 @@ $boton='';
         $comentario='';
         foreach($results as $result){
 
-            $usuarionombre=$result['usuario'];
-            $texto=$result['Texto'];
-            $puntuacion=$result['Puntuacion'];
+            $usuarionombre= htmlspecialchars($result['usuario']);
+            $texto= htmlspecialchars($result['Texto']);
+            $puntuacion= htmlspecialchars($result['Puntuacion']);
 
             $j=$puntuacion;
             $estrellas='';

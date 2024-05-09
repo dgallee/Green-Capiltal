@@ -3,7 +3,7 @@
     require_once 'includes/config.php';
     use es\ucm\fdi\aw\usuarios\usuarioDAO;
 
-    $user = $_GET['user'];
+    $user = htmlspecialchars($_GET['user']);
     $dni = usuarioDAO::delete($user);
     
     if ($delete){

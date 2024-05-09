@@ -3,7 +3,7 @@
     require_once 'includes/config.php';
     use es\ucm\fdi\aw\carrito\carritoDAO;
 
-    $id = $_POST['idProducto'];
+    $id = htmlspecialchars($_POST['idProducto']);
     $dni = $app->DNIUsuario();
     $delete = carritoDAO::elimina($id, $dni);
     

@@ -20,7 +20,7 @@
             }
         $pedidosAgrupados[$idPedido][] = $pedido;
     }
-    $dni=$pedido['DniUsuario'];
+    $dni=htmlspecialchars($pedido['DniUsuario']);
     //Scrollbar linea 19 a implementar en tienda?
     $tablaPedidos = <<<EOS
     <div style="width: 100%; height: 400px; overflow-y: scroll;">
@@ -34,10 +34,10 @@
         <tr><td>Pedido con ID #$idPedido:</td></tr>
         EOS;
         foreach ($articulos as $articulo) {
-            $idProducto = $articulo['IdProducto'];
+            $idProducto = htmlspecialchars($articulo['IdProducto']);
             $infoProd = productosDAO::search($idProducto);
             $valoracion = valoracionesDAO::getValoracion($dni,$idProducto);
-            $articuloPrecioTotal = $articulo['PrecioTotal'];
+            $articuloPrecioTotal = htmlspecialchars($articulo['PrecioTotal']);
             $precioTotal += $articuloPrecioTotal;
             $accion = 'Editar';
             if($valoracion==''){

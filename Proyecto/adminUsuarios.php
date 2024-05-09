@@ -32,6 +32,10 @@ $tablaUsuarios = <<<EOS
     EOS;
 
     foreach ($usuarios as $usuario) {
+
+        
+
+        
         $tipoUsuario = '';
         if ($usuario['Tipo'] == 0) {
             $tipoUsuario = 'usuario';

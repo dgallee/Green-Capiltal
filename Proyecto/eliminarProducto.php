@@ -3,7 +3,7 @@
     require_once 'includes/config.php';
     use es\ucm\fdi\aw\productos\productosDAO;
 
-    $id = $_GET['prod'];
+    $id = htmlspecialchars($_GET['prod']);
     $delete = productosDAO::delete($id);
     
     if ($delete){
