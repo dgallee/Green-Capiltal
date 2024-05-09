@@ -46,7 +46,7 @@
             $tablaPedidos .= <<<EOS
             <tr>
             <td> Artículo: {$infoProd->getNombre()}</td>
-            <td> Precio: {$infoProd->getPrecio()} €</td>
+            <td> Precio: {$infoProd->getPrecio()}€ </td>
             <td> Cantidad: {$articulo['Unidades']}</td>
             <td> Precio total del artículo: {$articuloPrecioTotal} €</td>
             <td><img src='{$infoProd->getImagen()}' alt='' width='200'></td>
