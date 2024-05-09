@@ -41,7 +41,7 @@ class FormularioAgregarCarrito extends Formulario {
             <button type="button" id="btn-restar">-</button>
             <button type="submit" id="btn-add-articulo">Agregar al carrito</button>
         </form>
-EOS;
+        EOS;
         return $ret;
     }
 

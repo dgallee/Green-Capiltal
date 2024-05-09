@@ -110,8 +110,8 @@
 
 
                 $dni=$fila['DniUsuario'];
-                $usuario = UsuarioDAO::obtenerUsuario($dni);
-                $fila['usuario']=$usuario;
+                $nombre = UsuarioDAO::obtenerNombre($dni);
+                $fila['Nombre']=$nombre;
 
                 $valoraciones[] = $fila;
              

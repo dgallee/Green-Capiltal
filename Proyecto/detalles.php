@@ -21,82 +21,81 @@ $especie = $caracteristicas->getEspecie();
 $imagen = $caracteristicas->getImagen();
 
 $boton='';
-    $comentario='<p>No hay comentarios</p>';
+$comentario='<p>No hay comentarios</p>';
 
-    $valoracion='';
-    if(isset($_SESSION['DNI'])  && pedidosDAO::hay_pedido($app->DNIUsuario(),$idProd)){
-        $dni = $app->DNIUsuario();
-        $valoracion = valoracionesDAO::getValoracion($dni,$idProd);
-        $accion = 'Editar';
-        if($valoracion==''){
-            $accion='Agregar';
-        }
-        $boton= <<<EOS
-        <button type="button" id="miBoton" dni='{$dni}' idProducto='{$idProd}' >$accion valoracion</button>
-        EOS;
+$valoracion='';
+if(isset($_SESSION['DNI'])  && pedidosDAO::hay_pedido($app->DNIUsuario(),$idProd)){
+    $dni = $app->DNIUsuario();
+    $valoracion = valoracionesDAO::getValoracion($dni,$idProd);
+    $accion = 'Editar';
+    if($valoracion==''){
+        $accion='Agregar';
     }
-   
-    $results=valoracionesDAO::getValoraciones($idProd);
+    $boton= <<<EOS
+    <button class="boton-valoracion" id="miBoton" dni='{$dni}' idProducto='{$idProd}' >$accion valoracion</button>
+    EOS;
+}
 
-    if($results!=0){
-        $comentario='';
-        foreach($results as $result){
+$results=valoracionesDAO::getValoraciones($idProd);
 
-            $usuarionombre= htmlspecialchars($result['usuario']);
-            $texto= htmlspecialchars($result['Texto']);
-            $puntuacion= htmlspecialchars($result['Puntuacion']);
+if($results!=0){
+    $comentario='';
+    foreach($results as $result){
 
-            $j=$puntuacion;
-            $estrellas='';
-            for($i=0;$i<5;$i++){
+        $usuarionombre= htmlspecialchars($result['Nombre']);
+        $texto= htmlspecialchars($result['Texto']);
+        $puntuacion= htmlspecialchars($result['Puntuacion']);
 
-                if($j!=0){
-                $estrellas.='<span class="star">&#9733;</span>';
-                $j--;
-                }else{
-                    $estrellas.= '<span class="star">&#9734;</span>';
+        $j=$puntuacion;
+        $estrellas='';
+        for($i=0;$i<5;$i++){
 
-                }
+            if($j!=0){
+            $estrellas.='<span class="star">&#9733;</span>';
+            $j--;
+            }else{
+                $estrellas.= '<span class="star">&#9734;</span>';
 
             }
 
-            $comentario.=<<<EOS
-            <div class="comentario">
-               <div class="nombre-usuario">$usuarionombre</div>
-               <div class="texto-valoracion">$texto</div>
-               <div class="estrellas">
-            $estrellas
-            </div>
-            </div>
-            EOS;
         }
+
+        $comentario.=<<<EOS
+        <div class="comentario">
+            <div class="nombre-usuario">$usuarionombre</div>
+            <div class="texto-valoracion">$texto</div>
+            <div class="estrellas">
+        $estrellas
+        </div>
+        </div>
+        EOS;
     }
+}
 
-    $form= new es\ucm\fdi\aw\carrito\FormularioAgregarCarrito($idProd, $precio, $existencias);
-    $htmlFormCart = $form->gestiona();
-    $detalles = <<<EOS
-    <div class='detalles'>
-    <h1 class='titulo-tienda'>$nombre</h1>
-    <img src='$imagen' alt='$nombre'>
-    <p><strong></strong> $descripcion</p>
-    <div class='linea-botón'>
-        <p class='precio-existencias'><strong></strong> Precio: $precio €</p>
-        <p class='precio-existencias'><strong></strong> Existencias: $existencias</p>
-        $htmlFormCart
-        $boton
-    </div>
-    <p class='categoria-especie'><strong></strong> Categoria: $categoria</p>
-    <p class='categoria-especie'><strong></strong> Especie: $especie</p>
-    <h1 class='titulo-tienda'>Valoraciones</h1>
-    $comentario
+$form= new es\ucm\fdi\aw\carrito\FormularioAgregarCarrito($idProd, $precio, $existencias);
+$htmlFormCart = $form->gestiona();
+$detalles = <<<EOS
+<div class='detalles'>
+<h1 class='titulo-tienda'>$nombre</h1>
+<img src='$imagen' alt='$nombre'>
+<p><strong></strong> $descripcion</p>
+<div class='linea-botón'>
+    <p class='precio-existencias'><strong></strong> Precio: $precio €</p>
+    <p class='precio-existencias'><strong></strong> Existencias: $existencias</p>
+    $htmlFormCart
+</div>
+<p><span class='categoria-especie'><strong></strong> Categoria: $categoria</span> $boton</p>
+<p class='categoria-especie'><strong></strong> Especie: $especie</p>
+<p></p>
+<h1 class='titulo-tienda'>Valoraciones</h1>
+$comentario
 
-    </div>
-    EOS;
+</div>
+EOS;
 
 $contenidoPrincipal = <<<EOS
 <p>$detalles
 EOS;
-
 
 require('includes/vistas/comun/layout.php');
 ?>

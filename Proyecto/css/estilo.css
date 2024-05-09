@@ -146,6 +146,9 @@ div#contenedor {
 	text-align: center;
 }
 
+.boton-valoracion{
+	text-align: center;
+}
 .sugerencia{
 	font-size:1em;
 	font-family: 'Pacifico', cursive;
@@ -582,13 +585,24 @@ a.deshabilitado {
     align-items: center;
     justify-content: space-between;
 }
+
+.detalles .boton-valoracion{
+	color: #fff;
+	float: right;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 150px;
+	height: 55px;
+	transition: background-color 0.3s ease;
+}
 .detalles .comentarios {
 	font-size: 24px;
 	color: #333;
 	margin-bottom: 10px;
 
 }
-
 
 .detalles .precio-existencias {
     font-size: 1em;
