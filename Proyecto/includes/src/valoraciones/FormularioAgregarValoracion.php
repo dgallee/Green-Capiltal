@@ -13,7 +13,7 @@ class FormularioAgregarValoracion extends Formulario {
         $this->Valoracion=$Valoracion;
         $this->Dni=$Dni;
         $this->idProd=$idProd;
-    
+        
 
         parent::__construct('formAgregarProducto', ['urlRedireccion' => 'pedidos.php', 'method'=>'POST', 'enctype'=>'multipart/form-data']);
     }

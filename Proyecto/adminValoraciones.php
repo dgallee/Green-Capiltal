@@ -46,7 +46,7 @@ $tablaValoraciones = '';
             <img src="img/editar.png" alt="Editar" class="botonImagen" >
          </a>
     
-        <a href="valoraciones.php">
+        <a href="eliminarvaloracion.php?Dni={$dniUsuario}&idProd={$idProducto}">
                 <img src="img/eliminar.png" alt="Eliminar" class="botonImagen" >
         </a>
         </td>
