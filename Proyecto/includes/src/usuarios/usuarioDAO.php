@@ -210,6 +210,21 @@ use es\ucm\fdi\aw\carrito\carritoDAO;
             }
         }
 
+        public static function obtenerUsuario($uDNI){
+            $conn = Aplicacion::getInstance()->getConexionBD();
+            $DNI = $conn->real_escape_string($uDNI);
+            $query = "SELECT Usuario FROM usuarios WHERE DNI = '$DNI'";
+            $result = $conn->query($query);
+            if ($result && $result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $result->free();
+                return $row['Nombre'];
+            } else {
+                // Manejo de error si la consulta falla o no devuelve resultados
+                return false;
+            }
+        }
+
         public static function edit($nombre, $apellidos, $correo, $direccion, $telefono, $dni, $usuario, $contrasena, $tipo) {
             // Conexión a la base de datos
             $conn = Aplicacion::getInstance()->getConexionBD();

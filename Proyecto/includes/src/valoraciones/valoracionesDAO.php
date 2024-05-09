@@ -2,6 +2,7 @@
 
     namespace es\ucm\fdi\aw\valoraciones;
     use es\ucm\fdi\aw\Aplicacion;
+    use es\ucm\fdi\aw\usuarios\usuarioDAO;
 
     class valoracionesDAO{
 
@@ -20,20 +21,17 @@
         
         public static function showTable(){        
             $conn = Aplicacion::getInstance()->getConexionBD();
-            // Consulta SQL para obtener todos los usuarios
             $query = "SELECT * FROM valoraciones";
             $result = $conn->query($query);
             $valoraciones = array();
         
             if ($result->num_rows > 0) {
-                // Guarda los datos de cada fila en el array
                 while($row = $result->fetch_assoc()) {
                     $valoraciones[] = $row;
                 }
                 $result->free();
             }
         
-            // Devuelve el array de usuarios
             return $valoraciones;
         }
 
@@ -112,10 +110,7 @@
 
 
                 $dni=$fila['DniUsuario'];
-
-                $Query= "SELECT usuario From usuarios Where DNI='$dni'";
-                $aux= $conn->query($Query);
-                $usuario=$aux->fetch_assoc()['usuario'];
+                $usuario = UsuarioDAO::obtenerUsuario($dni);
                 $fila['usuario']=$usuario;
 
                 $valoraciones[] = $fila;
@@ -139,7 +134,7 @@
             $Puntuacion=$conn->real_escape_string($Puntuacion);
             $Texto=$conn->real_escape_string($Texto);
 
-            $query="UPDATE Valoraciones set Texto='$Texto',Puntuacion='$Puntuacion' where DniUsuario ='$DniUsuario' and IdProducto='$IdProducto'";
+            $query="UPDATE valoraciones set Texto='$Texto',Puntuacion='$Puntuacion' where DniUsuario ='$DniUsuario' and IdProducto='$IdProducto'";
             if ($conn->query($query) === TRUE) {
                 $result = true;
             } else {
