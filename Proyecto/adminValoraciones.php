@@ -31,10 +31,10 @@ $tablaValoraciones = '';
         EOS;
     }
     foreach ($valoraciones as $valoracion) {
-        $idProducto = $valoracion['IdProducto'];
-        $dniUsuario = $valoracion['DniUsuario'];
-        $nombreProd = productosDAO::obtenerNombre($idProducto);
-        $nombreUsuario = usuarioDAO::obtenerNombre($dniUsuario);
+        $idProducto = htmlspecialchars($valoracion['IdProducto']);
+        $dniUsuario = htmlspecialchars($valoracion['DniUsuario']);
+        $nombreProd = htmlspecialchars(productosDAO::obtenerNombre($idProducto));
+        $nombreUsuario = htmlspecialchars(usuarioDAO::obtenerNombre($dniUsuario));
         $tablaValoraciones .= <<<EOS
         <tr>
         <td>{$nombreProd}</td>
