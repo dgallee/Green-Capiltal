@@ -32,7 +32,7 @@ if(isset($_SESSION['DNI'])  && pedidosDAO::hay_pedido($app->DNIUsuario(),$idProd
         $accion='Agregar';
     }
     $boton= <<<EOS
-    <button class="boton-valoracion" id="miBoton" dni='{$dni}' idProducto='{$idProd}' >$accion valoracion</button>
+    <button class="boton-valoracion" id="miBoton" data-dni='{$dni}' data-idProducto='{$idProd}' >$accion valoracion</button>
     EOS;
 }
 

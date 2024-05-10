@@ -30,8 +30,7 @@
     foreach ($pedidosAgrupados as $idPedido => $articulos) {
         $precioTotal = 0;
         $tablaPedidos .= <<<EOS
-        <tr>
-        <tr><td>Pedido con ID #$idPedido:</td></tr>
+        <tr><td>Pedido con ID #$idPedido:</td><td></td><td></td><td></td><td></td><td></td></tr>
         EOS;
         foreach ($articulos as $articulo) {
             $idProducto = htmlspecialchars($articulo['IdProducto']);
@@ -50,14 +49,13 @@
             <td> Cantidad: {$articulo['Unidades']}</td>
             <td> Precio total del artículo: {$articuloPrecioTotal} €</td>
             <td><img src='{$infoProd->getImagen()}' alt='' width='200'></td>
-                <td><button type="button" class="botonvalorar" dni='{$dni}' idProducto='{$infoProd->getId()}' >$accion valoracion</button></td>
+                <td><button type="button" class="botonvalorar" data-dni='{$dni}' data-idProducto='{$infoProd->getId()}' >$accion valoracion</button></td>
             </tr>
             EOS;
         }
 
         $tablaPedidos .= <<<EOS
-        <tr><td>Precio total del pedido: $precioTotal €</td></tr>
-        </tr>
+        <tr><td>Precio total del pedido: $precioTotal €</td><td></td><td></td><td></td><td></td><td></td></tr>
         EOS;
     }
 
