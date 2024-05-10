@@ -18,7 +18,7 @@
         }
 
         else {
-            echo "No se ha podido eliminar el producto seleccionado del carrito";
+            error_log("No se ha podido eliminar el producto seleccionado del carrito");
             header('Location: carrito.php');
         }
     }
@@ -32,13 +32,13 @@
                 header('Location: carrito.php');
             }
             else{
-                echo "Error al incrementar las existencias del producto en la tienda";
+                error_log("Error al incrementar las existencias del producto en la tienda");
             }
             header("Location: carrito.php");
             
         } else {
             // Manejar el error, por ejemplo, mostrando un mensaje al usuario.
-            echo "Error al reducir las unidades del producto en el carrito.";
+            error_log("Error al reducir las unidades del producto en el carrito.");
         }
     }
 ?>

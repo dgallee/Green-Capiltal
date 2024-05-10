@@ -19,13 +19,13 @@
                 header('Location: carrito.php');
             }
             else{
-                echo "Error al reducir las existencias del producto en la tienda";
+                error_log("Error al reducir las existencias del producto en la tienda");
             }
             header("Location: carrito.php");
             
         } else {
             // Manejar el error, por ejemplo, mostrando un mensaje al usuario.
-            echo "Error al incrementar las unidades del producto en el carrito.";
+            error_log("Error al incrementar las unidades del producto en el carrito.");
         }
     }
     else{

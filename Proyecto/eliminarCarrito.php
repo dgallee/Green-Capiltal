@@ -12,7 +12,7 @@
     }
 
     else {
-        echo "No se ha podido eliminar el producto seleccionado del carrito";
+        error_log("No se ha podido eliminar el producto seleccionado del carrito");
         header('Location: carrito.php');
     }
 ?>

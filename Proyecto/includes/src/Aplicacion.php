@@ -189,11 +189,11 @@ class Aplicacion
 
             $conn = new \mysqli($bdHost, $bdUser, $bdPass, $bd);
             if ($conn->connect_errno) {
-                echo "Error de conexión a la BD ({$conn->connect_errno}):  {$conn->connect_error}";
+                error_log("Error de conexión a la BD ({$conn->connect_errno}):  {$conn->connect_error}");
                 exit();
             }
             if (!$conn->set_charset("utf8mb4")) {
-                echo "Error al configurar la BD ({$conn->errno}):  {$conn->error}";
+                error_log("Error al configurar la BD ({$conn->errno}):  {$conn->error}");
                 exit();
             }
             $this->conn = $conn;

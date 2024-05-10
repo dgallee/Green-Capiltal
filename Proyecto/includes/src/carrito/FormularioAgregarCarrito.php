@@ -72,7 +72,7 @@ class FormularioAgregarCarrito extends Formulario {
                         header('Location: detalles.php?prod=' . $prodId);
                     }
                     else{
-                        echo "Error al reducir las existencias del producto";
+                        error_log("Error al reducir las existencias del producto");
                     }
             
                     $dni = $usuario->getUDNI();
@@ -80,7 +80,7 @@ class FormularioAgregarCarrito extends Formulario {
                     
                 } else {
                     // Manejar el error, por ejemplo, mostrando un mensaje al usuario.
-                    echo "Error al agregar el producto al carrito.";
+                    error_log("Error al agregar el producto al carrito.");
                 }
             }
         }

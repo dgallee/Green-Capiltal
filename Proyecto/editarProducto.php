@@ -11,7 +11,7 @@
         $form = new es\ucm\fdi\aw\productos\FormularioEditarProducto($prodEdit->getNombre(), $prodEdit->getRes(), $prodEdit->getDesc(), $prodEdit->getPrecio(), $prodEdit->getCategoria(), $prodEdit->getId(), $prodEdit->getExistencias(), $prodEdit->getEspecie(), $prodEdit->getImagen());
         $formEdit= $form->gestiona();
     } else {
-        echo "El producto no existe.";
+        error_log("El producto no existe.");
         $infoant= "";
     }
 

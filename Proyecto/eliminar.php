@@ -11,7 +11,7 @@
     }
 
     else {
-        echo "ERROR";
+        error_log("ERROR");
         header('Location: adminUsuarios.php');
     }
 ?>

@@ -13,7 +13,7 @@
     }
 
     else {
-        echo "Error al procesar el pago";
+        error_log("Error al procesar el pago");
     }
 
 

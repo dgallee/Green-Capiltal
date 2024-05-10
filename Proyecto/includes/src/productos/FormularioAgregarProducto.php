@@ -125,19 +125,19 @@ class FormularioAgregarProducto extends Formulario {
                     if ($esValido) {
                         header('Location: adminProductos.php');
                     } else {
-                        echo "Hubo un error al agregar el producto.";
+                        error_log("Hubo un error al agregar el producto.");
                     }
                 } else {
                     // Si hay algún error al mover el archivo, redirecciona a una página de error o maneja el error según corresponda
-                    echo "Hubo un error al subir el archivo.";
+                    error_log("Hubo un error al subir el archivo.");
                 }
             } else {
                 // Si no se pudo agregar el producto a la base de datos, redirecciona a una página de error o maneja el error según corresponda
-                echo "Hubo un error al agregar el producto.";
+                error_log("Hubo un error al agregar el producto.");
             }
         } else {
             // Si no se cargó ningún archivo, redirecciona a una página de error o maneja la situación según corresponda
-            echo "No se cargó ninguna imagen.";
+            error_log("No se cargó ninguna imagen.");
         }
     }
 
