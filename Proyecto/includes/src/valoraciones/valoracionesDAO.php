@@ -124,8 +124,23 @@
 
         }
 
-
-
+        public static function mediaValoraciones($IdProducto){
+            $conn = Aplicacion::getInstance()->getConexionBD();
+        
+            $query = "SELECT AVG(Puntuacion) as MediaValoracion FROM valoraciones WHERE IdProducto = ?";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("i", $IdProducto);
+            $stmt->execute();
+        
+            $result = $stmt->get_result();
+        
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                return round($row['MediaValoracion']);
+            }
+            else return false;
+        }
+        
         public static function editValoracion($DniUsuario,$IdProducto,$Puntuacion,$Texto){
             $conn = Aplicacion::getInstance()->getConexionBD();
 

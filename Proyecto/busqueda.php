@@ -25,18 +25,18 @@ if (isset($items)) {
     <div class='container'>
     EOS;
 
-    foreach($items as $producto) {
+    foreach($items as $item) {
 
-        if ($producto["Existencias"] > 0){
+        if ($item["Existencias"] > 0){
             
             $contenidoTienda .= <<<EOS
-            <div class='producto'>
-            <h2>{$producto["Nombre"]}</h2>
-            <p>{$producto["Resumen"]}</p>
-            <p>Precio: {$producto["Precio"]}€</p>
-            <p>Existencias: {$producto["Existencias"]} unidades</p>
-            <img src='{$producto["Imagen"]}' alt='{$producto["Nombre"]}' width='200'>
-            <a href='detalles.php?prod={$producto['Id']}' class='btn-comprar'>Comprar</a>
+            <div class='item'>
+            <h2>{$item["Nombre"]}</h2>
+            <p>{$item["Resumen"]}</p>
+            <p>Precio: {$item["Precio"]}€</p>
+            <p>Existencias: {$item["Existencias"]} unidades</p>
+            <img src='{$item["Imagen"]}' alt='{$item["Nombre"]}' width='200'>
+            <a href='detalles.php?prod={$item['Id']}' class='btn-comprar'>Comprar</a>
             </div>
             EOS;
         }

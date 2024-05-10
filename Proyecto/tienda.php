@@ -3,6 +3,7 @@
 <?php
     require_once "includes/config.php";
     use es\ucm\fdi\aw\productos\productosDAO;
+    use es\ucm\fdi\aw\valoraciones\valoracionesDAO;
 
     $tituloPagina = "Tienda en línea";
     $contenidoPrincipal = <<<EOS
@@ -24,7 +25,22 @@
             $existenciasProducto = htmlspecialchars($producto["Existencias"]);
             $imagenProducto = htmlspecialchars($producto["Imagen"]);
             $idProducto = htmlspecialchars($producto["Id"]);
-    
+            $media = valoracionesDAO::mediaValoraciones($idProducto);
+
+            $j=$media;
+            $estrellas='';
+            for($i=0;$i<5;$i++){
+
+                if($j!=0){
+                $estrellas.='<span class="star">&#9733;</span>';
+                $j--;
+                }else{
+                    $estrellas.= '<span class="star">&#9734;</span>';
+
+                }
+
+            }
+
             // Concatenar los valores escapados en la cadena HTML
             $contenido .= <<<EOS
             <div class='producto'>
@@ -32,10 +48,25 @@
                 <p>{$resumenProducto}</p>
                 <p>Precio: {$precioProducto}€</p>
                 <p>Existencias: {$existenciasProducto} unidades</p>
+            EOS;
+
+            if ($media == false){
+                $contenido .= <<<EOS
                 <img src='{$imagenProducto}' alt='{$nombreProducto}' width='200'>
                 <a href='detalles.php?prod={$idProducto}' class='btn-comprar'>Comprar</a>
-            </div>
-            EOS;
+                </div>
+                EOS;
+            }
+            else{
+
+                $contenido .= <<<EOS
+                <p>$estrellas</p>
+                <img src='{$imagenProducto}' alt='{$nombreProducto}' width='200'>
+                <a href='detalles.php?prod={$idProducto}' class='btn-comprar'>Comprar</a>
+                </div>
+                EOS;
+
+            }
         }
     }
     

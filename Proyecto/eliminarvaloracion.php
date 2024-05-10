@@ -10,7 +10,7 @@ valoracionesDAO::deleteValoracion($DNI,$Prod);
 
 $contenidoPrincipal=<<<EOS
 <h1>Valoracion Eliminada</h1>
-<p> Su Valoracion ha sido eliminada correctamente </p>
+<p class="descripcion3"> Su valoración ha sido eliminada correctamente </p>
 EOS;
 
 require 'includes/vistas/comun/layout.php';

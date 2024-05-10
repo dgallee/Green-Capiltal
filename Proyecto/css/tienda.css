@@ -15,6 +15,27 @@
     border-radius: 5px;
     text-align: center;
 }
+
+.item {
+    width: calc(25% - 20px); /* Ancho del producto, con un margen de 20px entre ellos */
+    margin-bottom: 20px; /* Espacio entre los productos */
+    border: 1px solid #ccc;
+    background-color: #a9e18d; /* Color de fondo del producto */
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.item img {
+    width: 100%; /* La imagen ocupará todo el ancho del contenedor del producto */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.item h2 {
+    margin-top: 0;
+}
+
 .titulo-tienda {
     font-family: 'Pacifico', cursive;
     text-align: center;
@@ -62,6 +83,21 @@
     }
 
     .producto .btn-comprar{
+
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .item h2 {
+        font-size: 14px;
+    }
+
+    .item p {
+
+        font-size: 10px;
+    }
+
+    .item .btn-comprar{
 
         font-size: 16px;
         padding: 10px;
