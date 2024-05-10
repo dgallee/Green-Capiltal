@@ -402,6 +402,15 @@ nav {
    
 }
 
+.descripcion3{
+	font-family: 'Pacifico', cursive;
+    font-size: 1.3em;
+    color: black; 
+    text-align: justify; /* Justificar el texto */
+	text-align:center;
+   
+}
+
 .descripcion4{
 	font-family: 'Pacifico';
     font-size: 1.2em;
