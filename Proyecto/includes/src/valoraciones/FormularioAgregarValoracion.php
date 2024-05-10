@@ -7,20 +7,15 @@ class FormularioAgregarValoracion extends Formulario {
     private $Valoracion;
     private $Dni;
     private $idProd;
-    private $dir; //estara a 0 si debe redirigir a tienda o a 1 si es a pedido
 
-    public function __construct($Valoracion,$Dni,$idProd,$dir) {
+
+    public function __construct($Valoracion,$Dni,$idProd) {
         $this->Valoracion=$Valoracion;
         $this->Dni=$Dni;
         $this->idProd=$idProd;
-        $this->dir=$dir;
-        if($dir == 0){
-            parent::__construct('formAgregarProducto', ['urlRedireccion' => "detalles.php?prod={$idProd}", 'method'=>'POST', 'enctype'=>'multipart/form-data']);
-        }
-        else{
-            parent::__construct('formAgregarProducto', ['urlRedireccion' => 'pedidos.php', 'method'=>'POST', 'enctype'=>'multipart/form-data']);
-        }
         
+
+        parent::__construct('formAgregarProducto', ['urlRedireccion' => 'pedidos.php', 'method'=>'POST', 'enctype'=>'multipart/form-data']);
     }
     
     protected function generaCamposFormulario(&$datos)
@@ -34,7 +29,7 @@ class FormularioAgregarValoracion extends Formulario {
 
 
             $boton=<<<EOS
-            <button type ="button" id='eliminarvaloracion' dni='{$_SESSION['DNI']}' idProducto='{$this->idProd}' >Eliminar </button>'
+            <button type ="button" id='eliminarvaloracion' data-dni='{$_SESSION['DNI']}' data-idProducto='{$this->idProd}' >Eliminar </button>'
             
             EOS;
 
@@ -43,7 +38,7 @@ class FormularioAgregarValoracion extends Formulario {
 
         $html = <<<EOS
         $htmlErroresGlobales
-        <form method="POST" enctype="multipart/form-data">
+       
         <fieldset class="formulario">
         <div>
             <label for="Producto">Producto:</label>
@@ -72,7 +67,7 @@ class FormularioAgregarValoracion extends Formulario {
         $boton
         
         </fieldset>
-        </form>
+        
         EOS;
 
         return $html;

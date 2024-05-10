@@ -31,7 +31,7 @@ class FormularioAgregarCarrito extends Formulario {
         $existencias = $this->existencias;
         
         $ret = <<<EOS
-        <form id="form-cantidad" method="post">
+        
             <input type="hidden" name="prodId" value=$idProd>
             <input type="hidden" name="precioProducto" value="$precio">
             <p>Unidades a comprar: <span id="unidades-comprar">1</span></p>
@@ -40,7 +40,7 @@ class FormularioAgregarCarrito extends Formulario {
             <button type="button" id="btn-sumar">+</button>
             <button type="button" id="btn-restar">-</button>
             <button type="submit" id="btn-add-articulo">Agregar al carrito</button>
-        </form>
+        
         EOS;
         return $ret;
     }
