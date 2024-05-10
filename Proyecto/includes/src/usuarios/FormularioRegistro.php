@@ -57,7 +57,8 @@ class FormularioRegistro extends Formulario {
             <label for="dni">DNI:</label>
             <div>
                 <input type="text" name="dni" id="dni" pattern="[0-9]{8}[A-Za-z]" title="Por favor, introduzca 8 números seguidos de una letra." required>
-            </div>
+                <span id="dnimal" class="error">  Ya existe un Usuario con ese DNI</span>
+                </div>
             {$erroresCampos['dni']}
 
             <label for="username">Usuario:</label>

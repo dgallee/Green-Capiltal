@@ -2,6 +2,7 @@ $(document).ready(function () {
     $("#productomal").hide();
     $("#usuariomal").hide();
     $("#extension_img").hide();
+    $("#dnimal").hide();
     
 
     $("#nombre_producto").change(function () {
@@ -38,6 +39,49 @@ $(document).ready(function () {
                         $("#nombre_producto").val("");
                         
                     } else if (data.toLowerCase() === "producto no registrado") {
+                        
+                        
+                        $("#productomal").hide();
+                        
+                    }
+                } else {
+                    alert("Error al procesar la solicitud. Por favor, intenta de nuevo más tarde.");
+                }
+            });
+        }
+
+    });
+
+    $("#dni").change(function () {
+        // Obtener el valor del campo de usuario
+        var dni = $("#dni").val();
+
+        // Realizar la validación básica del nombre de usuario
+        if (dni.trim() === "") {
+            // Si el campo está vacío, no hacer nada
+            return;
+        
+        } else {
+            // Si la validación pasa, enviar la solicitud AJAX para verificar el nombre de usuario
+            var url = "includes/src/productos/verificar_dni.php?dni=" + dni;
+           
+
+            // Realizar la solicitud GET utilizando $.get()
+            $.get(url, function (data, status) {
+                // Función de callback que maneja la respuesta del servidor
+                data = data.trim(); // Eliminar espacios en blanco y saltos de línea
+
+                
+
+                if (status === "success") {
+                    if (data.toLowerCase() === "dni ya registrado") {
+                        
+                        $("#dnimal").show();
+                        $("#dni").focus();
+                        alert("El dni ya existe.");
+                        $("#dni").val("");
+                        
+                    } else if (data.toLowerCase() === "dni no registrado") {
                         
                         
                         $("#productomal").hide();
