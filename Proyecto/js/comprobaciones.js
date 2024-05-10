@@ -3,6 +3,7 @@ $(document).ready(function () {
     $("#usuariomal").hide();
     $("#extension_img").hide();
     $("#dnimal").hide();
+
     
 
     $("#nombre_producto").change(function () {

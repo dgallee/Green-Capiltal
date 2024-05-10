@@ -11,7 +11,7 @@ class FormularioBusqueda extends Formulario {
 
     public function __construct() {
         $this->items = [];
-        parent::__construct('formSearch');
+        parent::__construct('formSearch', ['urlRedireccion' => 'tienda.php']);
     }
 
     protected function generaCamposFormulario(&$datos)
@@ -21,14 +21,14 @@ class FormularioBusqueda extends Formulario {
         $itemname='';
         $itemCat='';
         $categorias = productosDAO::getCategorias();
-        $ruta=RUTA_APP . "/includes/vistas/comun/busqueda.php";
+        // $ruta=RUTA_APP . "/includes/vistas/comun/busqueda.php";
 
        // $ruta=RUTA_APP."/procesarBusqueda.php";
 
 
         $ret = <<<EOS
         <div class="contenedor-de-busqueda">
-        <form method="get" action="$ruta" class="search-form">
+        <form method="get" class="search-form">
             <div class="search-container">
                 <input type="text" id="search-input" class="search-input" name="busqueda" placeholder="$itemname">
                 <label for="search-input" class="search-label">Buscar:</label>

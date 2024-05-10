@@ -35,7 +35,5 @@ require('pie.php');
 <script src="<?= RUTA_JS ?>/valoraciones.js"></script>
 <script src="<?= RUTA_JS ?>/comprobaciones.js"></script>
 <script src="<?= RUTA_JS ?>/compra.js"></script>
-<script src="<?= RUTA_JS ?>/paginacion.js"></script>
-
 </body>
 </html>

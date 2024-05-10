@@ -16,7 +16,6 @@ $formBusqueda = $form->gestiona();
 <?php
 // Siempre muestra el formulario
 $items = $form->getItems();
-
 //Mirar si es de aplicacion
 if (isset($items)) {
     // Si hay elementos, muestra el contenido de la tienda
@@ -44,6 +43,7 @@ if (isset($items)) {
     }
 
     $contenidoTienda .= "</div>";
+
 
     foreach ($items as $item) {
         $contenidoPrincipal = <<<EOS

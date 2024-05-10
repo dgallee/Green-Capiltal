@@ -73,7 +73,6 @@ class FormularioEditar extends Formulario {
         </div>
     
         <input type="hidden" name="dni" value="$DNI">
-        <span id="dnimal" class="error">  Ya existe un Usuario con ese DNI</span>
 
         <label for="username">Usuario:</label>
         <div>

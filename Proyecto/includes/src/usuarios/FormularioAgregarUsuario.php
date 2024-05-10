@@ -58,7 +58,7 @@ class FormularioAgregarUsuario extends Formulario {
             <div>
                 <input type="text" name="dni" id="dni" pattern="[0-9]{8}[A-Za-z]" title="Por favor, introduzca 8 números seguidos de una letra." required>
                 <span id="dnimal" class="error">  Ya existe un Usuario con ese DNI</span>
-                </div>
+            </div>
             {$erroresCampos['dni']}
 
             <label for="type">Tipo:</label>
