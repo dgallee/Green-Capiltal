@@ -48,7 +48,7 @@ if (isset($items)) {
     foreach ($items as $item) {
         $contenidoPrincipal = <<<EOS
         <h1 class="titulo-tienda">Tienda</h1>
-        <p>$contenidoTienda</p>
+        <p>$contenidoTienda
         EOS;
     }
 } else {
