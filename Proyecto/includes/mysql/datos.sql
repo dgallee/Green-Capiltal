@@ -2,17 +2,17 @@
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`Nombre`, `Apellidos`, `Correo`, `Direccion`, `Telefono`, `DNI`, `Usuario`, `Contrasena`, `Tipo`) VALUES
-('Paula', 'Smith', 'paulaswiftie@gmail.com', 'Calle Houston 33', 627389200, '01176545P', 'paula', '$2y$10$.VtCr9rLogtsmAgB4cLxue.wQqOPpkc5viDcmW404C3i0NUGyvLki', 0),
-('Marta', 'Fernandez', 'martamoderadora@gmail.com', 'Calle de Abril 1', 627356281, '03922174L', 'marta', '$2y$10$0yfXdQNiCy./LVPg2OEYx.jg80b6MEmyeENY9OxNKRx7w.nGh1uyK', 3),
-('Luisa', 'Sanchez', 'luisavende@gmail.com', 'Calle Zagreb 2', 627819283, '03942572N', 'luisa', '$2y$10$MXPbo/qeGn0t9ZNWOlFY8eyQD2fUx1ZH18/SmOoEiUI61/R/IpnAq', 2),
-('Pablo', 'Martin', 'pablovendeplantas@gmail.com', 'Calle del Artista 22', 678564391, '06374892W', 'pablo', '$2y$10$bdVckt.NNhWlTcRsMWkLPewhXD1YtCY2kTA2kvdR3zhWpMsa7mvti', 2),
-('Javier', 'Arriaga', 'javier29@ucm.es', 'Calle de Madrid 23', 654728903, '07263744R', 'javier', '$2y$10$JKTPEfXGPH1qGhTaSzWotez..aBKDOhBZn5l.CCjDlWFtp2dh1jOa', 3),
-('Sofia', 'Torres', 'sofcompradora@gmail.com', 'Calle Londres 9', 637488762, '08765483T', 'sofia', '$2y$10$nqTm4bEpO4E3lX0vkJ/qh.yXQ9SdXyZgR3c.9UJP60S5V.6GIm0Di', 0),
-('admin', 'admin', 'admin@ucm.es', 'Calle Brasilia 3', 666555111, '12345678O', 'admin', '$2y$10$GpoDTA8.i9gygcwuuDPG5usUCdw5cpMngs.Wa8uDsYpQK0ugw.y0u', 1),
-('Victor', 'Murillo', 'victor33@gmail.com', 'Calle del Misterio 11', 628930043, '14248573R', 'victor', '$2y$10$aZk7zU1yBhEfFouJIPEh9e3wANmCuwN/5RnNnyh0vLubIq2NFetqu', 0),
-('user', 'surname', 'user@ucm.es', 'Calle Tokyo 31', 666111888, '87654321Q', 'user', '$2y$10$1kGi7DsGgFhEB73Ppmu.DuKbxgJd.b5La42LCc67otKSk7KQriBpS', 0),
-('Mario', 'Perez', 'marioperez@gmail.com', 'Calle Europa 12', 626839201, '92837465Q', 'mario', '$2y$10$PT0A.IeDYJfJi4oWV2ey8uy4eyLnfo63nOewV0dLzKQDt5zMrx.ee', 2);
+INSERT INTO `usuarios` (`Nombre`, `Apellidos`, `Correo`, `Direccion`, `Telefono`, `DNI`, `Usuario`, `Contrasena`, `salt`, `Tipo`) VALUES
+('Paula', 'Smith', 'paulaswiftie@gmail.com', 'Calle Houston 33', 627389200, '01176545P', 'paula', '$2y$10$hjPojXJlrG3k3sYdLWu8SeLhp9hqiW1n8XhJSxPlm/g1WdMKFUDsq', 1606120947, 0),
+('Marta', 'Fernandez', 'martamoderadora@gmail.com', 'Calle de Abril 1', 627356281, '03922174L', 'marta', '$2y$10$pZOlv.Imq7gIGArzYirEHeOOPlWtuoQ6dga2V4TVUQSoLCrYyWJ7e', 1382168848, 3),
+('Luisa', 'Sanchez', 'luisavende@gmail.com', 'Calle Zagreb 2', 627819283, '03942572N', 'luisa', '$2y$10$TbmqSLWZrEHdO2hPRTrF0eRSHn4tHskfOnZRM3M62CD.1kvGrGi2G', 1701355965, 2),
+('Pablo', 'Martin', 'pablovendeplantas@gmail.com', 'Calle del Artista 22', 678564391, '06374892W', 'pablo', '$2y$10$ln2o4iFrAwhZhJRMhtpBNOeOm1IhL9p/hyrA/IJ1pipaz0noIkB02', 719604342, 2),
+('Javier', 'Arriaga', 'javier29@ucm.es', 'Calle de Madrid 23', 654728903, '07263744R', 'javier', '$2y$10$KqXOa7GDW0EuTz/38kLLkuIgdOQ0mPBBznhKhxCJQ89dczs9wl4t2', 920577488, 3),
+('Sofia', 'Torres', 'sofcompradora@gmail.com', 'Calle Londres 9', 637488762, '08765483T', 'sofia', '$2y$10$Z3VL3c35xFKTJt/eBklI3uRTzU.gPa9R8my70PVstXMIeYWl3ZgaG', 318794846, 0),
+('admin', 'admin', 'admin@ucm.es', 'Calle Brasilia 3', 666555111, '12345678O', 'admin', '$2y$10$TwK/BpWKuoybCKpEWV4NjeWVzVjA1l81ES7u/R52GUVzoQhOW93qi', 299139560, 1),
+('Victor', 'Murillo', 'victor33@gmail.com', 'Calle del Misterio 11', 628930043, '14248573R', 'victor', '$2y$10$0w/aRRM5zOA0shI/EJFZHeqOddZ/c98EDUIfCuwMKm.n5g.rZj77y', 820617324, 0),
+('user', 'surname', 'user@ucm.es', 'Calle Tokyo 31', 666111888, '87654321Q', 'user', '$2y$10$aEVTN/SV0KqsRbNdbel/c..Sr/J5xZLYSpc59eKJlQ1YhzpKIV9xG', 342977429, 0),
+('Mario', 'Perez', 'marioperez@gmail.com', 'Calle Europa 12', 626839201, '92837465Q', 'mario', '$2y$10$yxU9Z/rH9xyEzQhdtH.vwufnq/zwThRXcPnXwJzLSvcCCYuQegJgu', 758930443, 2);
 
 INSERT INTO `productos` (`Nombre`, `Id`, `Resumen`, `Descripcion`, `Precio`, `Categoria`, `Existencias`, `Especie`, `Imagen`, `DniVendedor`) VALUES
 ('Palmera cocotera', '001', 'Ideal para cualquier hogar', 'La palmera cocotera, símbolo tropical por excelencia, es una adición esencial para 
