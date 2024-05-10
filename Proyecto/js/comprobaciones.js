@@ -64,7 +64,7 @@ $(document).ready(function () {
         
         } else {
             // Si la validación pasa, enviar la solicitud AJAX para verificar el nombre de usuario
-            var url = "includes/src/productos/verificar_dni.php?dni=" + dni;
+            var url = "includes/src/usuarios/verificar_dni.php?dni=" + dni;
            
 
             // Realizar la solicitud GET utilizando $.get()
