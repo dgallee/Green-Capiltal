@@ -37,7 +37,7 @@ class FormularioBusqueda extends Formulario {
             <div class="filter-container">
                 <label for="filter1">Precio:</label>
                 <span id="filter1-value">0€</span>
-                <input type="range" id="filter1" name="filter1" min="0" max="100" step="0.1" value="100">  
+                <input type="range" id="filter1" name="filter1" min="0.1" max="100" step="0.1" value="100">  
                 <span id="filter1-max">100€</span>
 
                 <label for="filter2"> Filtrar por categoría: </label>

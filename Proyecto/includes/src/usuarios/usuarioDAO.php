@@ -156,8 +156,9 @@ define("PIMIENTA", 'greencapital');
             $conn = Aplicacion::getInstance()->getConexionBD();
 
             //Hasheo
+            $salt = rand();
             $password = $conn->real_escape_string($password);
-            $password=password_hash($password,PASSWORD_DEFAULT);
+            $password=password_hash($password. $salt. PIMIENTA , PASSWORD_DEFAULT);
             
             // Preparar la consulta SQL
             $name = $conn->real_escape_string($name);
@@ -167,7 +168,7 @@ define("PIMIENTA", 'greencapital');
             $tfno = $conn->real_escape_string($tfno);
             $dni = $conn->real_escape_string($dni);
             $username = $conn->real_escape_string($username);
-            $query = "INSERT INTO usuarios (Nombre, Apellidos, Correo, Direccion, Telefono, Dni, Usuario, Contrasena, Tipo) VALUES ('$name', '$surname', '$mail', '$dir', '$tfno', '$dni', '$username', '$password', $type)";
+            $query = "INSERT INTO usuarios (Nombre, Apellidos, Correo, Direccion, Telefono, Dni, Usuario, Contrasena, salt, Tipo) VALUES ('$name', '$surname', '$mail', '$dir', '$tfno', '$dni', '$username', '$password', '$salt', $type)";
         
             // Ejecutar la consulta SQL
             if ($conn->query($query) === TRUE) {

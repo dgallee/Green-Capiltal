@@ -1,38 +1,35 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 06-03-2024 a las 10:28:51
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+CREATE TABLE `carrito` (
+  `Id` int(11) NOT NULL,
+  `DniUsuario` varchar(9) NOT NULL,
+  `IdProducto` varchar(3) NOT NULL,
+  `Cantidad` int(11) NOT NULL,
+  `PrecioTotal` decimal(4,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+CREATE TABLE `pedidos` (
+  `Id` int(11) NOT NULL,
+  `DniUsuario` varchar(9) NOT NULL,
+  `IdProducto` varchar(3) NOT NULL,
+  `Unidades` int(11) NOT NULL,
+  `PrecioTotal` decimal(4,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
---
--- Base de datos: `greencapital`
---
-
--- --------------------------------------------------------
-
---
-
---
-
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuarios`
---
+CREATE TABLE `productos` (
+  `Nombre` varchar(30) NOT NULL,
+  `Id` varchar(3) NOT NULL,
+  `Resumen` text NOT NULL,
+  `Descripcion` text NOT NULL,
+  `Precio` decimal(4,2) NOT NULL,
+  `Categoria` varchar(30) NOT NULL,
+  `Existencias` int(2) NOT NULL,
+  `Especie` varchar(30) NOT NULL,
+  `Imagen` varchar(100) NOT NULL,
+  `DniVendedor` varchar(9) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 CREATE TABLE `usuarios` (
   `Nombre` varchar(20) NOT NULL,
@@ -47,64 +44,94 @@ CREATE TABLE `usuarios` (
   `Tipo` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
--- Estructura de tabla para la tabla `productos`
-
-CREATE TABLE `productos` (
-  `Nombre` varchar(30) NOT NULL,
-  `Id` varchar(3) NOT NULL PRIMARY KEY,
-  `Resumen` text NOT NULL,
-  `Descripcion` text NOT NULL,
-  `Precio` decimal(4,2) NOT NULL,
-  `Categoria` varchar(30) NOT NULL,
-  `Existencias` int(2) NOT NULL,
-  `Especie` varchar(30) NOT NULL,
-  `Imagen` varchar(100) NOT NULL,
-  `DniVendedor`varchar(9) NOT NULL,
-  FOREIGN KEY (`DniVendedor`) REFERENCES usuarios(`DNI`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
--- Estructura de tabla para la tabla `productos`
-
-CREATE TABLE `carrito` (
-    `Id` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    `DniUsuario` varchar(9) NOT NULL,
-    `IdProducto` varchar(3) NOT NULL,
-    `Cantidad` INT NOT NULL,
-    `PrecioTotal` decimal(4,2) NOT NULL,
-    FOREIGN KEY (`DniUsuario`) REFERENCES usuarios(`DNI`),
-    FOREIGN KEY (`IdProducto`) REFERENCES productos(`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
-
-CREATE TABLE `pedidos` (
-    `Id` INT NOT NULL,
-    `DniUsuario` varchar(9) NOT NULL,
-    `IdProducto` varchar(3) NOT NULL,
-    `Unidades` INT NOT NULL,
-    `PrecioTotal` decimal(4,2) NOT NULL,
-    PRIMARY KEY (`Id`, `DniUsuario`, `IdProducto`),
-    FOREIGN KEY (`DniUsuario`) REFERENCES usuarios(`DNI`),
-    FOREIGN KEY (`IdProducto`) REFERENCES productos(`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
 CREATE TABLE `valoraciones` (
-   `DniUsuario` varchar(9) NOT NULL,
-   `IdProducto` varchar(3) NOT NULL,
-   `Puntuacion` INT,
-   `Texto` TEXT,
-    PRIMARY KEY (`DniUsuario`, `IdProducto`),
-    CONSTRAINT `restriccionPuntuacion` CHECK (`Puntuacion` IN (1, 2, 3, 4, 5)),
-    FOREIGN KEY (`DniUsuario`) REFERENCES `usuarios`(`DNI`),
-    FOREIGN KEY (`IdProducto`) REFERENCES `productos`(`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+  `DniUsuario` varchar(9) NOT NULL,
+  `IdProducto` varchar(3) NOT NULL,
+  `Puntuacion` int(11) DEFAULT NULL,
+  `Texto` text DEFAULT NULL
+) ;
 
 --
 -- Índices para tablas volcadas
 --
 
 --
+-- Indices de la tabla `carrito`
+--
+ALTER TABLE `carrito`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `DniUsuario` (`DniUsuario`),
+  ADD KEY `IdProducto` (`IdProducto`);
+
+--
+-- Indices de la tabla `pedidos`
+--
+ALTER TABLE `pedidos`
+  ADD PRIMARY KEY (`Id`,`DniUsuario`,`IdProducto`),
+  ADD KEY `DniUsuario` (`DniUsuario`),
+  ADD KEY `IdProducto` (`IdProducto`);
+
+--
+-- Indices de la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `DniVendedor` (`DniVendedor`);
+
+--
 -- Indices de la tabla `usuarios`
 --
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`DNI`);
+
+--
+-- Indices de la tabla `valoraciones`
+--
+ALTER TABLE `valoraciones`
+  ADD PRIMARY KEY (`DniUsuario`,`IdProducto`),
+  ADD KEY `IdProducto` (`IdProducto`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `carrito`
+--
+ALTER TABLE `carrito`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `carrito`
+--
+ALTER TABLE `carrito`
+  ADD CONSTRAINT `carrito_ibfk_1` FOREIGN KEY (`DniUsuario`) REFERENCES `usuarios` (`DNI`),
+  ADD CONSTRAINT `carrito_ibfk_2` FOREIGN KEY (`IdProducto`) REFERENCES `productos` (`Id`);
+
+--
+-- Filtros para la tabla `pedidos`
+--
+ALTER TABLE `pedidos`
+  ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`DniUsuario`) REFERENCES `usuarios` (`DNI`),
+  ADD CONSTRAINT `pedidos_ibfk_2` FOREIGN KEY (`IdProducto`) REFERENCES `productos` (`Id`);
+
+--
+-- Filtros para la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`DniVendedor`) REFERENCES `usuarios` (`DNI`);
+
+--
+-- Filtros para la tabla `valoraciones`
+--
+ALTER TABLE `valoraciones`
+  ADD CONSTRAINT `valoraciones_ibfk_1` FOREIGN KEY (`DniUsuario`) REFERENCES `usuarios` (`DNI`),
+  ADD CONSTRAINT `valoraciones_ibfk_2` FOREIGN KEY (`IdProducto`) REFERENCES `productos` (`Id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
