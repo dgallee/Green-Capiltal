@@ -54,7 +54,7 @@ CREATE TABLE `productos` (
   `Resumen` text NOT NULL,
   `Descripcion` text NOT NULL,
   `Precio` decimal(4,2) NOT NULL,
-  `Categoria` varchar(15) NOT NULL,
+  `Categoria` varchar(30) NOT NULL,
   `Existencias` int(2) NOT NULL,
   `Especie` varchar(30) NOT NULL,
   `Imagen` varchar(100) NOT NULL,

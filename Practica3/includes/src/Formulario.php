@@ -1,5 +1,5 @@
 <?php
-namespace MiProyecto\Formularios;
+namespace es\ucm\fdi\aw;
 /**
  * Clase base para la gestión de formularios.
  */

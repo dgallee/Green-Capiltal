@@ -3,14 +3,15 @@
 /* Parámetros de configuración de la aplicación */
 /* */
 
+
 // Parámetros de configuración generales
-define('RAIZ_APP', str_replace('\\','/',__DIR__));
-define('RUTA_APP', '/Proyecto-AW/Green-Capiltal/Practica3');
+//define('RAIZ_APP', str_replace('\\','/',__DIR__));
+define('RAIZ_APP', __DIR__);
+define('RUTA_APP', '/Proyecto-AW/Green-Capiltal/Proyecto');
 define('RUTA_IMGS', RUTA_APP . '/img');
 define('RUTA_CSS', RUTA_APP . '/css');
 define('RUTA_JS', RUTA_APP . '/js');
 define('IMAG', './img/');
-define('INSTALADA', true);
 
 // Parámetros de configuración de la BD
 define('BD_HOST', 'localhost');
@@ -18,61 +19,59 @@ define('BD_NAME', 'greencapital');
 define('BD_USER', 'greencapital');
 define('BD_PASS', 'greencapital');
 
-/* */
-/* Utilidades básicas de la aplicación */
-/* */
+ini_set('default_charset', 'UTF-8');
+setLocale(LC_ALL, 'es_ES.UTF.8');
+date_default_timezone_set('Europe/Madrid');
 
-require_once __DIR__.'/src/Utils.php';
+/**
+ * Función para autocargar clases PHP.
+ *
+ * @see http://www.php-fig.org/psr/psr-4/
+ */
+spl_autoload_register(function ($class) {
+
+    // project-specific namespace prefix
+    $prefix = 'es\\ucm\\fdi\\aw\\';
+
+    // base directory for the namespace prefix
+    $base_dir = implode(DIRECTORY_SEPARATOR, [__DIR__, 'src', '']);
+
+    // does the class use the namespace prefix?
+    $len = strlen($prefix);
+    if (strncmp($prefix, $class, $len) !== 0) {
+        // no, move to the next registered autoloader
+        return;
+    }
+
+    // get the relative class name
+    $relative_class = substr($class, $len);
+
+    // replace the namespace prefix with the base directory, replace namespace
+    // separators with directory separators in the relative class name, append
+    // with .php
+    $file = $base_dir . str_replace('\\', '/', $relative_class) . '.php';
+    // if the file exists, require it
+    if (file_exists($file)) {
+        require $file;
+    }
+});
 
 /* */
 /* Inicialización de la aplicación */
 /* */
 
+define('INSTALADA', true);
+
+$app = \es\ucm\fdi\aw\Aplicacion::getInstance();
+$app->init(array('host'=>BD_HOST, 'bd'=>BD_NAME, 'user'=>BD_USER, 'pass'=>BD_PASS), RUTA_APP, RAIZ_APP);
+
 if (!INSTALADA) {
-	Utils::paginaError(502, 'Error', 'Oops', 'La aplicación no está configurada. Tienes que modificar el fichero config.php');
+	$app->paginaError(502, 'Error', 'Oops', 'La aplicación no está configurada. Tienes que modificar el fichero config.php');
 }
 
-/* */
-/* Configuración de Codificación y timezone */
-/* */
-
-ini_set('default_charset', 'UTF-8');
-setLocale(LC_ALL, 'es_ES.UTF.8');
-date_default_timezone_set('Europe/Madrid');
-
-/* */
-/* Clases y Traits de la aplicación */
-/* */
-require_once 'src/Arrays.php';
-require_once 'src/traits/MagicProperties.php';
-
-/* */
-/* Clases que simulan una BD almacenando los datos en memoria */
-/*
-require_once 'src/usuarios/memoria/Usuario.php';
-require_once 'src/mensajes/memoria/Mensaje.php';
-*/
-
-/*
- * Configuramos e inicializamos la sesión para todas las peticiones
+/**
+ * @see http://php.net/manual/en/function.register-shutdown-function.php
+ * @see http://php.net/manual/en/language.types.callable.php
  */
-session_start([
-	'cookie_path' => RUTA_APP, // Para evitar problemas si tenemos varias aplicaciones en htdocs
-]);
-
-/* */
-/* Inicialización de las clases que simulan una BD en memoria */
-/*
-Usuario::init();
-Mensaje::init();
-*/
-
-/* */
-/* Clases que usan una BD para almacenar el estado */
-/* */
-require_once 'src/Aplicacion.php';
-require_once 'usuarioDAO.php';
-require_once 'productosDAO.php';
-require_once 'valoracionesDAO.php';
-
-Aplicacion::getInstance()->init(array('host'=>BD_HOST,'user'=>BD_USER,'pass'=>BD_PASS,'name'=>BD_NAME));
+register_shutdown_function(array($app, 'shutdown'));
+?>

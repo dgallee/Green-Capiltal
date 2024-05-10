@@ -1,10 +1,10 @@
 <?php
-require_once __DIR__.'/../helpers/usuarios.php';
-require_once 'includes/vistas/helpers/autorizacion.php';
 require_once 'includes/config.php';
+use es\ucm\fdi\aw\Aplicacion;
 
-$usuario_actual = estaLogado();
-$dni = dniUsuarioLogado();
+$app = Aplicacion::getInstance();
+$usuario_actual = $app->usuarioLogueado();
+$dni = $app->DNIUsuario();
 ?>
 
 <header class="mi-cabecera">
@@ -14,16 +14,16 @@ $dni = dniUsuarioLogado();
         </a>
     </div>
     <h2><a href="index.php">Inicio</a></h2>
-    <h2><a href="tienda.php">Tienda</a></h2>
-    <?php if ($usuario_actual && esAdmin()): ?>
+    <h2><a href="tienda.php?pagina=1">Tienda</a></h2>
+    <?php if ($usuario_actual && $app->esAdmin()): ?>
         <h2><a href="admin.php">Administración</a></h2>
     <?php endif; ?>
 
-    <?php if ($usuario_actual && esComerciante()): ?>
+    <?php if ($usuario_actual && $app->esComerciante()): ?>
         <h2><a href="comerciante.php">Centro de comerciantes</a></h2>
     <?php endif; ?>
 
-    <?php if ($usuario_actual && esModerador()): ?>
+    <?php if ($usuario_actual && $app->esModerador()): ?>
         <h2><a href="moderador.php">Centro de valoraciones</a></h2>
     <?php endif; ?>
 
@@ -38,7 +38,7 @@ $dni = dniUsuarioLogado();
 
 
     <div class="user-login">
-        <?= saludo() ?>
+        <?= $app->saludo() ?>
     </div>
   
 </header>
