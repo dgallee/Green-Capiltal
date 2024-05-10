@@ -4,6 +4,7 @@ namespace es\ucm\fdi\aw\usuarios;
 use es\ucm\fdi\aw\Aplicacion;
 use es\ucm\fdi\aw\pedidos\pedidosDAO;
 use es\ucm\fdi\aw\carrito\carritoDAO;
+define("PIMIENTA", 'greencapital');
 
     class usuarioDAO{
 
@@ -16,8 +17,9 @@ use es\ucm\fdi\aw\carrito\carritoDAO;
         private $uUser;
         private $uPass;
         private $uTipo;
+        private $salt;
 
-        private function __construct($uName, $uSurname, $uEmail, $uDir, $uTel, $uDNI, $uUser, $uPass, $uTipo) {
+        private function __construct($uName, $uSurname, $uEmail, $uDir, $uTel, $uDNI, $uUser, $uPass, $salt, $uTipo) {
             
             $this->uName = $uName;
             $this->uSurname = $uSurname;
@@ -28,6 +30,7 @@ use es\ucm\fdi\aw\carrito\carritoDAO;
             $this->uUser = $uUser;
             $this->uPass = $uPass;
             $this->uTipo = $uTipo;
+            $this->salt = $salt;
         }
         public static function login($nombreUsuario, $password){
 
@@ -35,7 +38,7 @@ use es\ucm\fdi\aw\carrito\carritoDAO;
             // Consulta SQL para verificar si el usuario y la contraseña coinciden
             $nombreUsuario = $conn->real_escape_string($nombreUsuario);
             $user = self::searchLogin($nombreUsuario);
-            if ($user && $user->compruebaPassword($password)) {
+            if ($user && $user->compruebaPassword($password, $user->salt)) {
                 return $user;
             }
             return false;
@@ -49,7 +52,7 @@ use es\ucm\fdi\aw\carrito\carritoDAO;
             $rs = $conn->query($query);
             if ($rs->num_rows > 0) {
                 $row = $rs->fetch_assoc();
-                $user = new usuarioDAO($row['Nombre'], $row['Apellidos'], $row['Correo'], $row['Direccion'], $row['Telefono'], $row['DNI'], $row['Usuario'], $row['Contrasena'], $row['Tipo']);
+                $user = new usuarioDAO($row['Nombre'], $row['Apellidos'], $row['Correo'], $row['Direccion'], $row['Telefono'], $row['DNI'], $row['Usuario'], $row['Contrasena'], $row['salt'], $row['Tipo']);
                 $rs->free();
                 return $user;
             }
@@ -66,7 +69,7 @@ use es\ucm\fdi\aw\carrito\carritoDAO;
             $rs = $conn->query($query);
             if ($rs->num_rows > 0) {
                 $row = $rs->fetch_assoc();
-                $user = new usuarioDAO($row['Nombre'], $row['Apellidos'], $row['Correo'], $row['Direccion'], $row['Telefono'], $row['DNI'], $row['Usuario'], $row['Contrasena'], $row['Tipo']);
+                $user = new usuarioDAO($row['Nombre'], $row['Apellidos'], $row['Correo'], $row['Direccion'], $row['Telefono'], $row['DNI'], $row['Usuario'], $row['Contrasena'], $row['salt'], $row['Tipo']);
                 $rs->free();
                 return $user;
             }
@@ -121,9 +124,10 @@ use es\ucm\fdi\aw\carrito\carritoDAO;
             // Crear conexión
             $conn = Aplicacion::getInstance()->getConexionBD();
 
+            $salt = rand();
             //Hasheo
             $password = $conn->real_escape_string($password);
-            $password=password_hash($password,PASSWORD_DEFAULT);
+            $password=password_hash($password. $salt. PIMIENTA , PASSWORD_DEFAULT);
             
             // Preparar la consulta SQL
             $name = $conn->real_escape_string($name);
@@ -133,7 +137,7 @@ use es\ucm\fdi\aw\carrito\carritoDAO;
             $tfno = $conn->real_escape_string($tfno);
             $dni = $conn->real_escape_string($dni);
             $username = $conn->real_escape_string($username);
-            $query = "INSERT INTO usuarios (Nombre, Apellidos, Correo, Direccion, Telefono, Dni, Usuario, Contrasena, Tipo) VALUES ('$name', '$surname', '$mail', '$dir', '$tfno', '$dni', '$username', '$password', 0)";
+            $query = "INSERT INTO usuarios (Nombre, Apellidos, Correo, Direccion, Telefono, Dni, Usuario, Contrasena, salt, Tipo) VALUES ('$name', '$surname', '$mail', '$dir', '$tfno', '$dni', '$username', '$password', '$salt', 0)";
         
             // Ejecutar la consulta SQL
             if ($conn->query($query) === TRUE) {
@@ -284,7 +288,8 @@ use es\ucm\fdi\aw\carrito\carritoDAO;
                 $contrasena = $userActual->uPass;
             }
             else if(!password_verify($contrasena, password_hash($userActual->getUPass(),PASSWORD_DEFAULT))) {
-                $contrasena=password_hash($contrasena,PASSWORD_DEFAULT);
+                $salt = rand();
+                $contrasena=password_hash($contrasena. $salt. PIMIENTA ,PASSWORD_DEFAULT);
             }
 
             if ($tipo != 0 && $tipo != 1 && $tipo != 2 && $tipo != 3) {
@@ -293,7 +298,7 @@ use es\ucm\fdi\aw\carrito\carritoDAO;
             
         
             // Preparar la consulta SQL
-            $query = "UPDATE usuarios SET Nombre='$nombre', Apellidos='$apellidos', Correo='$correo', Direccion='$direccion', Telefono=$telefono, DNI='$dni', Usuario='$usuario', Contrasena='$contrasena', Tipo=$tipo WHERE DNI='$dni'";
+            $query = "UPDATE usuarios SET Nombre='$nombre', Apellidos='$apellidos', Correo='$correo', Direccion='$direccion', Telefono=$telefono, DNI='$dni', Usuario='$usuario', Contrasena='$contrasena',salt='$salt', Tipo=$tipo WHERE DNI='$dni'";
 
             // Ejecutar la consulta SQL
             if ($conn->query($query) === TRUE) {
@@ -303,8 +308,8 @@ use es\ucm\fdi\aw\carrito\carritoDAO;
             }
         }
         
-        public function compruebaPassword($password){
-           return password_verify($password, $this->uPass);
+        public function compruebaPassword($password, $salt){
+           return password_verify($password. $salt. PIMIENTA, $this->uPass);
         }
 
         public function getUName() {

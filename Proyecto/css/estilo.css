@@ -33,6 +33,7 @@ div#contenedor {
 	font-size: 24px;
 	color: gold;
 }
+
 .estrellas {
 	display: flex;
 	align-items: center;
@@ -954,4 +955,9 @@ body > button {
 		text-align: center;
         font-size: 10px;
     }
+
+	.star {
+		font-size: 12px;
+		color: gold;
+	}
 }
