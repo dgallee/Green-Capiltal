@@ -7,20 +7,15 @@ class FormularioAgregarValoracion extends Formulario {
     private $Valoracion;
     private $Dni;
     private $idProd;
-    private $dir; //estara a 0 si debe redirigir a tienda o a 1 si es a pedido
 
-    public function __construct($Valoracion,$Dni,$idProd,$dir) {
+
+    public function __construct($Valoracion,$Dni,$idProd) {
         $this->Valoracion=$Valoracion;
         $this->Dni=$Dni;
         $this->idProd=$idProd;
         
-        $this->dir=$dir;
-        if($dir == 0){
-            parent::__construct('formAgregarProducto', ['urlRedireccion' => "detalles.php?prod={$idProd}", 'method'=>'POST', 'enctype'=>'multipart/form-data']);
-        }
-        else{
-            parent::__construct('formAgregarProducto', ['urlRedireccion' => 'pedidos.php', 'method'=>'POST', 'enctype'=>'multipart/form-data']);
-        }
+
+        parent::__construct('formAgregarProducto', ['urlRedireccion' => 'pedidos.php', 'method'=>'POST', 'enctype'=>'multipart/form-data']);
     }
     
     protected function generaCamposFormulario(&$datos)
@@ -58,11 +53,11 @@ class FormularioAgregarValoracion extends Formulario {
         <div>
         <label for="point">Puntuacion:</label>
         <select name="point" id="point">
-            <option value="1" . ($tipo == 1 ? 'selected' : '') . >1</option>
-            <option value="2" . ($tipo == 2 ? 'selected' : '') . >2</option>
-            <option value="3" . ($tipo == 3 ? 'selected' : '') . >3</option>
-            <option value="4" . ($tipo == 4 ? 'selected' : '') . >4</option>
-            <option value="5" . ($tipo == 5 ? 'selected' : '') . >5</option>
+            <option value="1" >1</option>
+            <option value="2" >2</option>
+            <option value="3" >3</option>
+            <option value="4" >4</option>
+            <option value="5" >5</option>
         </select>
         </div>
         
